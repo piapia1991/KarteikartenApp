@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-export class Learning_Component extends Component {
+export class LearningComponent extends Component {
     render() {
         return (
             <div className="row">
