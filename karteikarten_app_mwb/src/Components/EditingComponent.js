@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Sidebar_Component} from "./Sidebar_Component";
+import {SidebarComponent} from "./SidebarComponent";
 import {ContentComponent} from "./ContentComponent";
 
 export class EditingComponent extends Component {
@@ -7,7 +7,7 @@ export class EditingComponent extends Component {
         return(
 
                 <div className="row">
-                    <Sidebar_Component/>
+                    <SidebarComponent/>
                     <ContentComponent/>
                 </div>
         )

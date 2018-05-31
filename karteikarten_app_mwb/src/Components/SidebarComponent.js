@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-export class Sidebar_Component extends Component {
+export class SidebarComponent extends Component {
     render() {
         return(
             <nav className="col-md-2 d-none d-md-block bg-light sidebar">

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import './HeaderComponent.css';
 
-export class Header_Component extends Component {
+export class HeaderComponent extends Component {
     render() {
         return (
             <nav className="navbar navbar-dark fixed-top p-0">
