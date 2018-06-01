@@ -42,11 +42,27 @@ class App extends Component {
     };
 
     logout = async () => {
-        console.log("Logging out!");
-        await firebase.auth().signOut();
-        this.setState({
-            login: null
-        });
+        try {
+            console.log("Logging out!");
+            await firebase.auth().signOut();
+            this.setState({
+                login: null
+            });
+        } catch (e) {
+            console.log("logout exception:",e);
+        }
+    };
+
+    deleteUser = async () => {
+        try{
+            console.log("Delete User!");
+            await firebase.auth().currentUser.delete();
+            this.setState({
+                login: null
+            });
+        } catch (e) {
+            console.log("deleteUser exception:",e);
+        }
     };
 
     componentDidMount() {
@@ -63,9 +79,9 @@ class App extends Component {
                     login={this.state.login}
                     authenticate={this.authenticate}
                     logout={this.logout}
+                    deleteUser={this.deleteUser}
                 />
                 <MainComponent/>
-
             </div>
 
         )

@@ -21,6 +21,7 @@ export class HeaderComponent extends Component {
                             login={this.props.login}
                             authenticate={this.props.authenticate}
                             logout={this.props.logout}
+                            deleteUser={this.props.deleteUser}
                         />
                     </li>
                 </ul>

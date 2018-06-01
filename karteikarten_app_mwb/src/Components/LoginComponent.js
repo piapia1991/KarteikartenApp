@@ -23,6 +23,7 @@ export class LoginComponent extends Component {
                         src={this.props.login.picture}
                     />
                     <button onClick={() => this.props.logout()}>Sign out</button>
+                    <button onClick={() => this.props.deleteUser()}>sudo DSGVO rm -rf</button>
                 </React.Fragment>
             );
         }
