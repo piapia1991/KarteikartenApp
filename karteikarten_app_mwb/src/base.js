@@ -1,5 +1,8 @@
 import Rebase from "re-base";
-import firebase from "firebase";
+import firebase from "firebase/app";
+import "firebase/database";
+import "firebase/auth";
+
 const firebaseApp = firebase.initializeApp({ // changed ;-) your values here
     apiKey: "AIzaSyC-kDgFUTsblC1uqnmppx1UB8lwisD35po",
     authDomain: "karteikartenapp.firebaseapp.com",

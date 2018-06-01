@@ -4,12 +4,11 @@ import {HeaderComponent} from "./Components/HeaderComponent";
 import {MainComponent} from "./Components/MainComponent";
 
 import base, {firebaseApp} from './base'
-import firebase from "firebase";
+import firebase from "firebase/app";
 
 class App extends Component {
 
     state = {
-        uid: null,
         login: null
     };
 
@@ -18,8 +17,7 @@ class App extends Component {
             const authProvider = new firebase.auth[`GoogleAuthProvider`]();
             const authData = await firebaseApp
                 .auth()
-                .signInWithPopup(authProvider)
-            // .then(this.authHandler);
+                .signInWithPopup(authProvider);
             this.authHandler(authData);
         } catch (e) {
             console.log("authenticate exception:",e);
@@ -30,7 +28,6 @@ class App extends Component {
         try {
             this.setState(
                 {
-                    uid: authData.user.uid,
                     login: {
                         uid: authData.user.uid,
                         email: authData.user.email,
@@ -48,7 +45,6 @@ class App extends Component {
         console.log("Logging out!");
         await firebase.auth().signOut();
         this.setState({
-            uid: null,
             login: null
         });
     };
