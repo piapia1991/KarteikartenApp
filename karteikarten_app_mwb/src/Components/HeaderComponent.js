@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import './HeaderComponent.css';
+import {LoginComponent} from './LoginComponent';
 
 export class HeaderComponent extends Component {
     render() {
@@ -15,7 +16,12 @@ export class HeaderComponent extends Component {
 
                 <ul className="navbar-nav px-3">
                     <li className="nav-item text-nowrap">
-                        <Link className="nav-link" to="/">Sign out</Link>
+                        {/*<Link className="nav-link" to="/">Sign out</Link>*/}
+                        <LoginComponent
+                            login={this.props.login}
+                            authenticate={this.props.authenticate}
+                            logout={this.props.logout}
+                        />
                     </li>
                 </ul>
             </nav>
