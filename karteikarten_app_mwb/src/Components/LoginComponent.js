@@ -12,7 +12,7 @@ export class LoginComponent extends Component {
 
         if(this.props.login == null) {
             return(
-                <button onClick={() => this.props.authenticate()}>Sign in</button>
+                <button className="float-right" onClick={() => this.props.authenticate()}>Sign in</button>
             );
         } else {
             return(

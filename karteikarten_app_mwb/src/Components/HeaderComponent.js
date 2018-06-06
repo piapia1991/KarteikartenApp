@@ -6,16 +6,16 @@ import {LoginComponent} from './LoginComponent';
 export class HeaderComponent extends Component {
     render() {
         return (
-            <nav className="navbar navbar-dark fixed-top p-0">
-                <div className="col-sm-6 col-md-2">
+            <nav className="navbar navbar-dark fixedTop p-0">
+                <div className="col-sm-6 col-md-4 col-lg-4">
                     <div className="row">
-                        <Link className="navbar-brand col-sm col-md mr-0" to="/editing">Bearbeiten</Link>
-                        <Link className="navbar-brand col-sm col-md mr-0" to="/learning">Lernen</Link>
+                        <Link className="navbar-brand col-sm col-md-6 mr-0" to="/editing">Bearbeiten</Link>
+                        <Link className="navbar-brand col-sm col-md-6 mr-0" to="/learning">Lernen</Link>
                     </div>
                 </div>
 
-                <ul className="navbar-nav px-3">
-                    <li className="nav-item text-nowrap">
+                <div className="navbar-nav col-sm-6 col-md-6 col-lg-5 float-right">
+                    <div className="text-nowrap">
                         {/*<Link className="nav-link" to="/">Sign out</Link>*/}
                         <LoginComponent
                             login={this.props.login}
@@ -23,8 +23,8 @@ export class HeaderComponent extends Component {
                             logout={this.props.logout}
                             deleteUser={this.props.deleteUser}
                         />
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </nav>
         )
     };
