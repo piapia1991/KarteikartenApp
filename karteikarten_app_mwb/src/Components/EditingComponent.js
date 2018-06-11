@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
-import {SidebarComponent} from "./SidebarComponent";
-import {ContentComponent} from "./ContentComponent";
+import {EditingContentComponent} from "./EditingContentComponent";
+import {EditingSidebarComponent} from "./EditingSidebarComponent";
 
 export class EditingComponent extends Component {
     render() {
         return(
 
                 <div className="row">
-                    <SidebarComponent/>
-                    <ContentComponent/>
+                    <EditingSidebarComponent/>
+                    <EditingContentComponent/>
                 </div>
         )
     };

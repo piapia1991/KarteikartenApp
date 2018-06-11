@@ -1,0 +1,9 @@
+#loginPicture {
+    max-height: 36px;
+    max-width: 36px;
+    object-fit: cover;
+}
+
+#loginName{
+    font-size: 1rem;
+}
