@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './LoginComponent.css';
 import {MaterialIcon} from "./Helper/MaterialIcon";
 import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 export class LoginComponent extends Component {
     render() {
@@ -17,7 +18,7 @@ export class LoginComponent extends Component {
                         src={this.props.login.picture}
                     />
                     <button className="px-1 d-flex align-items-center" onClick={() => this.props.logout()}><MaterialIcon icon={"exit_to_app"}/></button>
-                    <Link className="px-1 d-flex align-items-center" to={"/settings"} onClick={() => this.props.deleteUser()}><MaterialIcon icon={"settings"}/></Link>
+                    <Link className="px-1 d-flex align-items-center" to={"/settings"}><MaterialIcon icon={"settings"}/></Link>
                 </div>
             );
         }
