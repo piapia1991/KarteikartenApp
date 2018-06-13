@@ -1,21 +1,25 @@
-import React, {Component} from 'react';
+import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router-dom';
 import './ContentComponent.css';
 import './IndexCardComponent.js';
-import {IndexCardComponent} from "./IndexCardComponent";
-
+import { IndexCardComponent } from "./IndexCardComponent";
+const uuidv4 = require('uuid/v4');
 
 export class EditingContentComponent extends Component {
+
     render() {
         const data = [
-            {title: "myBook", id: 1, data: "myData"},
-            {title: "myBook2", id: 2, data: "myData2"},
-            {title: "myBook3", id: 3, data: "myData3"},
-            {title: "myBook4", id: 3, data: "myData4"},
-            {title: "myBook5", id: 1, data: "myData5"},
-            {title: "myBook6", id: 2, data: "myData6"},
-            {title: "myBook7", id: 3, data: "myData7"},
-            {title: "myBook8", id: 3, data: "myData8"}
+            { title: "myBook", id: 1, data: "myData" },
+            { title: "myBook2", id: 2, data: "myData2" },
+            { title: "myBook3", id: 3, data: "myData3" },
+            { title: "myBook4", id: 4, data: "myData4" },
+            { title: "myBook5", id: 5, data: "myData5" },
+            { title: "myBook6", id: 6, data: "myData6" },
+            { title: "myBook7", id: 7, data: "myData7" },
+            { title: "myBook8", id: 8, data: "myData8" }
         ]
+        let id = uuidv4();
+        let newCardRef = `/editing/${id}`;
         return (
             <main role="main" className="col-md-9 ml-sm-auto col-lg-10 px-4">
                 <div
@@ -31,11 +35,15 @@ export class EditingContentComponent extends Component {
                 </div>
 
                 <div className="d-flex flex-wrap">
-                {data.map((i) => (<IndexCardComponent title={i.title}/>))}
+                    {data.map((i) => (<IndexCardComponent key={i.id} title={i.title} />))}
                 </div>
 
+                <div>
+                    <Link to={newCardRef}>Karte hinzufügen</Link>
+                </div>
             </main>
         )
     };
 }
 
+export default EditingContentComponent;
