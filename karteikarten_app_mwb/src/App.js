@@ -79,9 +79,8 @@ class App extends Component {
                     login={this.state.login}
                     authenticate={this.authenticate}
                     logout={this.logout}
-                    deleteUser={this.deleteUser}
                 />
-                <MainComponent/>
+                <MainComponent deleteUser={this.deleteUser}/>
             </div>
 
         )

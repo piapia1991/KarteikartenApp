@@ -1,14 +1,29 @@
-.navbar {
-  background-color: #999999;
+.headerbar {
+    background-color: #999999;
+    border-color: #999999 !important;
+}
+
+.headerButton:hover {
+    color: limegreen;
+    background-color: white;
+}
+
+.headerButton {
+    background-color: #e5e5e5;
+    font-size: 1rem;
+}
+
+.active{
+    color: limegreen;
 }
 
 @media (min-width: 576px) {
-  .fixedTop{
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 1030;
-  }
+    .fixedTop {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
 
 }
