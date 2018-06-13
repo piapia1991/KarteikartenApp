@@ -5,13 +5,13 @@ body, a {
     color: #333333;
 }
 
-button{
+button {
     border: none;
     background-color: initial;
     color: #333333;
 }
 
-button:hover, a:hover{
+button:hover, a:hover {
     color: limegreen;
     cursor: pointer;
     text-decoration: none;
@@ -85,13 +85,16 @@ button:hover, a:hover{
     padding-top: 48px; /* Space for fixed navbar */
 }
 
-
-
 /*
  * Utilities
  */
 
-.border-top { border-top: 1px solid #e5e5e5; }
-.border-bottom { border-bottom: 1px solid #e5e5e5; }
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
 
 
