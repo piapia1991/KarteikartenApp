@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import './EditorComponent.css';
+import './QuillComponent.css';
 
-export class EditorComponent extends Component {
+export class QuillComponent extends Component {
 
     constructor(props) {
         super(props);
@@ -38,4 +38,4 @@ export class EditorComponent extends Component {
     }
 }
 
-export default EditorComponent;
+export default QuillComponent;
