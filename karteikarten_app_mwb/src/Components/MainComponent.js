@@ -12,7 +12,7 @@ export class MainComponent extends Component {
             <div className="container-fluid">
                 <Switch>
                     <Route exact path="/"  render={(props)=><EditingComponent {...props} uid={this.props.uid}/>} />
-                    <Route path="/editing" render={(props)=><EditingComponent {...props} uid={this.props.uid} />}/>
+                    <Route exact path="/editing" render={(props)=><EditingComponent {...props} uid={this.props.uid} />}/>
                     <Route path="/editing/:cardId" component={EditorComponent}/>
                     <Route path="/learning" component={LearningComponent}/>
                     <Route path="/settings" render={(props)=> <SettingsComponent {...props} deleteUser={this.props.deleteUser}/>}/>
