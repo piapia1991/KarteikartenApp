@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {MaterialIcon} from "./MaterialIcon";
+import {FolderComponent} from "./FolderComponent";
 
 export class FolderContentComponent extends Component {
 
@@ -10,32 +10,17 @@ export class FolderContentComponent extends Component {
 
 
     render() {
+        var foldersList = [];
+        if(this.props.childfolders !== undefined) {
+            Object.keys(this.props.childfolders).map(key => (
+                    foldersList.push(
+                        <FolderComponent name={this.props.childfolders[key].name} childfolders={this.props.childfolders[key].childfolders} index={key} key={key}/>
+                    )
+            ));
+        }
         return (
             <ul className="nav flex-column pl-md-4">
-
-                <li>Karteikarte 1</li>
-                <li>Karteikarte 2</li>
-                <li>Karteikarte 3</li>
-                <li>
-                    <button className="d-flex align-items-center p-0">
-                        <MaterialIcon icon={'expand_more'}/>
-                        <MaterialIcon icon={"folder"}/>
-                        <span>Ordner Ebene 2</span>
-                    </button>
-                    <ul className="nav flex-column pl-md-4">
-
-                        <li>Karteikarte 5</li>
-                        <li>Karteikarte 9</li>
-                        <li>Karteikarte 312</li>
-                        <li className="nav-item">
-                            <button className="d-flex align-items-center p-0">
-                                <MaterialIcon icon={'chevron_right'}/>
-                                <MaterialIcon icon={"folder"}/>
-                                <span>Ordner Ebene 3</span>
-                            </button>
-                        </li>
-                    </ul>
-                </li>
+                {foldersList}
             </ul>
 
         )

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {MaterialIcon} from "./MaterialIcon";
 import {FolderContentComponent} from "./FolderContentComponent";
+import {ContextMenuProvider} from 'react-contexify';
+import {FolderButtonComponent} from "./FolderButtonComponent";
 
 export class FolderComponent extends Component {
     icons = [];
@@ -8,28 +9,41 @@ export class FolderComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {folderOpen: false};
-        this.icons[true] = 'expand_more';
-        this.icons[false] = 'chevron_right'
     }
 
 
     render() {
         return (
-            <div>
-                <button onClick={this.toggleOpenClose.bind(this)} className="d-flex align-items-center p-0">
-                    <MaterialIcon icon={this.icons[this.state.folderOpen]}/>
-                    <MaterialIcon icon={"folder"}/>
-                    <span>Ordner Ebene 1</span>
-                </button>
-                {this.state.folderOpen && <FolderContentComponent/>}
-            </div>
+            <li className="nav-item">
+                <div>
+                    <ContextMenuProvider id="menu_id" render={({children, ...rest}) => (
+                        <aside {...rest}>
+                            <div>
+                                {children}
+                            </div>
+                        </aside>)}
+                    >
+                        <FolderButtonComponent childfolders={this.props.childfolders}
+                                               folderOpen={this.state.folderOpen}
+                                               index={this.props.index}
+                                               toggleOpenClose={this.toggleOpenClose}
+                                               name={this.props.name}
+                        />
+                    </ContextMenuProvider>
+                    {(this.state.folderOpen && this.props.childfolders) &&
+                    <FolderContentComponent childfolders={this.props.childfolders}/>}
+                </div>
+            </li>
         )
     };
 
-    toggleOpenClose() {
+    toggleOpenClose= () => {
         this.setState({
             folderOpen: !this.state.folderOpen
         });
     }
 }
+
+
+
 

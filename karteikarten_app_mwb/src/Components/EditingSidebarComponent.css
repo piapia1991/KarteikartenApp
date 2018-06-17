@@ -1,0 +1,7 @@
+@media  (min-width: 576px) {
+    #buttonRow{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+}

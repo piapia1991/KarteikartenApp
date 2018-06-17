@@ -12,7 +12,7 @@ class App extends Component {
         login: null
     };
 
-    authenticate = async ()  => {
+    authenticate = async () => {
         try {
             const authProvider = new firebase.auth[`GoogleAuthProvider`]();
             const authData = await firebaseApp
@@ -20,7 +20,7 @@ class App extends Component {
                 .signInWithPopup(authProvider);
             this.authHandler(authData);
         } catch (e) {
-            console.log("authenticate exception:",e);
+            console.log("authenticate exception:", e);
         }
     };
 
@@ -35,9 +35,9 @@ class App extends Component {
                         picture: authData.user.photoURL
                     }
                 }
-            )
+            );
         } catch (e) {
-            console.log("authHandler exception:",e);
+            console.log("authHandler exception:", e);
         }
     };
 
@@ -48,39 +48,46 @@ class App extends Component {
             this.setState({
                 login: null
             });
+            base.removeBinding(this.folderRef);
         } catch (e) {
-            console.log("logout exception:",e);
+            console.log("logout exception:", e);
         }
     };
 
     deleteUser = async () => {
-        try{
+        try {
             console.log("Delete User!");
             await firebase.auth().currentUser.delete();
             this.setState({
                 login: null
             });
         } catch (e) {
-            console.log("deleteUser exception:",e);
+            console.log("deleteUser exception:", e);
         }
     };
 
     componentDidMount() {
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
-                this.authHandler({ user });
+                this.authHandler({user});
             }
         });
     }
 
+
     render() {
+        var mainComponent = <div></div>;
+        if(this.state.login !== undefined && this.state.login !== null){
+            mainComponent = <MainComponent uid={this.state.login.uid} deleteUser={this.deleteUser}/>;
+        }
+
         return (<div className="App">
                 <HeaderComponent
                     login={this.state.login}
                     authenticate={this.authenticate}
                     logout={this.logout}
                 />
-                <MainComponent deleteUser={this.deleteUser}/>
+                {mainComponent}
             </div>
 
         )

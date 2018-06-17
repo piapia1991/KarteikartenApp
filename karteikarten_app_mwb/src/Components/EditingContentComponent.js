@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './ContentComponent.css';
+import './EditingContentComponent.css';
 import './IndexCardComponent.js';
 import {IndexCardComponent} from "./IndexCardComponent";
 
@@ -10,11 +10,11 @@ export class EditingContentComponent extends Component {
             {title: "myBook", id: 1, data: "myData"},
             {title: "myBook2", id: 2, data: "myData2"},
             {title: "myBook3", id: 3, data: "myData3"},
-            {title: "myBook4", id: 3, data: "myData4"},
-            {title: "myBook5", id: 1, data: "myData5"},
-            {title: "myBook6", id: 2, data: "myData6"},
-            {title: "myBook7", id: 3, data: "myData7"},
-            {title: "myBook8", id: 3, data: "myData8"}
+            {title: "myBook4", id: 4, data: "myData4"},
+            {title: "myBook5", id: 5, data: "myData5"},
+            {title: "myBook6", id: 6, data: "myData6"},
+            {title: "myBook7", id: 7, data: "myData7"},
+            {title: "myBook8", id: 8, data: "myData8"}
         ]
         return (
             <main role="main" className="col-md-9 ml-sm-auto col-lg-10 px-4">
@@ -31,7 +31,7 @@ export class EditingContentComponent extends Component {
                 </div>
 
                 <div className="d-flex flex-wrap">
-                {data.map((i) => (<IndexCardComponent title={i.title}/>))}
+                {data.map((i) => (<IndexCardComponent key={i.id} title={i.title}/>))}
                 </div>
 
             </main>
