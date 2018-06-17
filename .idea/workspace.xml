@@ -2,23 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a13c202a-6d7e-491d-9333-740096220a9b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/karteikarten_app_mwb/src/Components/EditingSidebarComponent.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/karteikarten_app_mwb/src/Components/EditingSidebarMenuComponent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/karteikarten_app_mwb/src/Components/Helper/DialogEditingComponent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/karteikarten_app_mwb/src/Components/Helper/FolderButtonComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/karteikarten_app_mwb/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/karteikarten_app_mwb/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/karteikarten_app_mwb/src/Components/Editor/EditorComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/karteikarten_app_mwb/src/Components/Editor/EditorContentComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/karteikarten_app_mwb/src/Components/Editor/EditorSidebarComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/karteikarten_app_mwb/src/Components/Editor/QuillComponent.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/karteikarten_app_mwb/src/Components/Editor/QuillComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/KarteikartenApp.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/karteikarten_app_mwb/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/karteikarten_app_mwb/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/karteikarten_app_mwb/functions/package-lock.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/karteikarten_app_mwb/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/karteikarten_app_mwb/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/karteikarten_app_mwb/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/karteikarten_app_mwb/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/karteikarten_app_mwb/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/karteikarten_app_mwb/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/karteikarten_app_mwb/src/Components/ContentComponent.css" beforeDir="false" afterPath="$PROJECT_DIR$/karteikarten_app_mwb/src/Components/EditingContentComponent.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/karteikarten_app_mwb/src/Components/EditingComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/karteikarten_app_mwb/src/Components/EditingComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/karteikarten_app_mwb/src/Components/EditingContentComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/karteikarten_app_mwb/src/Components/EditingContentComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/karteikarten_app_mwb/src/Components/EditingSidebarComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/karteikarten_app_mwb/src/Components/EditingSidebarComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/karteikarten_app_mwb/src/Components/Helper/FolderComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/karteikarten_app_mwb/src/Components/Helper/FolderComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/karteikarten_app_mwb/src/Components/Helper/FolderContentComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/karteikarten_app_mwb/src/Components/Helper/FolderContentComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/karteikarten_app_mwb/src/Components/IndexCardComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/karteikarten_app_mwb/src/Components/IndexCardComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/karteikarten_app_mwb/src/Components/LoginComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/karteikarten_app_mwb/src/Components/LoginComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/karteikarten_app_mwb/src/Components/MainComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/karteikarten_app_mwb/src/Components/MainComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/karteikarten_app_mwb/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/karteikarten_app_mwb/src/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -32,10 +32,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/karteikarten_app_mwb/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
+            <state relative-caret-position="590">
               <caret line="79" column="70" selection-start-line="79" selection-start-column="70" selection-end-line="79" selection-end-column="70" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
@@ -44,10 +44,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DialogEditingComponent.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DialogEditingComponent.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/karteikarten_app_mwb/src/Components/Helper/DialogEditingComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
+            <state relative-caret-position="699">
               <caret line="53" column="44" selection-start-line="53" selection-start-column="44" selection-end-line="53" selection-end-column="44" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
@@ -72,7 +72,7 @@
         <entry file="file://$PROJECT_DIR$/karteikarten_app_mwb/src/Components/EditingContentComponent.css">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="4" lean-forward="true" selection-start-column="4" selection-end-column="4" />
+              <caret column="4" selection-start-column="4" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -93,10 +93,7 @@
         <entry file="file://$PROJECT_DIR$/karteikarten_app_mwb/src/Components/EditingContentComponent.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
-              <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
+              <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -123,7 +120,7 @@
         <entry file="file://$PROJECT_DIR$/karteikarten_app_mwb/src/Components/EditingComponent.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="131">
-              <caret line="45" column="42" lean-forward="true" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="42" />
+              <caret line="45" column="42" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="42" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -221,10 +218,6 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/karteikarten_app_mwb/functions/node_modules" />
-    <handled-path value="$PROJECT_DIR$/karteikarten_app_mwb/node_modules" />
-  </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
       <path value="$PROJECT_DIR$/karteikarten_app_mwb/functions/package.json" />
@@ -237,6 +230,7 @@
     <option name="width" value="1934" />
     <option name="height" value="1057" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -340,7 +334,7 @@
       <workItem from="1528872742157" duration="1644000" />
       <workItem from="1528875226624" duration="7196000" />
       <workItem from="1529053850592" duration="25050000" />
-      <workItem from="1529226965162" duration="15591000" />
+      <workItem from="1529226965162" duration="16064000" />
     </task>
     <task id="LOCAL-00001" summary="Integration of the bootstrap Dashboard example!">
       <created>1527757187438</created>
@@ -384,21 +378,28 @@
       <option name="project" value="LOCAL" />
       <updated>1528873025364</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="- Adding Folder">
+      <created>1529250495824</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1529250495824</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90774000" />
+    <option name="totallyTimeSpent" value="91247000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18020834" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.18020834" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50104165" side_tool="true" visible="true" weight="0.32912722" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49895832" visible="true" weight="0.32912722" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50104165" side_tool="true" weight="0.32912722" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49895832" weight="0.32912722" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3292517" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3292517" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -426,7 +427,8 @@
     <MESSAGE value="responsive details" />
     <MESSAGE value="- Design, Colors and Icons in the main navbar&#10;  - Create our own icon component for full controll about colors and css&#10;- Static example (only HTML, CSS) for the Folder Struktur&#10;- Page &quot;Settings&quot; for Deleting the User&#10;- Refactoring some file names (merging?)" />
     <MESSAGE value="- Folder Structur with toggle" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Folder Structur with toggle" />
+    <MESSAGE value="- Adding Folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Adding Folder" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -747,17 +749,14 @@
     <entry file="file://$PROJECT_DIR$/karteikarten_app_mwb/src/Components/EditingContentComponent.css">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="4" lean-forward="true" selection-start-column="4" selection-end-column="4" />
+          <caret column="4" selection-start-column="4" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/karteikarten_app_mwb/src/Components/EditingContentComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
-          <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
+          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -788,17 +787,7 @@
     <entry file="file://$PROJECT_DIR$/karteikarten_app_mwb/src/Components/EditingComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="131">
-          <caret line="45" column="42" lean-forward="true" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/karteikarten_app_mwb/src/Components/Helper/DialogEditingComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="53" column="44" selection-start-line="53" selection-start-column="44" selection-end-line="53" selection-end-column="44" />
+          <caret line="45" column="42" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="42" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -807,8 +796,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/karteikarten_app_mwb/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
+        <state relative-caret-position="590">
           <caret line="79" column="70" selection-start-line="79" selection-start-column="70" selection-end-line="79" selection-end-column="70" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/karteikarten_app_mwb/src/Components/Helper/DialogEditingComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="699">
+          <caret line="53" column="44" selection-start-line="53" selection-start-column="44" selection-end-line="53" selection-end-column="44" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

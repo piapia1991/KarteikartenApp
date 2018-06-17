@@ -1,10 +1,12 @@
-import React, {Component} from 'react';
+import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router-dom';
 import './EditingContentComponent.css';
 import './IndexCardComponent.js';
-import {IndexCardComponent} from "./IndexCardComponent";
-
+import { IndexCardComponent } from "./IndexCardComponent";
+const uuidv4 = require('uuid/v4');
 
 export class EditingContentComponent extends Component {
+
     render() {
         const data = [
             {title: "myBook", id: 1, data: "myData"},
@@ -16,6 +18,8 @@ export class EditingContentComponent extends Component {
             {title: "myBook7", id: 7, data: "myData7"},
             {title: "myBook8", id: 8, data: "myData8"}
         ]
+        let id = uuidv4();
+        let newCardRef = `/editing/${id}`;
         return (
             <main role="main" className="col-md-9 ml-sm-auto col-lg-10 px-4">
                 <div
@@ -34,8 +38,12 @@ export class EditingContentComponent extends Component {
                 {data.map((i) => (<IndexCardComponent key={i.id} title={i.title}/>))}
                 </div>
 
+                <div>
+                    <Link to={newCardRef}>Karte hinzufügen</Link>
+                </div>
             </main>
         )
     };
 }
 
+export default EditingContentComponent;
