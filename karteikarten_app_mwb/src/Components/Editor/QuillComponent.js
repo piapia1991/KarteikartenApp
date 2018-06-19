@@ -5,16 +5,6 @@ import './QuillComponent.css';
 
 export class QuillComponent extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = { editorHtml: '' }; // You can also pass a Quill Delta here
-        this.handleChange = this.handleChange.bind(this);
-    }
-
-    handleChange(value) {
-        this.setState({ editorHtml: value })
-    }
-
     modules = {
         toolbar: [
             [{ 'header': [1, 2, 3, false] }],
@@ -29,8 +19,8 @@ export class QuillComponent extends Component {
         return (
             <div className="text-editor">
                 <ReactQuill theme="snow"
-                    value={this.state.editorHtml}
-                    onChange={this.handleChange}
+                    value={this.props.html}
+                    onChange={value => this.props.onChange(value)}
                     modules={this.modules}
                 />
             </div>

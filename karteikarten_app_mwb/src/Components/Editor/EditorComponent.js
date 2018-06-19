@@ -5,10 +5,11 @@ import { EditorContentComponent } from './EditorContentComponent';
 export class EditorComponent extends Component {
 
     render() {
+        let cardId = this.props.match.params.cardId;
         return (
             <div className="row">
                 <EditorSidebarComponent />
-                <EditorContentComponent />
+                <EditorContentComponent uid={this.props.uid} cardId={cardId} />
             </div>
         );
     }
