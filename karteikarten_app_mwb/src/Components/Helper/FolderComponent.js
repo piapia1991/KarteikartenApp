@@ -23,16 +23,16 @@ export class FolderComponent extends Component {
                             </div>
                         </aside>)}
                     >
-                        <FolderButtonComponent childfolders={this.props.childfolders}
-                                               folderOpen={this.state.folderOpen}
-                                               changeCurrentfolder={this.props.changeCurrentfolder}
-                                               index={this.props.index}
-                                               toggleOpenClose={this.toggleOpenClose}
-                                               name={this.props.name}
+                        <FolderButtonComponent
+                            folderOpen={this.state.folderOpen}
+                            changeCurrentfolder={this.props.changeCurrentfolder}
+                            index={this.props.index}
+                            toggleOpenClose={this.toggleOpenClose}
+                            folder={this.props.folder}
                         />
                     </ContextMenuProvider>
-                    {(this.state.folderOpen && this.props.childfolders) &&
-                    <FolderContentComponent childfolders={this.props.childfolders}/>}
+                    {(this.state.folderOpen && this.props.folder.childfolders) &&
+                    <FolderContentComponent childfolders={this.props.folder.childfolders}/>}
                 </div>
             </li>
         )

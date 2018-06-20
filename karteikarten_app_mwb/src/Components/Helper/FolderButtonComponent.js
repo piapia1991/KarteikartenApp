@@ -12,17 +12,17 @@ export class FolderButtonComponent extends Component {
 
     render() {
         let iconClass = '';
-        if (this.props.childfolders === undefined) {
+        if (this.props.folder.childfolders === undefined) {
             iconClass = 'pl-4';
         }
         return (
             <button className="d-flex align-items-center p-0">
-                {this.props.childfolders &&
+                {this.props.folder.childfolders &&
                 <span onClick={() => this.props.toggleOpenClose()}><MaterialIcon
                     icon={this.icons[this.props.folderOpen]}/></span>}
-                <span onClick={() => this.props.changeCurrentfolder(this.props.index)}>
+                <span onClick={() => this.props.changeCurrentfolder(this.props.folder)}>
                 <MaterialIcon className={iconClass} icon={"folder"}/>
-                <span>{this.props.name}</span>
+                <span>{this.props.folder.name}</span>
                 </span>
             </button>
         )

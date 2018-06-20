@@ -30,8 +30,8 @@ export class EditingSidebarComponent extends Component {
                             {Object.keys(this.props.folders).map(key => (
                                 <FolderComponent
                                     index={key}
+                                    folder={this.props.folders[key]}
                                     name={this.props.folders[key].name}
-                                    childfolders={this.props.folders[key].childfolders}
                                     key={key}
                                     changeCurrentfolder={this.props.changeCurrentfolder}/>
 

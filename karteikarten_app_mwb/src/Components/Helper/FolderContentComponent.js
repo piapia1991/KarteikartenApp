@@ -14,7 +14,7 @@ export class FolderContentComponent extends Component {
         if(this.props.childfolders !== undefined) {
             Object.keys(this.props.childfolders).map(key => (
                     foldersList.push(
-                        <FolderComponent name={this.props.childfolders[key].name} childfolders={this.props.childfolders[key].childfolders} index={key} key={key}/>
+                        <FolderComponent folder={this.props.childfolders[key]} index={key} key={key}/>
                     )
             ));
         }

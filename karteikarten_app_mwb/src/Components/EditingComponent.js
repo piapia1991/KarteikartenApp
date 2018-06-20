@@ -59,8 +59,8 @@ export class EditingComponent extends Component {
         }
     }
 
-    changeCurrentfolder = (folderKey)=>{
-        this.setState({currentfolder: folderKey});
+    changeCurrentfolder = (folder)=>{
+        this.setState({currentfolder: folder});
     }
 
 }
