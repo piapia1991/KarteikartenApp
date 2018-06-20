@@ -21,7 +21,6 @@ export class EditingComponent extends Component {
         }
     }
 
-
     componentWillUnmount() {
         base.removeBinding(this.folderRef);
     }
@@ -31,7 +30,7 @@ export class EditingComponent extends Component {
 
             <div className="row">
                 <EditingSidebarComponent changeCurrentfolder={this.changeCurrentfolder} folders={this.state.folders} addFolder={this.addFolder}/>
-                <EditingContentComponent currentfolder={this.state.currentfolder}/>
+                <EditingContentComponent currentfolder={this.state.currentfolder} uid={this.props.uid}/>
             </div>
         )
     };

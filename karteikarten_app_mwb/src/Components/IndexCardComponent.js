@@ -4,11 +4,6 @@ export class IndexCardComponent extends Component {
 
 
     render() {
-        if (this.props.title == null) {
-            return (
-                <button>button</button>
-            );
-        } else {
             return (
                 <React.Fragment>
                     <div className="p-2 col-md-2">
@@ -21,6 +16,4 @@ export class IndexCardComponent extends Component {
                 </React.Fragment>
             );
         }
-
-    }
 }

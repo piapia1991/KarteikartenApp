@@ -1,24 +1,37 @@
-import React, { Component} from 'react';
-import { Link } from 'react-router-dom';
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import './EditingContentComponent.css';
 import './IndexCardComponent.js';
-import { IndexCardComponent } from "./IndexCardComponent";
+import {IndexCardComponent} from "./IndexCardComponent";
+import base from "../base";
+
 const uuidv4 = require('uuid/v4');
 
 export class EditingContentComponent extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {cards: {}, currentfolder: this.props.currentfolder};
+    }
+
+    componentDidMount() {
+        if (this.props.uid) {
+            this.folderRef = base.syncState('users/' + this.props.uid + '/cards',
+                {
+                    context: this,
+                    state: 'cards'
+                });
+        }
+    }
+
+    componentWillUnmount() {
+        base.removeBinding(this.folderRef);
+    }
+
+
     render() {
         console.log(this.props.currentfolder);
-        const data = [
-            {title: "myBook", id: 1, data: "myData"},
-            {title: "myBook2", id: 2, data: "myData2"},
-            {title: "myBook3", id: 3, data: "myData3"},
-            {title: "myBook4", id: 4, data: "myData4"},
-            {title: "myBook5", id: 5, data: "myData5"},
-            {title: "myBook6", id: 6, data: "myData6"},
-            {title: "myBook7", id: 7, data: "myData7"},
-            {title: "myBook8", id: 8, data: "myData8"}
-        ]
+
         let id = uuidv4();
         let newCardRef = `/editing/${id}`;
         return (
@@ -36,7 +49,7 @@ export class EditingContentComponent extends Component {
                 </div>
 
                 <div className="d-flex flex-wrap">
-                {data.map((i) => (<IndexCardComponent key={i.id} title={i.title}/>))}
+                    {Object.keys(this.state.cards).map((i) => (<IndexCardComponent title={i}/>))}
                 </div>
 
                 <div>
