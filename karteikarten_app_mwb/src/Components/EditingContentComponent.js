@@ -8,6 +8,7 @@ const uuidv4 = require('uuid/v4');
 export class EditingContentComponent extends Component {
 
     render() {
+        console.log(this.props.currentfolder);
         const data = [
             {title: "myBook", id: 1, data: "myData"},
             {title: "myBook2", id: 2, data: "myData2"},

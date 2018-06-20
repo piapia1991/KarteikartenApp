@@ -25,6 +25,7 @@ export class FolderComponent extends Component {
                     >
                         <FolderButtonComponent childfolders={this.props.childfolders}
                                                folderOpen={this.state.folderOpen}
+                                               changeCurrentfolder={this.props.changeCurrentfolder}
                                                index={this.props.index}
                                                toggleOpenClose={this.toggleOpenClose}
                                                name={this.props.name}
@@ -37,7 +38,7 @@ export class FolderComponent extends Component {
         )
     };
 
-    toggleOpenClose= () => {
+    toggleOpenClose = () => {
         this.setState({
             folderOpen: !this.state.folderOpen
         });

@@ -3,6 +3,7 @@ import {MaterialIcon} from "./MaterialIcon";
 
 export class FolderButtonComponent extends Component {
     icons = [];
+
     constructor(props) {
         super(props);
         this.icons[true] = 'expand_more';
@@ -10,15 +11,19 @@ export class FolderButtonComponent extends Component {
     }
 
     render() {
-        let iconClass= '';
-        if(this.props.childfolders === undefined){
-            iconClass= 'pl-4';
+        let iconClass = '';
+        if (this.props.childfolders === undefined) {
+            iconClass = 'pl-4';
         }
         return (
-            <button onClick={() => this.props.toggleOpenClose()} className="d-flex align-items-center p-0">
-                {this.props.childfolders && <MaterialIcon icon={this.icons[this.props.folderOpen]}/>}
+            <button className="d-flex align-items-center p-0">
+                {this.props.childfolders &&
+                <span onClick={() => this.props.toggleOpenClose()}><MaterialIcon
+                    icon={this.icons[this.props.folderOpen]}/></span>}
+                <span onClick={() => this.props.changeCurrentfolder(this.props.index)}>
                 <MaterialIcon className={iconClass} icon={"folder"}/>
                 <span>{this.props.name}</span>
+                </span>
             </button>
         )
     };
