@@ -1,7 +1,33 @@
 import React, { Component } from 'react';
 import QuillComponent from './QuillComponent';
+import Button from '@material-ui/core/Button';
+import { MaterialIcon } from "../Helper/MaterialIcon";
+import base from "../../base";
 
 export class EditorContentComponent extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            html: ''
+        };
+    }
+
+    componentDidMount() {
+        if (this.props.uid) {
+            this.cardsRef = base.syncState('users/' + this.props.uid + '/cards/' + this.props.cardId,
+                {
+                    context: this,
+                    state: 'html'
+                }
+            );
+        }
+    }
+
+    componentWillUnmount() {
+        base.removeBinding(this.cardsRef);
+    }
+
     render() {
         return (
             <main role="main" className="col-md-9 ml-sm-auto col-lg-10 px-4">
@@ -18,13 +44,33 @@ export class EditorContentComponent extends Component {
                 </div>
 
                 <div>
-                    <QuillComponent />
-                    <button>Speichern</button>
-                    <button>Abbrechen</button>
+                    <QuillComponent html={this.state.html} onChange={this.onChange} />
                 </div>
 
+                <div id="buttonRow" className="row d-flex flex-row-reverse">
+                    <Button className="m-4 highlightBackground" variant="fab" mini aria-label="save"
+                        onClick={() => this.save()}>
+                        <MaterialIcon icon={'save'} />
+                    </Button>
+                    <Button className="m-4 highlightBackground" variant="fab" mini aria-label="cancel"
+                        onClick={() => this.cancel()}>
+                        <MaterialIcon icon={'cancel'} />
+                    </Button>
+                </div>
             </main>
-        )
+        );
+    }
+
+    onChange = value => {
+        this.setState({ html: value });
+    };
+
+    save = () => {
+        console.log('save');
+    };
+
+    cancel = () => {
+        console.log('cancel');
     };
 }
 
