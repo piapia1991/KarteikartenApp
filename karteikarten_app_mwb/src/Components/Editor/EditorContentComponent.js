@@ -2,30 +2,22 @@ import React, { Component } from 'react';
 import QuillComponent from './QuillComponent';
 import Button from '@material-ui/core/Button';
 import { MaterialIcon } from "../Helper/MaterialIcon";
-import base from "../../base";
 
 export class EditorContentComponent extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            html: ''
+            html: this.props.html
         };
     }
 
-    componentDidMount() {
-        if (this.props.uid) {
-            this.cardsRef = base.syncState('users/' + this.props.uid + '/cards/' + this.props.cardId,
-                {
-                    context: this,
-                    state: 'html'
-                }
-            );
-        }
-    }
-
-    componentWillUnmount() {
-        base.removeBinding(this.cardsRef);
+    componentDidUpdate(prevProps) {
+        if (this.props.html !== prevProps.html) {
+            this.setState({
+                html: this.props.html
+            });
+          }
     }
 
     render() {
@@ -61,16 +53,18 @@ export class EditorContentComponent extends Component {
         );
     }
 
-    onChange = value => {
-        this.setState({ html: value });
+    onChange = html => {
+        this.setState({
+            html: html
+        });
     };
 
     save = () => {
-        console.log('save');
+        this.props.save(this.state.html);
     };
 
     cancel = () => {
-        console.log('cancel');
+        this.props.cancel();
     };
 }
 

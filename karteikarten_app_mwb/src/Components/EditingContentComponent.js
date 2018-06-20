@@ -18,8 +18,9 @@ export class EditingContentComponent extends Component {
             {title: "myBook7", id: 7, data: "myData7"},
             {title: "myBook8", id: 8, data: "myData8"}
         ]
-        let id = uuidv4();
-        let newCardRef = `/editing/${id}`;
+        let cardId = uuidv4();
+        let folderId = "folders1529403655190";
+        let newCardRef = `/editing/${folderId}/${cardId}`;
         return (
             <main role="main" className="col-md-9 ml-sm-auto col-lg-10 px-4">
                 <div
