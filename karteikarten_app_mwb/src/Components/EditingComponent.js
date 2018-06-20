@@ -8,7 +8,7 @@ export class EditingComponent extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {folders: {}};
+        this.state = {folders: {}, currentfolder: undefined};
     }
 
     componentDidMount() {
@@ -21,7 +21,6 @@ export class EditingComponent extends Component {
         }
     }
 
-
     componentWillUnmount() {
         base.removeBinding(this.folderRef);
     }
@@ -30,8 +29,8 @@ export class EditingComponent extends Component {
         return (
 
             <div className="row">
-                <EditingSidebarComponent folders={this.state.folders} addFolder={this.addFolder}/>
-                <EditingContentComponent/>
+                <EditingSidebarComponent changeCurrentfolder={this.changeCurrentfolder} folders={this.state.folders} addFolder={this.addFolder}/>
+                <EditingContentComponent currentfolder={this.state.currentfolder} uid={this.props.uid}/>
             </div>
         )
     };
@@ -47,8 +46,6 @@ export class EditingComponent extends Component {
     }
 
     changeTargetFolder(name, targetfolder, folders) {
-        console.log('targetfolder', targetfolder);
-        console.log('folders', folders);
         if (folders !== undefined && folders[targetfolder] !== undefined) {
             folders[targetfolder].childfolders = {...folders[targetfolder].childfolders};
             folders[targetfolder].childfolders[`folders${Date.now()}`] = {name: name};
@@ -60,6 +57,10 @@ export class EditingComponent extends Component {
                 }
             }
         }
+    }
+
+    changeCurrentfolder = (folderKey)=>{
+        this.setState({currentfolder: folderKey});
     }
 
 }

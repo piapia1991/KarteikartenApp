@@ -1,11 +1,33 @@
-import React, { Component} from 'react';
-import { Link } from 'react-router-dom';
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import './EditingContentComponent.css';
 import './IndexCardComponent.js';
-import { IndexCardComponent } from "./IndexCardComponent";
+import {IndexCardComponent} from "./IndexCardComponent";
+import base from "../base";
+
 const uuidv4 = require('uuid/v4');
 
 export class EditingContentComponent extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {cards: {}, currentfolder: this.props.currentfolder};
+    }
+
+    componentDidMount() {
+        if (this.props.uid) {
+            this.folderRef = base.syncState('users/' + this.props.uid + '/cards',
+                {
+                    context: this,
+                    state: 'cards'
+                });
+        }
+    }
+
+    componentWillUnmount() {
+        base.removeBinding(this.folderRef);
+    }
+
 
     render() {
         const data = [
@@ -36,7 +58,7 @@ export class EditingContentComponent extends Component {
                 </div>
 
                 <div className="d-flex flex-wrap">
-                {data.map((i) => (<IndexCardComponent key={i.id} title={i.title}/>))}
+                    {Object.keys(this.state.cards).map((i) => (<IndexCardComponent title={i}/>))}
                 </div>
 
                 <div>
