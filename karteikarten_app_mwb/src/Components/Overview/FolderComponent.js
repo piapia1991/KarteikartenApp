@@ -14,8 +14,7 @@ export class FolderComponent extends Component {
 
     render() {
         return (
-            <li className="nav-item">
-                <div>
+            <React.Fragment>
                     <ContextMenuProvider id="menu_id" render={({children, ...rest}) => (
                         <aside {...rest}>
                             <div>
@@ -32,9 +31,8 @@ export class FolderComponent extends Component {
                         />
                     </ContextMenuProvider>
                     {(this.state.folderOpen && this.props.folder.childfolders) &&
-                    <FolderContentComponent childfolders={this.props.folder.childfolders}/>}
-                </div>
-            </li>
+                    <FolderContentComponent  changeCurrentfolder={this.props.changeCurrentfolder} folderOpen={this.state.folderOpen} childfolders={this.props.folder.childfolders}/>}
+            </React.Fragment>
         )
     };
 

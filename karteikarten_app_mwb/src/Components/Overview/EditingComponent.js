@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {EditingContentComponent} from "./EditingContentComponent";
 import {EditingSidebarComponent} from "./EditingSidebarComponent";
-import base from "../base";
+import base from "../../base";
 
 export class EditingComponent extends Component {
 

@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
-import {MaterialIcon} from "./Helper/MaterialIcon";
-import {FolderComponent} from "./Helper/FolderComponent";
+import {MaterialIcon} from "../Helper/MaterialIcon";
+import {FolderComponent} from "./FolderComponent";
 import 'react-contexify/dist/ReactContexify.min.css';
 import {EditingSidebarMenuComponent} from "./EditingSidebarMenuComponent";
-import {DialogEditingComponent} from "./Helper/DialogEditingComponent";
+import {DialogEditingComponent} from "./DialogEditingComponent";
 import Button from '@material-ui/core/Button';
 import './EditingSidebarComponent.css';
-
+import List from '@material-ui/core/List';
+import ListSubheader from '@material-ui/core/ListSubheader';
 export class EditingSidebarComponent extends Component {
 
 
@@ -26,18 +27,19 @@ export class EditingSidebarComponent extends Component {
                 <nav className="col-md-2 d-none d-md-block sidebar">
                     <div className="sidebar-sticky py-3">
 
-                        <ul className="nav flex-column pl-1">
+                        <List
+                            component="nav"
+                            subheader={<ListSubheader component="div">Nested List Items</ListSubheader>}
+                        >
                             {Object.keys(this.props.folders).map(key => (
                                 <FolderComponent
                                     index={key}
                                     folder={this.props.folders[key]}
-                                    name={this.props.folders[key].name}
                                     key={key}
                                     changeCurrentfolder={this.props.changeCurrentfolder}/>
-
                             ))
                             }
-                        </ul>
+                        </List>
                         <div id="buttonRow" className="row d-flex flex-row-reverse">
                             <Button className="m-4 highlightBackground" variant="fab" mini aria-label="add"
                                     onClick={() => this.handleClickDialogOpen('add')}>

@@ -1,12 +1,9 @@
 import React, {Component} from 'react';
 import {FolderComponent} from "./FolderComponent";
+import List from '@material-ui/core/List';
+import Collapse from '@material-ui/core/Collapse';
 
 export class FolderContentComponent extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {folderOpen: false};
-    }
 
 
     render() {
@@ -14,15 +11,16 @@ export class FolderContentComponent extends Component {
         if(this.props.childfolders !== undefined) {
             Object.keys(this.props.childfolders).map(key => (
                     foldersList.push(
-                        <FolderComponent folder={this.props.childfolders[key]} index={key} key={key}/>
+                        <FolderComponent  changeCurrentfolder={this.props.changeCurrentfolder} folder={this.props.childfolders[key]} index={key} key={key}/>
                     )
             ));
         }
         return (
-            <ul className="nav flex-column pl-md-4">
+            <Collapse in={this.props.folderOpen}  timeout="auto" unmountOnExit>
+                <List component="div" className="pl-2" disablePadding>
                 {foldersList}
-            </ul>
-
+                </List>
+            </Collapse>
         )
     };
 }

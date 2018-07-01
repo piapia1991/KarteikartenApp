@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom'
-import { EditingComponent } from "./EditingComponent";
+import { EditingComponent } from "./Overview/EditingComponent";
 import { EditorComponent } from "./Editor/EditorComponent";
 import { NotFoundComponent } from "./NotFoundComponent";
 import { LearningComponent } from "./LearningComponent";
-import { SettingsComponent } from "./SettingsComponent";
+import { SettingsComponent } from "./Settings/SettingsComponent";
 
 export class MainComponent extends Component {
     render() {
