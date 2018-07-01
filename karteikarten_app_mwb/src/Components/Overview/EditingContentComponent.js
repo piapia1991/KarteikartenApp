@@ -41,16 +41,16 @@ export class EditingContentComponent extends Component {
                     <div className="d-flex flex-wrap">
                         {data.map((i) => (<IndexCardComponent key={i.id} title={i.title}/>))}
                     </div>
-                    <div className="row d-flex flex-row-reverse">
-                        <Link to={newCardRef}>
-                            <Button className="mb-5 highlightBackground" variant="fab" mini aria-label="add">
-                                <MaterialIcon icon={'add'}/>
-                            </Button>
-                        </Link>
-                    </div>
+
 
                 </main>
-
+                <div className="row d-flex flex-row-reverse">
+                    <Link to={newCardRef}>
+                        <Button className="mb-5 highlightBackground" variant="fab" mini aria-label="add">
+                            <MaterialIcon icon={'add'}/>
+                        </Button>
+                    </Link>
+                </div>
             </React.Fragment>
         )
     };
