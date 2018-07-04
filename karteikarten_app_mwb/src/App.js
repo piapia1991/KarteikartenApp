@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
-import {HeaderComponent} from "./Components/HeaderComponent";
-import {MainComponent} from "./Components/MainComponent";
+import {HeaderComponent} from "./Components/Header/HeaderComponent";
+import {MainComponent} from "./Components/Main/MainComponent";
 
 import base, {firebaseApp} from './base'
 import firebase from "firebase/app";

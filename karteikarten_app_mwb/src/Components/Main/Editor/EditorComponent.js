@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { EditorSidebarComponent } from './EditorSidebarComponent';
 import { EditorContentComponent } from './EditorContentComponent';
-import base from "../../base";
+import base from "../../../base";
 
 export class EditorComponent extends Component {
 

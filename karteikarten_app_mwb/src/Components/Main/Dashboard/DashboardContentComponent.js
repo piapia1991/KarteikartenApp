@@ -1,17 +1,39 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import './EditingContentComponent.css';
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
+import './DashboardContentComponent.css';
 import './IndexCardComponent.js';
 import { IndexCardComponent } from "./IndexCardComponent";
 import Button from '@material-ui/core/Button';
-import { MaterialIcon } from "../Helper/MaterialIcon";
+import { MaterialIcon } from "../../Helper/MaterialIcon";
 import { withRouter } from 'react-router-dom';
+import base from "../../../base";
 
 const uuidv4 = require('uuid/v4');
 
-export class EditingContentComponent extends Component {
+export class DashboardContentComponent extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {cards: {}, currentfolder: this.props.currentfolder};
+    }
+
+    componentDidMount() {
+        if (this.props.uid) {
+            this.folderRef = base.syncState('users/' + this.props.uid + '/cards',
+                {
+                    context: this,
+                    state: 'cards'
+                });
+        }
+    }
+
+    componentWillUnmount() {
+        base.removeBinding(this.folderRef);
+    }
+
 
     render() {
+<<<<<<< HEAD:karteikarten_app_mwb/src/Components/Overview/EditingContentComponent.js
         const data = [
             { title: "myBook", id: 1, data: "myData" },
             { title: "myBook2", id: 2, data: "myData2" },
@@ -22,6 +44,8 @@ export class EditingContentComponent extends Component {
             { title: "myBook7", id: 7, data: "myData7" },
             { title: "myBook8", id: 8, data: "myData8" }
         ]
+=======
+>>>>>>> origin/master:karteikarten_app_mwb/src/Components/Main/Dashboard/DashboardContentComponent.js
         let id = uuidv4();
         let newCardRef = `/editing/${id}`;
 
@@ -52,7 +76,11 @@ export class EditingContentComponent extends Component {
                     </div>
 
                     <div className="d-flex flex-wrap">
+<<<<<<< HEAD:karteikarten_app_mwb/src/Components/Overview/EditingContentComponent.js
                         {data.map((i) => (<IndexCardComponent key={i.id} title={i.title} />))}
+=======
+                        {Object.keys(this.state.cards).map((i) => (<IndexCardComponent title={i}/>))}
+>>>>>>> origin/master:karteikarten_app_mwb/src/Components/Main/Dashboard/DashboardContentComponent.js
                     </div>
 
                 </main>

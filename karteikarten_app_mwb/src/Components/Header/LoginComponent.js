@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './LoginComponent.css';
-import {MaterialIcon} from "./Helper/MaterialIcon";
+import {MaterialIcon} from "../Helper/MaterialIcon";
 import {Link} from 'react-router-dom';
 
 export class LoginComponent extends Component {
