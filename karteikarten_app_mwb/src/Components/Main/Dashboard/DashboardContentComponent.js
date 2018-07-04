@@ -53,15 +53,15 @@ export class DashboardContentComponent extends Component {
                         {Object.keys(this.state.cards).map((i) => (<IndexCardComponent title={i}/>))}
                     </div>
 
-
+                    <div>
+                        <Link to={newCardRef}>
+                            <Button className="mb-5 highlightBackground" variant="fab" mini aria-label="add">
+                                <MaterialIcon icon={'add'}/>
+                            </Button>
+                        </Link>
+                    </div>
                 </main>
-                <div className="row d-flex flex-row-reverse">
-                    <Link to={newCardRef}>
-                        <Button className="mb-5 highlightBackground" variant="fab" mini aria-label="add">
-                            <MaterialIcon icon={'add'}/>
-                        </Button>
-                    </Link>
-                </div>
+
             </React.Fragment>
         )
     };
