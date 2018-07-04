@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {EditingContentComponent} from "./EditingContentComponent";
-import {EditingSidebarComponent} from "./EditingSidebarComponent";
-import base from "../../base";
+import {DashboardContentComponent} from "./DashboardContentComponent";
+import {DashboardSidebarComponent} from "./DashboardSidebarComponent";
+import base from "../../../base";
 
-export class EditingComponent extends Component {
+export class DashboardComponent extends Component {
 
 
     constructor(props) {
@@ -29,8 +29,8 @@ export class EditingComponent extends Component {
         return (
 
             <div className="row">
-                <EditingSidebarComponent changeCurrentfolder={this.changeCurrentfolder} folders={this.state.folders} addFolder={this.addFolder}/>
-                <EditingContentComponent currentfolder={this.state.currentfolder} uid={this.props.uid}/>
+                <DashboardSidebarComponent changeCurrentfolder={this.changeCurrentfolder} folders={this.state.folders} addFolder={this.addFolder}/>
+                <DashboardContentComponent currentfolder={this.state.currentfolder} uid={this.props.uid}/>
             </div>
         )
     };

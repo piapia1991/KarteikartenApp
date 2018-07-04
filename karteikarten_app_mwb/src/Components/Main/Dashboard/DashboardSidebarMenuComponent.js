@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {ContextMenu, Item, Separator, Submenu} from 'react-contexify';
 
 
-export class EditingSidebarMenuComponent extends Component{
+export class DashboardSidebarMenuComponent extends Component{
     render(){
         return(
             <ContextMenu id='menu_id' style={{"zIndex": 9000}}>

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import './EditingContentComponent.css';
+import './DashboardContentComponent.css';
 import './IndexCardComponent.js';
 import {IndexCardComponent} from "./IndexCardComponent";
 import Button from '@material-ui/core/Button';
@@ -8,7 +8,7 @@ import {MaterialIcon} from "../Helper/MaterialIcon";
 
 const uuidv4 = require('uuid/v4');
 
-export class EditingContentComponent extends Component {
+export class DashboardContentComponent extends Component {
 
     render() {
         const data = [

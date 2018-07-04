@@ -5,7 +5,7 @@ function Transition(props) {
     return <Slide direction="up" {...props} />;
 }
 
-export class DialogEditingComponent extends Component {
+export class DashboardDialogComponent extends Component {
 
 
     constructor(props) {

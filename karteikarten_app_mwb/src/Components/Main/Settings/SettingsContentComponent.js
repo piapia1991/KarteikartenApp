@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {MaterialIcon} from "../Helper/MaterialIcon";
+import {MaterialIcon} from "../../Helper/MaterialIcon";
 
 export class SettingsContentComponent extends Component {
     render() {
