@@ -22,3 +22,4 @@ yarn-debug.log*
 yarn-error.log*
 
 .idea
+karteikarten_app_mwb/.vscode/launch.json
