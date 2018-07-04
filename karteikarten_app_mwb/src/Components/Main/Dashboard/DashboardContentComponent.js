@@ -4,8 +4,8 @@ import './DashboardContentComponent.css';
 import './IndexCardComponent.js';
 import {IndexCardComponent} from "./IndexCardComponent";
 import Button from '@material-ui/core/Button';
-import {MaterialIcon} from "../Helper/MaterialIcon";
-import base from "../../base";
+import {MaterialIcon} from "../../Helper/MaterialIcon";
+import base from "../../../base";
 
 const uuidv4 = require('uuid/v4');
 

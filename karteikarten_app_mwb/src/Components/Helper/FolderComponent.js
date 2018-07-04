@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {FolderContentComponent} from "./FolderContentComponent";
 import {ContextMenuProvider} from 'react-contexify';
-import {FolderButtonComponent} from "../Main/Dashboard/FolderButtonComponent";
+import {FolderButtonComponent} from "./FolderButtonComponent";
 
 export class FolderComponent extends Component {
     icons = [];
