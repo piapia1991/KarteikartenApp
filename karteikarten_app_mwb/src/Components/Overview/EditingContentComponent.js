@@ -1,10 +1,11 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './EditingContentComponent.css';
 import './IndexCardComponent.js';
-import {IndexCardComponent} from "./IndexCardComponent";
+import { IndexCardComponent } from "./IndexCardComponent";
 import Button from '@material-ui/core/Button';
-import {MaterialIcon} from "../Helper/MaterialIcon";
+import { MaterialIcon } from "../Helper/MaterialIcon";
+import { withRouter } from 'react-router-dom';
 
 const uuidv4 = require('uuid/v4');
 
@@ -12,17 +13,29 @@ export class EditingContentComponent extends Component {
 
     render() {
         const data = [
-            {title: "myBook", id: 1, data: "myData"},
-            {title: "myBook2", id: 2, data: "myData2"},
-            {title: "myBook3", id: 3, data: "myData3"},
-            {title: "myBook4", id: 4, data: "myData4"},
-            {title: "myBook5", id: 5, data: "myData5"},
-            {title: "myBook6", id: 6, data: "myData6"},
-            {title: "myBook7", id: 7, data: "myData7"},
-            {title: "myBook8", id: 8, data: "myData8"}
+            { title: "myBook", id: 1, data: "myData" },
+            { title: "myBook2", id: 2, data: "myData2" },
+            { title: "myBook3", id: 3, data: "myData3" },
+            { title: "myBook4", id: 4, data: "myData4" },
+            { title: "myBook5", id: 5, data: "myData5" },
+            { title: "myBook6", id: 6, data: "myData6" },
+            { title: "myBook7", id: 7, data: "myData7" },
+            { title: "myBook8", id: 8, data: "myData8" }
         ]
         let id = uuidv4();
         let newCardRef = `/editing/${id}`;
+
+        const AddCardButton = withRouter(({ history }) => (
+            <Button
+                className="mb-5 highlightBackground" variant="fab" mini aria-label="add"
+                onClick={() => {
+                    let newCardId = uuidv4();
+                    history.push(`/editing/${newCardId}`);
+                }} >
+                <MaterialIcon icon={'add'} />
+            </Button>
+        ));
+
         return (
             <React.Fragment>
                 <main role="main" className="col-md-9 ml-sm-auto col-lg-10 px-4">
@@ -39,18 +52,15 @@ export class EditingContentComponent extends Component {
                     </div>
 
                     <div className="d-flex flex-wrap">
-                        {data.map((i) => (<IndexCardComponent key={i.id} title={i.title}/>))}
+                        {data.map((i) => (<IndexCardComponent key={i.id} title={i.title} />))}
                     </div>
 
-
                 </main>
+
                 <div className="row d-flex flex-row-reverse">
-                    <Link to={newCardRef}>
-                        <Button className="mb-5 highlightBackground" variant="fab" mini aria-label="add">
-                            <MaterialIcon icon={'add'}/>
-                        </Button>
-                    </Link>
+                    <AddCardButton/>
                 </div>
+
             </React.Fragment>
         )
     };
