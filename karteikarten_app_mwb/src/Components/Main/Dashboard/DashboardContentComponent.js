@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import './DashboardContentComponent.css';
 import './IndexCardComponent.js';
 import { IndexCardComponent } from "./IndexCardComponent";
@@ -14,7 +13,7 @@ export class DashboardContentComponent extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { cards: {}, currentfolder: this.props.currentfolder };
+        this.state = { cards: {} };
     }
 
     componentDidMount() {
@@ -33,14 +32,12 @@ export class DashboardContentComponent extends Component {
 
 
     render() {
-        let id = uuidv4();
-        let newCardRef = `/editing/${id}`;
-
         const AddCardButton = withRouter(({ history }) => (
             <Button
                 className="mb-5 highlightBackground" variant="fab" mini aria-label="add"
                 onClick={() => {
                     let newCardId = uuidv4();
+                    let temp = this.props.currentfolder;
                     history.push(`/editing/${newCardId}`);
                 }} >
                 <MaterialIcon icon={'add'} />
