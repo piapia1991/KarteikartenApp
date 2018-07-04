@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './DashboardContentComponent.css';
 import './IndexCardComponent.js';
 import { IndexCardComponent } from "./IndexCardComponent";
@@ -14,7 +14,7 @@ export class DashboardContentComponent extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {cards: {}, currentfolder: this.props.currentfolder};
+        this.state = { cards: {}, currentfolder: this.props.currentfolder };
     }
 
     componentDidMount() {
@@ -33,19 +33,6 @@ export class DashboardContentComponent extends Component {
 
 
     render() {
-<<<<<<< HEAD:karteikarten_app_mwb/src/Components/Overview/EditingContentComponent.js
-        const data = [
-            { title: "myBook", id: 1, data: "myData" },
-            { title: "myBook2", id: 2, data: "myData2" },
-            { title: "myBook3", id: 3, data: "myData3" },
-            { title: "myBook4", id: 4, data: "myData4" },
-            { title: "myBook5", id: 5, data: "myData5" },
-            { title: "myBook6", id: 6, data: "myData6" },
-            { title: "myBook7", id: 7, data: "myData7" },
-            { title: "myBook8", id: 8, data: "myData8" }
-        ]
-=======
->>>>>>> origin/master:karteikarten_app_mwb/src/Components/Main/Dashboard/DashboardContentComponent.js
         let id = uuidv4();
         let newCardRef = `/editing/${id}`;
 
@@ -76,18 +63,13 @@ export class DashboardContentComponent extends Component {
                     </div>
 
                     <div className="d-flex flex-wrap">
-<<<<<<< HEAD:karteikarten_app_mwb/src/Components/Overview/EditingContentComponent.js
-                        {data.map((i) => (<IndexCardComponent key={i.id} title={i.title} />))}
-=======
-                        {Object.keys(this.state.cards).map((i) => (<IndexCardComponent title={i}/>))}
->>>>>>> origin/master:karteikarten_app_mwb/src/Components/Main/Dashboard/DashboardContentComponent.js
+                        {Object.keys(this.state.cards).map((i) => (<IndexCardComponent title={i} />))}
                     </div>
 
+                    <div>
+                        <AddCardButton />
+                    </div>
                 </main>
-
-                <div className="row d-flex flex-row-reverse">
-                    <AddCardButton/>
-                </div>
 
             </React.Fragment>
         )
