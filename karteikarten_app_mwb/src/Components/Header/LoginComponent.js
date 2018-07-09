@@ -1,24 +1,45 @@
-import React, {Component} from 'react';
-import './LoginComponent.css';
+import React, {Component, Fragment} from 'react';
 import {MaterialIcon} from "../Helper/MaterialIcon";
 import {Link} from 'react-router-dom';
+import {Avatar, Typography, Grid, Button, IconButton, Icon} from '@material-ui/core';
 
 export class LoginComponent extends Component {
     render() {
         if(this.props.login == null) {
             return(
-                <button className="float-right" onClick={() => this.props.authenticate()}>Sign in</button>
+                <Button onClick={() => this.props.authenticate()}>Sign in</Button>
             );
         } else {
             return(
-                <div className="d-flex flex-row-reverse align-items-center px-md-3">
-                    <span className="px-1" id="loginName">{this.props.login.name}</span>
-                    <img alt="" id="loginPicture" className="rounded-circle"
-                        src={this.props.login.picture}
-                    />
-                    <button className="px-1 d-flex align-items-center" onClick={() => this.props.logout()}><MaterialIcon icon={"exit_to_app"}/></button>
-                    <Link className="px-1 d-flex align-items-center" to={"/settings"}><MaterialIcon icon={"settings"}/></Link>
-                </div>
+                <Fragment>
+                    <Grid container xs={12}>
+                        <Grid container  xs={10} lg={8}>
+
+                            <Grid item sm={8}>
+                                <Typography variant="subheading" gutterBottom noWrap>{this.props.login.name}</Typography>
+                            </Grid>
+                            <Grid item sm={4}>
+                                <Avatar  alt="this.props.login.name" id="loginPicture"
+                                    src={this.props.login.picture}
+                                />
+                            </Grid>
+                        </Grid>
+                        <Grid item  xs={1} lg={2}>
+                            <IconButton onClick={() => this.props.logout()} color="secondary">
+                                <Icon className="exit_to_app">
+                                    exit_to_app
+                                </Icon>
+                            </IconButton>
+                        </Grid>
+                        <Grid item  xs={1}  lg={2}>
+                            <IconButton  to={"/settings"} color="secondary">
+                                <Icon className="settings">
+                                    settings
+                                </Icon>
+                            </IconButton>
+                        </Grid>
+                    </Grid>
+                </Fragment>
             );
         }
     };

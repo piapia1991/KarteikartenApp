@@ -2,8 +2,9 @@ import React, {Component} from 'react';
 import './App.css';
 import {HeaderComponent} from "./Components/Header/HeaderComponent";
 import {MainComponent} from "./Components/Main/MainComponent";
+import {Grid} from '@material-ui/core';
 
-import base, {firebaseApp} from './base'
+import base, {firebaseApp} from './base';
 import firebase from "firebase/app";
 
 class App extends Component {
@@ -82,12 +83,20 @@ class App extends Component {
         }
 
         return (<div className="App">
-                <HeaderComponent
-                    login={this.state.login}
-                    authenticate={this.authenticate}
-                    logout={this.logout}
-                />
-                {mainComponent}
+                <Grid container>
+                    <Grid item xs>
+                        <HeaderComponent
+                            login={this.state.login}
+                            authenticate={this.authenticate}
+                            logout={this.logout}
+                        />
+                    </Grid>
+                </Grid>
+                {<Grid container>
+                    <Grid item xs={12}>
+                        {mainComponent}
+                    </Grid>
+                </Grid>}
             </div>
 
         )

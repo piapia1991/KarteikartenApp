@@ -1,28 +1,82 @@
 import React, {Component} from 'react';
-import './HeaderComponent.css';
 import {LoginComponent} from './LoginComponent';
-import {HeaderButtonComponent} from "./HeaderButtonComponent";
+import {AppBar, Toolbar, Typography, Grid} from '@material-ui/core'
+import {MaterialIcon} from "../Helper/MaterialIcon";
+import {createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+
+const theme = createMuiTheme({
+    palette: {
+        primary: {
+            light: '#819ca9',
+            main: '#546e7a',
+            dark: '#29434e',
+            contrastText: '#ffffff',
+        },
+        secondary: {
+            light: '#62ebff',
+            main: '#00b8d4',
+            dark: '#0088a3',
+            contrastText: '#000000',
+        },
+        error: {
+            light: '#ff0042',
+            main: '#620033',
+            dark: '#420022',
+            contrastText: '#ffffff',
+        },
+        contrastThreshold: 3,
+        tonalOffset: 0.2,
+    },
+    overrides: {
+        MuiButton: { // Name of the component ⚛️ / style sheet
+            root: { // Name of the rule
+                color: 'white', // Some CSS
+            },
+        },
+        MuiTypography: { // Name of the component ⚛️ / style sheet
+            title: { // Name of the rule
+                color: 'white', // Some CSS
+                align: 'justify',
+                noWrap: 'true',
+            },
+            subheading: { // Name of the rule
+                color: 'white', // Some CSS
+                align: 'justify',
+                noWrap: 'true',
+            },
+        },
+    },
+});
 
 export class HeaderComponent extends Component {
     render() {
         return (
-            <nav className="navbar headerbar fixedTop p-0 border-bottom">
-                <div className="col-sm-6 col-md-4 col-lg-4">
-                    <div className="row">
-                        <HeaderButtonComponent link={'/'} title={'Bearbeiten'} icon={'edit'} index={true}/>
-                        <HeaderButtonComponent link={'/learning'} title={'Lernen'} icon={'school'}/>
-                    </div>
-                </div>
-
-                <div className="col-sm-6 col-md-8 col-lg-8">
-                    <LoginComponent
-                        login={this.props.login}
-                        authenticate={this.props.authenticate}
-                        logout={this.props.logout}
-                    />
-
-                </div>
-            </nav>
+            <MuiThemeProvider theme={theme}>
+                <AppBar position="static" className="Appbar" color="primary" >
+                    <Toolbar>
+                        <Grid container>
+                            <Grid item lg={2} md sm={4}>
+                                <MaterialIcon link={'/'} title={'Bearbeiten'} icon={'edit'} index={true}/>
+                            </Grid>
+                            <Grid item lg={2} md sm={4}>
+                                <MaterialIcon link={'/learning'} title={'Lernen'} icon={'school'}/>
+                            </Grid>
+                            <Grid item lg={6} md  sm={4} classes='align-items-xs-center'>
+                                <Typography variant="title">
+                                    Karteikarten App
+                                </Typography>
+                            </Grid>
+                            <Grid item lg={2} md={3} sm={12}>
+                                <LoginComponent
+                                    login={this.props.login}
+                                    authenticate={this.props.authenticate}
+                                    logout={this.props.logout}
+                                />
+                            </Grid>
+                        </Grid>
+                    </Toolbar>
+                </AppBar>
+            </MuiThemeProvider>
         )
     };
 }

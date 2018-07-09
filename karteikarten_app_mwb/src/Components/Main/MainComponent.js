@@ -9,7 +9,7 @@ import { SettingsComponent } from "./Settings/SettingsComponent";
 export class MainComponent extends Component {
     render() {
         return (
-            <div className="container-fluid">
+            <div>
                 <Switch>
                     <Route exact path="/" render={(props) => <DashboardComponent {...props} uid={this.props.uid} />} />
                     <Route exact path="/editing" render={(props) => <DashboardComponent {...props} uid={this.props.uid} />} />
