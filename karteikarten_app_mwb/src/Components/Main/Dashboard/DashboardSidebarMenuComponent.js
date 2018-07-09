@@ -7,7 +7,7 @@ export class DashboardSidebarMenuComponent extends Component{
         return(
             <ContextMenu id='menu_id' style={{"zIndex": 9000}}>
                 <Item onClick={this.addChildFolder}>+ Ordner hinzufügen</Item>
-                <Item >Ipsum</Item>
+                <Item >Löschen</Item>
                 <Separator/>
                 <Item disabled>Dolor</Item>
                 <Separator/>

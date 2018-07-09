@@ -2,10 +2,36 @@ import React, {Component} from 'react';
 import './App.css';
 import {HeaderComponent} from "./Components/Header/HeaderComponent";
 import {MainComponent} from "./Components/Main/MainComponent";
-import {Grid} from '@material-ui/core';
+import {Grid, MuiThemeProvider} from '@material-ui/core';
 
 import base, {firebaseApp} from './base';
 import firebase from "firebase/app";
+import {createMuiTheme} from "@material-ui/core/styles/index";
+
+const theme = createMuiTheme({
+    palette: {
+        primary: {
+            light: '#4fb3bf',
+            main: '#00838f',
+            dark: '#005662',
+            contrastText: '#ffffff',
+        },
+        secondary: {
+            light: '#a98274',
+            main: '#795548',
+            dark: '#4b2c20',
+            contrastText: '#ffffff',
+        },
+        error: {
+            light: '#ff0042',
+            main: '#620033',
+            dark: '#420022',
+            contrastText: '#ffffff',
+        },
+        contrastThreshold: 3,
+        tonalOffset: 0.2,
+    },
+});
 
 class App extends Component {
 
@@ -82,23 +108,25 @@ class App extends Component {
             mainComponent = <MainComponent uid={this.state.login.uid} deleteUser={this.deleteUser}/>;
         }
 
-        return (<div className="App">
-                <Grid container>
-                    <Grid item xs>
-                        <HeaderComponent
-                            login={this.state.login}
-                            authenticate={this.authenticate}
-                            logout={this.logout}
-                        />
+        return (
+            <div className="App">
+                <MuiThemeProvider theme={theme}>
+                    <Grid container xs={12}>
+                        <Grid item xs>
+                            <HeaderComponent
+                                login={this.state.login}
+                                authenticate={this.authenticate}
+                                logout={this.logout}
+                            />
+                        </Grid>
                     </Grid>
-                </Grid>
-                {<Grid container>
-                    <Grid item xs={12}>
-                        {mainComponent}
-                    </Grid>
-                </Grid>}
+                    {<Grid container xs={12}>
+                        <Grid item xs>
+                            {mainComponent}
+                        </Grid>
+                    </Grid>}
+                </MuiThemeProvider>
             </div>
-
         )
     };
 }

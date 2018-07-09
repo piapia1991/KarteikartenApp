@@ -1,6 +1,4 @@
 import React, {Component, Fragment} from 'react';
-import {MaterialIcon} from "../Helper/MaterialIcon";
-import {Link} from 'react-router-dom';
 import {Avatar, Typography, Grid, Button, IconButton, Icon} from '@material-ui/core';
 
 export class LoginComponent extends Component {
@@ -25,14 +23,14 @@ export class LoginComponent extends Component {
                             </Grid>
                         </Grid>
                         <Grid item  xs={1} lg={2}>
-                            <IconButton onClick={() => this.props.logout()} color="secondary">
+                            <IconButton onClick={() => this.props.logout()} >
                                 <Icon className="exit_to_app">
                                     exit_to_app
                                 </Icon>
                             </IconButton>
                         </Grid>
                         <Grid item  xs={1}  lg={2}>
-                            <IconButton  to={"/settings"} color="secondary">
+                            <IconButton  to={"/settings"}>
                                 <Icon className="settings">
                                     settings
                                 </Icon>

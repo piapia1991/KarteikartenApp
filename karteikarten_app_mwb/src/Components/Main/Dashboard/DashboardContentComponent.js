@@ -2,12 +2,11 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import './IndexCardComponent.js';
 import {IndexCardComponent} from "./IndexCardComponent";
-import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
-import {MaterialIcon} from "../../Helper/MaterialIcon";
+import {Button, Grid, Typography, Icon, Tooltip} from '@material-ui/core';
 import base from "../../../base";
 
 const uuidv4 = require('uuid/v4');
+
 
 export class DashboardContentComponent extends Component {
 
@@ -35,33 +34,33 @@ export class DashboardContentComponent extends Component {
         let id = uuidv4();
         let newCardRef = `/editing/${id}`;
         return (
-            <React.Fragment>
-                <Grid container role="main" md={9} classes='align-content-md-right'>
-                    <div>
-                        <h1 className="h2">Ordner1 > Ordner2 > Bliblablub</h1>
-                        <div className="btn-toolbar mb-2 mb-md-0">
-                            <div className="btn-group mr-2">
-                                <Button color='secondary'>Share</Button>
-                                <Button color='secondary'>Export</Button>
-                                <Button color='secondary'> This week</Button>
-                            </div>
-                        </div>
-                    </div>
+                <Grid container md={8}>
+                    <Grid container role="main" lg={12}>
+                        <Grid item xs={12}>
+                            <Typography className="h2">Ordner1 > Ordner2 > Bliblablub</Typography>
 
-                    <div className="d-flex flex-wrap">
-                        {Object.keys(this.state.cards).map((i) => (<IndexCardComponent title={i}/>))}
-                    </div>
-
-
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Button color='secondary' variant="contained">Share</Button>
+                            <Button color='secondary' variant="contained">Export</Button>
+                            <Button color='secondary' variant="contained"> This week</Button>
+                        </Grid>
+                        <Grid item xs={12}>
+                            {Object.keys(this.state.cards).map((i) => (<IndexCardComponent title={i}/>))}
+                        </Grid>
+                    </Grid>
+                    <Grid container md={12}>
+                        <Grid item xs={11}/>
+                        <Grid item xs={1}>
+                            <Tooltip id="tooltip-fab" title="Karte Hinzufügen">
+                                <Button className="mb-5 highlightBackground" variant="fab" mini aria-label="add" to={newCardRef}>
+                                    <Icon>add_icon</Icon>
+                                </Button>
+                            </Tooltip>
+                        </Grid>
+                    </Grid>
                 </Grid>
-                <div className="row d-flex flex-row-reverse">
-                    <Link to={newCardRef}>
-                        <Button className="mb-5 highlightBackground" variant="fab" mini aria-label="add">
-                            <MaterialIcon icon={'add'}/>
-                        </Button>
-                    </Link>
-                </div>
-            </React.Fragment>
+
         )
     };
 }
