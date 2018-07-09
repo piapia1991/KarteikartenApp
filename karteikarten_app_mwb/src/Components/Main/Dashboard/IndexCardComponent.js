@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Card, CardMedia, CardContent, Typography, Button, CardActions, Icon} from '@material-ui/core';
+import {Card, CardMedia, CardContent, Typography, Button, CardActions, Icon, Tooltip, Grid} from '@material-ui/core';
 
 const styles = {
     card: {
@@ -7,7 +7,7 @@ const styles = {
     },
     media: {
         height: 0,
-        paddingTop: '156.25%', // 16:9
+        paddingTop: '56.25%', // 16:9
     },
 };
 export class IndexCardComponent extends Component {
@@ -17,20 +17,32 @@ export class IndexCardComponent extends Component {
             return (
                 <React.Fragment>
                     <Card className={styles.card}>
-                        <CardMedia className={styles.media}
+                        <CardMedia classes={styles.media}
                                    src="https://www.buero-bedarf-thueringen.de/1336110-thickbox_default/karteikarten-a6-liniert-ws-100st.jpg"
-                                   title={this.props.title} />
+                                   title="test" />
                         <CardContent>
                             <Typography gutterBottom variant="body2">{this.props.title}</Typography>
                         </CardContent>
 
                         <CardActions>
-                            <Button variant="fab" mini color="secondary" aria-label="add" >
-                                <Icon>edit_icon</Icon>
-                            </Button>
-                            <Button  variant="fab" mini color="primary" aria-label="share">
-                                <Icon>share_icon</Icon>
-                            </Button>
+                            <Grid container spacing={24}>
+                                <Grid item xs={10}/>
+                                <Grid item spacing={2} xs>
+                                    <Tooltip id="tooltip-fab" title="Bearbeiten">
+                                        <Button variant="fab" mini color="secondary" aria-label="add" >
+                                            <Icon>edit_icon</Icon>
+                                        </Button>
+                                    </Tooltip>
+                                </Grid>
+                                <Grid item spacing={2} xs>
+
+                                    <Tooltip id="tooltip-fab" title="Teilen">
+                                        <Button  variant="fab" mini color="primary" aria-label="share">
+                                            <Icon>share_icon</Icon>
+                                        </Button>
+                                    </Tooltip>
+                                </Grid>
+                            </Grid>
                         </CardActions>
                     </Card>
                 </React.Fragment>

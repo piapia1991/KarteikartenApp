@@ -3,6 +3,8 @@ import {LoginComponent} from './LoginComponent';
 import {AppBar, Toolbar, Typography, Grid} from '@material-ui/core'
 import {MaterialIcon} from "../Helper/MaterialIcon";
 import {createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import {NavLink} from 'react-router-dom';
+import {HeaderButtonComponent} from "./HeaderButtonComponent";
 
 const theme = createMuiTheme({
     palette: {
@@ -57,10 +59,10 @@ export class HeaderComponent extends Component {
                     <Toolbar>
                         <Grid container>
                             <Grid item lg={2} md sm={4}>
-                                <MaterialIcon link={'/'} title={'Bearbeiten'} icon={'edit'} index={true}/>
+                                <HeaderButtonComponent link={'/'} title={'Bearbeiten'} icon={'edit'} index={true}/>
                             </Grid>
                             <Grid item lg={2} md sm={4}>
-                                <MaterialIcon link={'/learning'} title={'Lernen'} icon={'school'}/>
+                                <HeaderButtonComponent link={'/learning'} title={'Lernen'} icon={'school'}/>
                             </Grid>
                             <Grid item lg={6} md  sm={4} classes='align-items-xs-center'>
                                 <Typography variant="title">

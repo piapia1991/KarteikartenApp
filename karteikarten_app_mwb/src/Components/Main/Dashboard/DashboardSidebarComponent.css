@@ -1,7 +1,6 @@
-@media  (min-width: 576px) {
-    #buttonRow{
-        position: absolute;
-        bottom: 0;
-        right: 0;
-    }
+#sidebar {
+    background-color: #fdfdfd;
+    border-right: 1px solid grey;
+    height: 100%;
+    flex: 1 1 auto;
 }

@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {MaterialIcon} from "./MaterialIcon";
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
+import {ListItem, ListItemIcon, ListItemText, Icon} from '@material-ui/core'
 
 export class FolderButtonComponent extends Component {
     icons = [];
@@ -19,7 +17,8 @@ export class FolderButtonComponent extends Component {
         return (
             <ListItem onClick={() => this.props.changeCurrentfolder(this.props.folder)} button>
                 <ListItemIcon>
-                    <MaterialIcon className={iconClass} icon={"folder"}/>
+                    <Icon>folder_icon</Icon>
+
                 </ListItemIcon>
                 <ListItemText inset primary={this.props.folder.name}/>
                 <span  onClick={() => this.props.toggleOpenClose()}>{this.props.folder.childfolders && <MaterialIcon icon={this.icons[this.props.folderOpen]}/>}</span>

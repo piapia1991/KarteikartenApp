@@ -7,6 +7,19 @@ import base from "../../../base";
 
 const uuidv4 = require('uuid/v4');
 
+const styles = theme => ({
+    root: {
+        flexGrow: 1,
+    },
+    paper: {
+        padding: theme.spacing.unit * 2,
+        textAlign: 'center',
+        color: theme.palette.text.secondary,
+    },
+    header: {
+        paddingTop: 300,
+    },
+});
 
 export class DashboardContentComponent extends Component {
 
@@ -36,9 +49,10 @@ export class DashboardContentComponent extends Component {
         return (
                 <Grid container md={8}>
                     <Grid container role="main" lg={12}>
-                        <Grid item xs={12}>
-                            <Typography className="h2">Ordner1 > Ordner2 > Bliblablub</Typography>
-
+                        <Grid item xs={12} className={styles.header}>
+                            <Typography  variant="title" gutterBottom>
+                                Ordner1 > Ordner2 > Bliblablub
+                            </Typography>
                         </Grid>
                         <Grid item xs={12}>
                             <Button color='secondary' variant="contained">Share</Button>

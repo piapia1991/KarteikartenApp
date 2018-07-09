@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react';
-import {Avatar, Typography, Grid, Button, IconButton, Icon} from '@material-ui/core';
+import {Avatar, Typography, Grid, Button, IconButton, Icon, Tooltip} from '@material-ui/core';
+import {Link} from 'react-router-dom';
 
 export class LoginComponent extends Component {
     render() {
@@ -23,18 +24,24 @@ export class LoginComponent extends Component {
                             </Grid>
                         </Grid>
                         <Grid item  xs={1} lg={2}>
-                            <IconButton onClick={() => this.props.logout()} >
-                                <Icon className="exit_to_app">
-                                    exit_to_app
-                                </Icon>
-                            </IconButton>
+                            <Tooltip id="tooltip-fab" title="Logout">
+                                <IconButton onClick={() => this.props.logout()} >
+                                    <Icon className="exit_to_app">
+                                        exit_to_app
+                                    </Icon>
+                                </IconButton>
+                            </Tooltip>
                         </Grid>
                         <Grid item  xs={1}  lg={2}>
-                            <IconButton  to={"/settings"}>
-                                <Icon className="settings">
-                                    settings
-                                </Icon>
-                            </IconButton>
+                            <Tooltip id="tooltip-fab" title="Einstellungen">
+                                <Link to={"/settings"}>
+                                    <IconButton  to={"/settings"}>
+                                        <Icon className="settings">
+                                            settings
+                                        </Icon>
+                                    </IconButton>
+                                </Link>
+                            </Tooltip>
                         </Grid>
                     </Grid>
                 </Fragment>
