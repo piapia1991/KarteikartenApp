@@ -4,6 +4,7 @@ import './IndexCardComponent.js';
 import {IndexCardComponent} from "./IndexCardComponent";
 import {Button, Grid, Typography, Icon, Tooltip} from '@material-ui/core';
 import base from "../../../base";
+import './DashboardContentComponent.css';
 
 const uuidv4 = require('uuid/v4');
 
@@ -50,14 +51,14 @@ export class DashboardContentComponent extends Component {
                 <Grid container md={8}>
                     <Grid container role="main" lg={12}>
                         <Grid item xs={12} className={styles.header}>
-                            <Typography  variant="title" gutterBottom>
+                            <Typography  variant="title" gutterBottom className="marginTop-20">
                                 Ordner1 > Ordner2 > Bliblablub
                             </Typography>
                         </Grid>
                         <Grid item xs={12}>
-                            <Button color='secondary' variant="contained">Share</Button>
-                            <Button color='secondary' variant="contained">Export</Button>
-                            <Button color='secondary' variant="contained"> This week</Button>
+                            <Button color='secondary' variant="contained" className="marginRight-10">Share</Button>
+                            <Button color='secondary' variant="contained" className="marginRight-10">Export</Button>
+                            <Button color='secondary' variant="contained" className="marginRight-10"> This week</Button>
                         </Grid>
                         <Grid item xs={12}>
                             {Object.keys(this.state.cards).map((i) => (<IndexCardComponent title={i}/>))}

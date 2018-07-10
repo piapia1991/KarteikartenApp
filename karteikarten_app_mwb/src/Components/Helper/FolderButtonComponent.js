@@ -18,7 +18,6 @@ export class FolderButtonComponent extends Component {
             <ListItem onClick={() => this.props.changeCurrentfolder(this.props.folder)} button>
                 <ListItemIcon>
                     <Icon>folder_icon</Icon>
-
                 </ListItemIcon>
                 <ListItemText inset primary={this.props.folder.name}/>
                 <span  onClick={() => this.props.toggleOpenClose()}>{this.props.folder.childfolders && <MaterialIcon icon={this.icons[this.props.folderOpen]}/>}</span>

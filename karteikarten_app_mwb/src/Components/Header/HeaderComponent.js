@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
 import {LoginComponent} from './LoginComponent';
 import {AppBar, Toolbar, Typography, Grid} from '@material-ui/core'
-import {MaterialIcon} from "../Helper/MaterialIcon";
 import {createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
-import {NavLink} from 'react-router-dom';
 import {HeaderButtonComponent} from "./HeaderButtonComponent";
-
+import './HeaderComponent.css'
 const theme = createMuiTheme({
     palette: {
         primary: {
@@ -65,7 +63,7 @@ export class HeaderComponent extends Component {
                                 <HeaderButtonComponent link={'/learning'} title={'Lernen'} icon={'school'}/>
                             </Grid>
                             <Grid item lg={6} md  sm={4} classes='align-items-xs-center'>
-                                <Typography variant="title">
+                                <Typography variant="title" className="paddingTop-10">
                                     Karteikarten App
                                 </Typography>
                             </Grid>
