@@ -8,7 +8,9 @@ export class EditorComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            html: ''
+            card: {
+                html: ''
+            }
         };
     }
 
@@ -18,7 +20,7 @@ export class EditorComponent extends Component {
             this.cardsRef = base.syncState('users/' + this.props.uid + '/cards/' + cardId,
                 {
                     context: this,
-                    state: 'html'
+                    state: 'card'
                 }
             );
         }
@@ -32,14 +34,16 @@ export class EditorComponent extends Component {
         return (
             <div className="row">
                 <EditorSidebarComponent />
-                <EditorContentComponent save={this.save} cancel={this.cancel} html={this.state.html} />
+                <EditorContentComponent save={this.save} cancel={this.cancel} html={this.state.card.html || ''} />
             </div>
         );
     }
 
     save = html => {
         this.setState({
-            html: html
+            card: {
+                html: html
+            }
         });
     };
 

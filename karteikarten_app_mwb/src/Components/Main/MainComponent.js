@@ -12,16 +12,14 @@ export class MainComponent extends Component {
             <div className="container-fluid">
                 <Switch>
                     <Route exact path="/" render={(props) => <DashboardComponent {...props} uid={this.props.uid} />} />
+                    <Route path="/editing/:cardId" render={(props) => <EditorComponent {...props} uid={this.props.uid} />} />
                     <Route exact path="/editing" render={(props) => <DashboardComponent {...props} uid={this.props.uid} />} />
-                    <Route path="/editing/:folderId/:cardId" render={(props) => <EditorComponent {...props} uid={this.props.uid} />} />
-                    <Route path="/learning" render={(props) => <LearningComponent {...props} uid={this.props.uid} />} />
+                    <Route path="/learning" component={LearningComponent} />
                     <Route path="/settings" render={(props) => <SettingsComponent {...props} deleteUser={this.props.deleteUser} />} />
                     <Route component={NotFoundComponent} />
                 </Switch>
             </div>
         )
     };
-    // TODO: Bessere Alternative zum Durchreichen von Properties? (Settings) eventuell Redux Store??
-
 }
 

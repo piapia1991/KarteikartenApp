@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import React, { Component } from 'react';
 import './DashboardContentComponent.css';
 import './IndexCardComponent.js';
-import {IndexCardComponent} from "./IndexCardComponent";
+import { IndexCardComponent } from "./IndexCardComponent";
 import Button from '@material-ui/core/Button';
-import {MaterialIcon} from "../../Helper/MaterialIcon";
+import { MaterialIcon } from "../../Helper/MaterialIcon";
+import { withRouter } from 'react-router-dom';
 import base from "../../../base";
 
 const uuidv4 = require('uuid/v4');
@@ -13,7 +13,7 @@ export class DashboardContentComponent extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {cards: {}, currentfolder: this.props.currentfolder};
+        this.state = { cards: {} };
     }
 
     componentDidMount() {
@@ -32,8 +32,18 @@ export class DashboardContentComponent extends Component {
 
 
     render() {
-        let id = uuidv4();
-        let newCardRef = `/editing/${id}`;
+        const AddCardButton = withRouter(({ history }) => (
+            <Button
+                className="mb-5 highlightBackground" variant="fab" mini aria-label="add"
+                onClick={() => {
+                    let newCardId = uuidv4();
+                    let temp = this.props.currentfolder;
+                    history.push(`/editing/${newCardId}`);
+                }} >
+                <MaterialIcon icon={'add'} />
+            </Button>
+        ));
+
         return (
             <React.Fragment>
                 <main role="main" className="col-md-9 ml-sm-auto col-lg-10 px-4">
@@ -50,15 +60,11 @@ export class DashboardContentComponent extends Component {
                     </div>
 
                     <div className="d-flex flex-wrap">
-                        {Object.keys(this.state.cards).map((i) => (<IndexCardComponent title={i}/>))}
+                        {Object.keys(this.state.cards).map((i) => (<IndexCardComponent title={i} />))}
                     </div>
 
                     <div>
-                        <Link to={newCardRef}>
-                            <Button className="mb-5 highlightBackground" variant="fab" mini aria-label="add">
-                                <MaterialIcon icon={'add'}/>
-                            </Button>
-                        </Link>
+                        <AddCardButton />
                     </div>
                 </main>
 
