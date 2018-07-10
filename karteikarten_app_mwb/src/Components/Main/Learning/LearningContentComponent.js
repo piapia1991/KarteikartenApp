@@ -29,8 +29,7 @@ class LearningContentComponent extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {currentCardRef: undefined, currentCardKeyIndex: undefined};
-
+        this.state = {currentCardRef: undefined, currentCardKeyIndex: undefined, backPage: false};
     }
 
 
@@ -38,10 +37,14 @@ class LearningContentComponent extends Component {
         console.log('ref', this.props.currentCardRefs);
         let htmlContent = '';
         const {classes} = this.props;
-        if (this.props.cards[this.state.currentCardRef] !== undefined && this.props.cards[this.state.currentCardRef].html !== undefined) {
-            htmlContent = this.props.cards[this.state.currentCardRef].html
-        } else {
-            htmlContent = this.props.cards[this.state.currentCardRef];
+        console.log(this.state.currentCardRef);
+        if (this.props.cards[this.state.currentCardRef] !== undefined) {
+            if(this.state.backPage == false){
+                htmlContent = this.props.cards[this.state.currentCardRef].frontHtml
+            } else {
+                htmlContent = this.props.cards[this.state.currentCardRef].backHtml
+            }
+
         }
         return (
             <main role="main" className={" col-md-9 ml-sm-auto col-lg-10 px-4"}>
@@ -75,7 +78,7 @@ class LearningContentComponent extends Component {
                             </Button>
                         </Grid>
                         <Grid item xs={3} sm={1}>
-                            <Button variant="fab" aria-label="turnAround">
+                            <Button onClick={() => this.handlePageToggleButton()} variant="fab" aria-label="turnAround">
                                 <MaterialIcon icon={'replay'}/>
                             </Button>
                         </Grid>
@@ -104,6 +107,10 @@ class LearningContentComponent extends Component {
         });
     }
 
+    handlePageToggleButton(){
+        let togglePage = ! this.state.backPage;
+        this.setState({backPage: togglePage});
+    }
 
     handleRightButton() {
         console.log('Please save right answered Card', this.state.currentCardRef)
@@ -119,9 +126,9 @@ class LearningContentComponent extends Component {
         if (props.currentCardRefs.length > 0) {
             console.log('ja');
             let cardRef = props.currentCardRefs[0];
-            state = {currentCardRef: cardRef, currentCardKeyIndex: 0};
+            state = {currentCardRef: cardRef, currentCardKeyIndex: 0, backPage: false};
         } else {
-            state = {currentCardRef: undefined, currentCardKeyIndex: undefined};
+            state = {currentCardRef: undefined, currentCardKeyIndex: undefined, backPage: false};
         }
         return state;
     }

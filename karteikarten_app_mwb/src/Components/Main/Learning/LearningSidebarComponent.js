@@ -39,6 +39,7 @@ export class LearningSidebarComponent extends Component {
             this.toggleChildfolders(folder, false);
         } else {
             folder.checked = true;
+           //  folder.cards = ["55c6264d-c828-4594-8ec6-6e2271ee7f3d", "a14752f1-7687-42f8-83ce-aa8da2b05a50"];
             this.toggleChildfolders(folder, true);
         }
         this.props.updateFolder(folder, folderIndex)
