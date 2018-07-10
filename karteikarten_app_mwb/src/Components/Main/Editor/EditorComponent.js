@@ -9,7 +9,8 @@ export class EditorComponent extends Component {
         super(props);
         this.state = {
             card: {
-                html: ''
+                frontHtml: '',
+                backHtml: ''
             }
         };
     }
@@ -34,20 +35,17 @@ export class EditorComponent extends Component {
         return (
             <div className="row">
                 <EditorSidebarComponent />
-                <EditorContentComponent save={this.save} cancel={this.cancel} html={this.state.card.html || ''} />
+                <EditorContentComponent save={this.save} frontHtml={this.state.card.frontHtml || ''} backHtml={this.state.card.backHtml || ''} />
             </div>
         );
     }
 
-    save = html => {
+    save = (frontHtml, backHtml) => {
         this.setState({
             card: {
-                html: html
+                frontHtml: frontHtml,
+                backHtml: backHtml
             }
         });
     };
-
-    cancel = () => {
-        console.log("cancel");
-    }
 }
