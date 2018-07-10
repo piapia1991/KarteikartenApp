@@ -21,7 +21,7 @@ export class LearningSidebarComponent extends Component {
                                     index={key}
                                     folder={this.props.folders[key]}
                                     key={key}
-                                    currentFolderClick={this.changeFolderChecked}
+                                    currentFolderClick={this.toggleFolderChecked}
                                     withCheckboxes={true}
                                 />
                             ))
@@ -33,8 +33,25 @@ export class LearningSidebarComponent extends Component {
         )
     }
 
-    changeFolderChecked = (folder)=>{
-        console.log(folder);
+    toggleFolderChecked = (folder, folderIndex) => {
+        if (folder.checked !== undefined && folder.checked === true) {
+            folder.checked = false
+            this.toggleChildfolders(folder, false);
+        } else {
+            folder.checked = true;
+            this.toggleChildfolders(folder, true);
+        }
+        this.props.updateFolder(folder, folderIndex)
     }
+
+    toggleChildfolders = (folder, value) => {
+        if (folder.childfolders !== undefined) {
+            for (var childfolder in folder.childfolders) {
+                folder.childfolders[childfolder].checked = value;
+                this.toggleChildfolders(folder.childfolders[childfolder], value);
+            }
+        }
+    }
+
 
 }

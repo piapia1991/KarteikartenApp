@@ -33,12 +33,17 @@ export class LearningComponent extends Component {
     render() {
         let contentComponent = <div role="main"></div>;
         let sidebarComponent = <div></div>
-        if(this.state.cards !== undefined){
-            contentComponent = <LearningContentComponent cards={this.state.cards} uid={this.props.uid}/>;
+        let currentCards = [];
+
+        if (this.state.folders !== undefined) {
+            sidebarComponent = <LearningSidebarComponent folders={this.state.folders} updateFolder={this.updateFolder}/>
+            currentCards = this.searchCurrentCards(this.state.folders, currentCards);
+            if (this.state.cards !== undefined) {
+                contentComponent = <LearningContentComponent cards={this.state.cards} currentCardRefs={currentCards}
+                                                             uid={this.props.uid}/>;
+            }
         }
-        if(this.state.folders !== undefined){
-            sidebarComponent = <LearningSidebarComponent folders={this.state.folders}/>
-        }
+
         return (
             <div className="row">
                 {contentComponent}
@@ -46,5 +51,37 @@ export class LearningComponent extends Component {
             </div>
         )
     };
+
+    searchCurrentCards(folders, currentCards) {
+        for (var folderKey in folders) {
+            if (folders[folderKey].checked !== undefined && folders[folderKey].checked == true && folders[folderKey].cards !== undefined) {
+                currentCards = currentCards.concat(folders[folderKey].cards);
+            }
+            if (folders[folderKey].childfolders !== undefined) {
+                currentCards = this.searchCurrentCards(folders[folderKey].childfolders, currentCards);
+            }
+        }
+        return currentCards;
+    }
+
+
+    updateFolder = (folder, folderIndex) => {
+        const folders = {...this.state.folders};
+        this.changeTargetFolder(folder, folderIndex, folders);
+        this.setState({folders: folders});
+    }
+
+    changeTargetFolder = (changedFolder, folderIndex, folders) => {
+        if (folders !== undefined && folders[folderIndex] !== undefined) {
+            folders[folderIndex] = changedFolder;
+        } else {
+            for (var folder in folders) {
+                if (this.changeTargetFolder(changedFolder, folderIndex, folders[folder].childfolders)) {
+                    break;
+                }
+            }
+        }
+
+    }
 }
 

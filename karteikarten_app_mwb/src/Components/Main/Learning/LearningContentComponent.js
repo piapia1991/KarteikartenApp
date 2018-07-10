@@ -30,35 +30,36 @@ class LearningContentComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {currentCardRef: undefined, currentCardKeyIndex: undefined};
-        this.cardRefs = Object.keys(this.props.cards);
-    }
 
-    componentDidMount() {
-        let cardRef = this.cardRefs[0];
-        this.setState({currentCardRef: cardRef, currentCardKeyIndex: 0});
     }
 
 
     render() {
+        console.log('ref', this.props.currentCardRefs);
+        let htmlContent = '';
         const {classes} = this.props;
-        let htmlContent = this.props.cards[this.state.currentCardRef];
+        if (this.props.cards[this.state.currentCardRef] !== undefined && this.props.cards[this.state.currentCardRef].html !== undefined) {
+            htmlContent = this.props.cards[this.state.currentCardRef].html
+        } else {
+            htmlContent = this.props.cards[this.state.currentCardRef];
+        }
         return (
             <main role="main" className={" col-md-9 ml-sm-auto col-lg-10 px-4"}>
                 <Grid container className={classes.gridContainer} direction={'column'} justify={'space-between'}>
 
                     <Grid className={classes.cardContainer} container spacing={16}>
-                        <Grid item container direction={'column'} justify={'center'}  xs={3} sm={1}>
+                        <Grid item container direction={'column'} justify={'center'} xs={3} sm={1}>
 
-                                <IconButton onClick={() => this.goToCard(this.state.currentCardKeyIndex - 1)}
-                                            className={classes.button} aria-label="Back">
-                                    <MaterialIcon icon={'keyboard_arrow_left'}/>
-                                </IconButton>
+                            <IconButton onClick={() => this.goToCard(this.state.currentCardKeyIndex - 1)}
+                                        className={classes.button} aria-label="Back">
+                                <MaterialIcon icon={'keyboard_arrow_left'}/>
+                            </IconButton>
 
                         </Grid>
                         <Grid item xs={6} sm={10}>{this.state.currentCardRef}
                             {this.state.currentCardRef && <LearningCardComponent htmlContent={htmlContent}/>}
                         </Grid>
-                        <Grid item container direction={'column'} justify={'center'}  xs={3} sm={1}>
+                        <Grid item container direction={'column'} justify={'center'} xs={3} sm={1}>
                             <IconButton onClick={() => this.goToCard(this.state.currentCardKeyIndex + 1)}
                                         className={classes.button} aria-label="Back">
                                 <MaterialIcon icon={'keyboard_arrow_right'}/>
@@ -68,7 +69,8 @@ class LearningContentComponent extends Component {
 
                     <Grid container justify={'center'} spacing={32}>
                         <Grid item xs={3} sm={1}>
-                            <Button onClick={()=> this.handleFalseButton()} variant="fab" color="secondary" aria-label="false">
+                            <Button onClick={() => this.handleFalseButton()} variant="fab" color="secondary"
+                                    aria-label="false">
                                 <MaterialIcon icon={'clear'}/>
                             </Button>
                         </Grid>
@@ -78,7 +80,8 @@ class LearningContentComponent extends Component {
                             </Button>
                         </Grid>
                         <Grid item xs={3} sm={1}>
-                            <Button onClick={()=> this.handleRightButton()} variant="fab" color="primary" aria-label="right">
+                            <Button onClick={() => this.handleRightButton()} variant="fab" color="primary"
+                                    aria-label="right">
                                 <MaterialIcon icon={'done'}/>
                             </Button>
                         </Grid>
@@ -91,22 +94,36 @@ class LearningContentComponent extends Component {
     goToCard(goalCardIndex) {
         let possibleCardIndex;
         if (goalCardIndex < 0) {
-            possibleCardIndex = this.cardRefs.length + goalCardIndex;
+            possibleCardIndex = this.props.currentCardRefs.length + goalCardIndex;
         } else {
-            possibleCardIndex = goalCardIndex % this.cardRefs.length;
+            possibleCardIndex = goalCardIndex % this.props.currentCardRefs.length;
         }
-        this.setState({currentCardRef: this.cardRefs[possibleCardIndex], currentCardKeyIndex: possibleCardIndex});
+        this.setState({
+            currentCardRef: this.props.currentCardRefs[possibleCardIndex],
+            currentCardKeyIndex: possibleCardIndex
+        });
     }
 
 
-    handleRightButton(){
+    handleRightButton() {
         console.log('Please save right answered Card', this.state.currentCardRef)
-        this.goToCard(this.state.currentCardKeyIndex+1);
+        this.goToCard(this.state.currentCardKeyIndex + 1);
     }
 
-    handleFalseButton(){
+    handleFalseButton() {
         console.log('Please save false answered Card', this.state.currentCardRef)
-        this.goToCard(this.state.currentCardKeyIndex+1);
+        this.goToCard(this.state.currentCardKeyIndex + 1);
+    }
+
+    static getDerivedStateFromProps(props, state) {
+        if (props.currentCardRefs.length > 0) {
+            console.log('ja');
+            let cardRef = props.currentCardRefs[0];
+            state = {currentCardRef: cardRef, currentCardKeyIndex: 0};
+        } else {
+            state = {currentCardRef: undefined, currentCardKeyIndex: undefined};
+        }
+        return state;
     }
 
 
