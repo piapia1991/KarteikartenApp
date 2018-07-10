@@ -24,14 +24,20 @@ export class FolderComponent extends Component {
                     >
                         <FolderButtonComponent
                             folderOpen={this.state.folderOpen}
-                            changeCurrentfolder={this.props.changeCurrentfolder}
+                            currentFolderClick={this.props.currentFolderClick}
                             index={this.props.index}
                             toggleOpenClose={this.toggleOpenClose}
                             folder={this.props.folder}
+                            withCheckboxes={this.props.withCheckboxes}
                         />
                     </ContextMenuProvider>
                     {(this.state.folderOpen && this.props.folder.childfolders) &&
-                    <FolderContentComponent  changeCurrentfolder={this.props.changeCurrentfolder} folderOpen={this.state.folderOpen} childfolders={this.props.folder.childfolders}/>}
+                    <FolderContentComponent
+                        currentFolderClick={this.props.currentFolderClick}
+                        folderOpen={this.state.folderOpen}
+                        childfolders={this.props.folder.childfolders}
+                        withCheckboxes={this.props.withCheckboxes}
+                    />}
             </React.Fragment>
         )
     };

@@ -3,6 +3,7 @@ import {MaterialIcon} from "./MaterialIcon";
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import Checkbox from '@material-ui/core/Checkbox';
 
 export class FolderButtonComponent extends Component {
     icons = [];
@@ -17,7 +18,13 @@ export class FolderButtonComponent extends Component {
         let iconClass = '';
         //
         return (
-            <ListItem onClick={() => this.props.changeCurrentfolder(this.props.folder)} button>
+            <ListItem onClick={() => this.props.currentFolderClick(this.props.folder)} button>
+                {this.props.withCheckboxes &&
+                <Checkbox
+                    checked={true}
+                    tabIndex={-1}
+                    disableRipple
+                />}
                 <ListItemIcon>
                     <MaterialIcon className={iconClass} icon={"folder"}/>
                 </ListItemIcon>

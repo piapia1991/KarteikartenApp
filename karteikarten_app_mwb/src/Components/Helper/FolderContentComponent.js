@@ -11,7 +11,13 @@ export class FolderContentComponent extends Component {
         if(this.props.childfolders !== undefined) {
             Object.keys(this.props.childfolders).map(key => (
                     foldersList.push(
-                        <FolderComponent  changeCurrentfolder={this.props.changeCurrentfolder} folder={this.props.childfolders[key]} index={key} key={key}/>
+                        <FolderComponent
+                            currentFolderClick={this.props.currentFolderClick}
+                            folder={this.props.childfolders[key]}
+                            index={key}
+                            key={key}
+                            withCheckboxes={this.props.withCheckboxes}
+                        />
                     )
             ));
         }

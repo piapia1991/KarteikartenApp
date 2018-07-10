@@ -27,7 +27,6 @@ export class DashboardComponent extends Component {
 
     render() {
         return (
-
             <div className="row">
                 <DashboardSidebarComponent changeCurrentfolder={this.changeCurrentfolder} folders={this.state.folders} addFolder={this.addFolder}/>
                 <DashboardContentComponent currentfolder={this.state.currentfolder} uid={this.props.uid}/>

@@ -10,20 +10,23 @@ button {
     background-color: initial;
     color: #333333;
 }
-
+input:focus, button:focus{
+    outline:none !important;
+}
 button:hover, a:hover {
     color: limegreen;
     cursor: pointer;
     text-decoration: none;
 }
 
-.highlightColor{
+.highlightColor {
     color: limegreen;
 }
 
-.highlightBackground{
+.highlightBackground {
     background-color: limegreen;
 }
+
 .feather {
     width: 16px;
     height: 16px;
@@ -39,7 +42,7 @@ button:hover, a:hover {
     top: 0;
     bottom: 0;
     left: 0;
-  /*  z-index: 100; /* Behind the navbar */
+    /*  z-index: 100; /* Behind the navbar */
     padding: 48px 0 0; /* Height of navbar */
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
 }
@@ -89,7 +92,8 @@ button:hover, a:hover {
  */
 
 [role="main"] {
-    padding-top: 48px; /* Space for fixed navbar */
+    padding-top: 58px; /* Space for fixed navbar */
+    height: 100vh;
 }
 
 /*
