@@ -60,7 +60,7 @@ export class DashboardContentComponent extends Component {
                     </div>
 
                     <div className="d-flex flex-wrap">
-                        {Object.keys(this.state.cards).map((i) => (<IndexCardComponent title={i} />))}
+                        {Object.keys(this.state.cards).map((i) => (<IndexCardComponent title={this.state.cards[i].title} />))}
                     </div>
 
                     <div>

@@ -10,7 +10,8 @@ export class EditorComponent extends Component {
         this.state = {
             card: {
                 frontHtml: '',
-                backHtml: ''
+                backHtml: '',
+                title: ''
             }
         };
     }
@@ -35,16 +36,17 @@ export class EditorComponent extends Component {
         return (
             <div className="row">
                 <EditorSidebarComponent />
-                <EditorContentComponent save={this.save} frontHtml={this.state.card.frontHtml || ''} backHtml={this.state.card.backHtml || ''} />
+                <EditorContentComponent save={this.save} frontHtml={this.state.card.frontHtml || ''} backHtml={this.state.card.backHtml || ''} title={this.state.card.title || ''} />
             </div>
         );
     }
 
-    save = (frontHtml, backHtml) => {
+    save = (frontHtml, backHtml, title) => {
         this.setState({
             card: {
                 frontHtml: frontHtml,
-                backHtml: backHtml
+                backHtml: backHtml,
+                title: title
             }
         });
     };
