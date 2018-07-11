@@ -47,7 +47,7 @@ export class LearningComponent extends Component {
         }
 
         return (
-            <Grid container>
+            <Grid className={'main'} container>
                 {sidebarComponent}
                 {contentComponent}
             </Grid>

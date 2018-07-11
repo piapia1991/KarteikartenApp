@@ -34,7 +34,7 @@ export class EditorComponent extends Component {
 
     render() {
         return (
-            <Grid container>
+            <Grid className={'main'} container>
                 <EditorSidebarComponent />
                 <EditorContentComponent save={this.save} frontHtml={this.state.card.frontHtml || ''} backHtml={this.state.card.backHtml || ''} title={this.state.card.title || ''} />
             </Grid>

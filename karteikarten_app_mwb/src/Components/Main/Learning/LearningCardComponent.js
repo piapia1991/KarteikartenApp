@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Card from '@material-ui/core/Card';
+import {Card, Typography} from '@material-ui/core';
 import CardContent from '@material-ui/core/CardContent';
 import Parser from 'html-react-parser';
 
@@ -9,7 +9,9 @@ export class LearningCardComponent extends Component {
         return (
             <Card style={styles.card}>
                 <CardContent>
+                    <Typography component={'div'}>
                     {Parser(this.props.htmlContent)}
+                    </Typography>
                 </CardContent>
             </Card>
         );

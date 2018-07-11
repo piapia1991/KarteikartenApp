@@ -26,3 +26,32 @@ button:hover, a:hover {
 .highlightBackground {
     background-color: #005662;
 }
+
+.main{
+    padding-top: 69px;
+    height: 100vh;
+}
+
+.padding-15{
+    padding: 15px;
+}
+
+.paddingTop-10 {
+    padding-top: 10px;
+}
+
+.marginTop-3 {
+    margin-top: 7px;
+}
+
+.marginTop-5 {
+    margin-top: 7px;
+}
+
+.marginTop-7 {
+    margin-top: 7px;
+}
+
+.paddingLeft-15{
+    padding-left: 15px !important;
+}

@@ -9,20 +9,11 @@ import {withStyles} from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 
 
-//TODO:
-//
-//
-// Diese Styles werden scheinbar gerade nicht verwendet
+
 const styles = theme => ({
     root: {
-        width: '100%',
-        maxWidth: 360,
-        backgroundColor: theme.palette.background.paper,
-    },
-    nested: {
-        paddingLeft: theme.spacing.unit * 4,
-    },
-    padding: 10,
+        height: '100%'
+    }
 });
 
 class DashboardSidebarComponent extends Component {
@@ -33,16 +24,16 @@ class DashboardSidebarComponent extends Component {
             dialogMode: undefined,
             dialogTargetfolder: undefined
         };
-      //  const {classes} = this.props;
     };
 
     render() {
+        const {classes} = this.props;
         return (
             <Grid item md={3} lg={2}>
-                <Grid container>
-                    <Grid item xs={12}>
-                        <List component="nav" subheader={<ListSubheader component="div"> <Typography
-                            variant='subheading'>Folders</Typography></ListSubheader>}>
+                <Grid className={classes.root} direction={'column'} justify={'space-between'} container>
+                    <Grid item>
+                        <List component="nav" subheader={<ListSubheader className={'paddingTop-10'} component="div"> <Typography
+                            variant='title'>Ordner verwalten</Typography></ListSubheader>}>
                             {Object.keys(this.props.folders).map(key => (
                                 <FolderComponent
                                     index={key}
@@ -55,11 +46,11 @@ class DashboardSidebarComponent extends Component {
                             }
                         </List>
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid item>
                         <Grid container>
                             <Grid item sm={10}/>
 
-                            <Grid item sm={2}>
+                            <Grid item className={'padding-15'} sm={2}>
                                 <Tooltip id="tooltip-fab" title="Ordner Hinzufügen">
                                     <Button variant="fab" mini aria-label="add"
                                             onClick={() => this.handleClickDialogOpen('add')}>

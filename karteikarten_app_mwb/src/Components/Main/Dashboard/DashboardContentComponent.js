@@ -6,8 +6,17 @@ import { withRouter } from 'react-router-dom';
 import {Button, Grid, Typography, Icon, Tooltip} from '@material-ui/core';
 import base from "../../../base";
 import './DashboardContentComponent.css';
+import {withStyles} from "@material-ui/core/styles/index";
+import PropTypes from "prop-types";
 
 const uuidv4 = require('uuid/v4');
+
+const styles = theme =>({
+    root: {
+        height: '100%'
+    }
+});
+
 
 export class DashboardContentComponent extends Component {
 
@@ -38,6 +47,7 @@ export class DashboardContentComponent extends Component {
 
 
     render() {
+        const {classes} = this.props;
         const AddCardButton = withRouter(({ history }) => (
             <Tooltip id="tooltip-fab" title="Karte Hinzufügen">
                 <Button
@@ -61,25 +71,23 @@ export class DashboardContentComponent extends Component {
 
         return (
             <Grid item md={9} lg={10}>
-                <Grid container>
-                    <Grid item xs={12}>
-                        <Typography  variant="subheading" >
+                <Grid container direction={'column'} justify={'space-between'} className={classes.root}>
+                    <Grid item>
+                        <Typography className={'paddingTop-10'}  variant="title" >
                             Ordner1 > Ordner2 > Bliblablub
                         </Typography>
-                    </Grid>
 
-                    <Grid item xs={12}>
                         <Grid container>
                             {Object.keys(this.state.cards).map((i) => (<IndexCardComponent title={this.state.cards[i].title} cardId={i} key={i}/>))}
                         </Grid>
                     </Grid>
-                    <Grid item xs={12}>
-                        <div className="marginTop-20">
+                    <Grid item>
+                        <Grid container>
                             <Grid item xs={11}/>
-                            <Grid item xs={1}>
+                            <Grid item xs={1} className={'padding-15'}>
                                 <AddCardButton />
                             </Grid>
-                        </div>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Grid>
@@ -87,4 +95,10 @@ export class DashboardContentComponent extends Component {
         )
     };
 }
+
+DashboardContentComponent.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(DashboardContentComponent)
 

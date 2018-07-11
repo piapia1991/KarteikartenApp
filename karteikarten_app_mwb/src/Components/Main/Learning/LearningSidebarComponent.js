@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {FolderComponent} from "../../Helper/FolderComponent";
-import {Grid, List, ListSubheader} from '@material-ui/core';
+import {Grid, List, ListSubheader, Typography} from '@material-ui/core';
 
 
 export class LearningSidebarComponent extends Component {
@@ -9,11 +9,9 @@ export class LearningSidebarComponent extends Component {
     render() {
         return (
             <Grid item md={3} lg={2}>
-                <Grid container>
-                    <Grid item xs>
                         <List
                             component="nav"
-                            subheader={<ListSubheader component="div">Nested List Items</ListSubheader>}
+                            subheader={<ListSubheader className={'paddingTop-10'} component="div"> <Typography variant={'title'}>Lernen</Typography></ListSubheader>}
                         >
                             {Object.keys(this.props.folders).map(key => (
                                 <FolderComponent
@@ -26,8 +24,6 @@ export class LearningSidebarComponent extends Component {
                             ))
                             }
                         </List>
-                    </Grid>
-                </Grid>
             </Grid>
         )
     }

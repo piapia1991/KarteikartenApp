@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {DashboardContentComponent} from "./DashboardContentComponent";
+import DashboardContentComponent from "./DashboardContentComponent";
 import Grid from '@material-ui/core/Grid'
 import base from "../../../base";
 import PropTypes from "prop-types";
@@ -63,7 +63,7 @@ export class DashboardComponent extends Component {
              {title: "myBook8", id: 8, data: "myData8"}
          ];
         return (
-            <Grid container>
+            <Grid className={'main'} container>
                 <DashboardSidebarComponent
                     changeCurrentfolder={this.changeCurrentfolder}
                     folders={this.state.folders}

@@ -7,7 +7,7 @@ export class FolderContentComponent extends Component {
 
 
     render() {
-        var foldersList = [];
+        let foldersList = [];
         if(this.props.childfolders !== undefined) {
             Object.keys(this.props.childfolders).map(key => (
                     foldersList.push(
@@ -23,7 +23,7 @@ export class FolderContentComponent extends Component {
         }
         return (
             <Collapse in={this.props.folderOpen}  timeout="auto" unmountOnExit>
-                <List component="div" className="pl-2" disablePadding>
+                <List component="div" className="paddingLeft-15" >
                 {foldersList}
                 </List>
             </Collapse>

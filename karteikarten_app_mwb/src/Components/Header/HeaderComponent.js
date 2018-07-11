@@ -3,7 +3,6 @@ import {LoginComponent} from './LoginComponent';
 import {AppBar, Toolbar, Typography, Grid} from '@material-ui/core'
 import {createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import {HeaderButtonComponent} from "./HeaderButtonComponent";
-import './HeaderComponent.css'
 const theme = createMuiTheme({
     palette: {
         primary: {
@@ -53,7 +52,7 @@ export class HeaderComponent extends Component {
     render() {
         return (
             <MuiThemeProvider theme={theme}>
-                <AppBar position="static" className="Appbar" color="primary" >
+                <AppBar position="fixed" className="Appbar" color="primary" >
                     <Toolbar>
                         <Grid container>
                             <Grid item lg={2} md sm={4}>

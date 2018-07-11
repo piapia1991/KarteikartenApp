@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {LearningCardComponent} from "./LearningCardComponent";
-import {Grid, Button, IconButton, Icon} from '@material-ui/core';
+import {Grid, Button, IconButton, Icon, Typography} from '@material-ui/core';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 
@@ -18,9 +18,6 @@ const styles = theme => ({
     },
     cardContainer: {
         minHeight: '75%',
-    },
-    mainContainer:{
-        height: 'calc(100vh - 100px)'
     }
 });
 
@@ -34,11 +31,11 @@ class LearningContentComponent extends Component {
 
 
     render() {
-        console.log('ref', this.props.currentCardRefs);
+
         let htmlContent = '';
         let title = '';
         const {classes} = this.props;
-        console.log(this.state.currentCardRef);
+
         if (this.props.cards[this.state.currentCardRef] !== undefined) {
             if (this.state.backPage === false) {
                 htmlContent = this.props.cards[this.state.currentCardRef].frontHtml
@@ -54,7 +51,7 @@ class LearningContentComponent extends Component {
 
 
         return (
-                <Grid className={classes.mainContainer} item md={9} lg={10}>
+                <Grid item md={9} lg={10}>
                     <Grid container className={classes.gridContainer} direction={'column'} justify={'space-between'}>
                         <Grid className={classes.cardContainer} container >
                             <Grid item container direction={'column'} justify={'center'} alignItems={'center'} xs={3} sm={1}>
@@ -64,7 +61,7 @@ class LearningContentComponent extends Component {
                                 </IconButton>
                             </Grid>
                             <Grid item xs={6} sm={10}>
-                                {title}
+                                <Typography variant={'headline'}>{title} </Typography>
                                 {this.state.currentCardRef && <LearningCardComponent htmlContent={htmlContent}/>}
                             </Grid>
                             <Grid item container direction={'column'} alignItems={'center'} justify={'center'} xs={3} sm={1}>
