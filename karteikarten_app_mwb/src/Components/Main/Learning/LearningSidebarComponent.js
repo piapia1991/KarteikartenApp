@@ -9,6 +9,7 @@ export class LearningSidebarComponent extends Component {
     render() {
         return (
                 <Grid container md={3} lg={2}>
+                    <Grid item xs>
                         <List
                             component="nav"
                             subheader={<ListSubheader component="div">Nested List Items</ListSubheader>}
@@ -24,6 +25,7 @@ export class LearningSidebarComponent extends Component {
                             ))
                             }
                         </List>
+                    </Grid>
                 </Grid>
         )
     }

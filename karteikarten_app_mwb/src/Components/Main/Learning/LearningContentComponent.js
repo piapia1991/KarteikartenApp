@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {LearningCardComponent} from "./LearningCardComponent";
-import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
+import {Grid, Button, IconButton, Icon} from '@material-ui/core';
 import PropTypes from 'prop-types';
 import {MaterialIcon} from "../../Helper/MaterialIcon";
 import {withStyles} from '@material-ui/core/styles';
@@ -57,15 +55,12 @@ class LearningContentComponent extends Component {
         return (
             <Grid container md={9} lg={10}>
                 <Grid container className={classes.gridContainer} direction={'column'} justify={'space-between'}>
-
                     <Grid className={classes.cardContainer} container spacing={16}>
                         <Grid item container direction={'column'} justify={'center'} xs={3} sm={1}>
-
                             <IconButton onClick={() => this.goToCard(this.state.currentCardKeyIndex - 1)}
                                         className={classes.button} aria-label="Back">
-                                <MaterialIcon icon={'keyboard_arrow_left'}/>
+                                <Icon>keyboard_arrow_left_icon</Icon>
                             </IconButton>
-
                         </Grid>
                         <Grid item xs={6} sm={10}>
                             {title}
@@ -74,7 +69,7 @@ class LearningContentComponent extends Component {
                         <Grid item container direction={'column'} justify={'center'} xs={3} sm={1}>
                             <IconButton onClick={() => this.goToCard(this.state.currentCardKeyIndex + 1)}
                                         className={classes.button} aria-label="Back">
-                                <MaterialIcon icon={'keyboard_arrow_right'}/>
+                                <Icon>keyboard_arrow_right_icon</Icon>
                             </IconButton>
                         </Grid>
                     </Grid>
@@ -82,18 +77,18 @@ class LearningContentComponent extends Component {
                     <Grid container justify={'center'} spacing={32}>
                         <Grid item xs={3} sm={1}>
                             <Button onClick={() => this.handleFalseButton()} variant="fab" color="secondary">
-                                <MaterialIcon icon={'clear'}/>
+                                <Icon>clear_icon</Icon>
                             </Button>
                         </Grid>
                         <Grid item xs={3} sm={1}>
                             <Button onClick={() => this.handlePageToggleButton()} variant="fab" aria-label="turnAround">
-                                <MaterialIcon icon={'replay'}/>
+                                <Icon>replay_icon</Icon>
                             </Button>
                         </Grid>
                         <Grid item xs={3} sm={1}>
                             <Button onClick={() => this.handleRightButton()} variant="fab" color="primary"
                                     aria-label="right">
-                                <MaterialIcon icon={'done'}/>
+                                <Icon>done_icon</Icon>
                             </Button>
                         </Grid>
                     </Grid>
