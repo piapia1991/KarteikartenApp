@@ -37,7 +37,6 @@ export class DashboardContentComponent extends Component {
                 className="mb-5 highlightBackground" variant="fab" mini aria-label="add"
                 onClick={() => {
                     let newCardId = uuidv4();
-                    let temp = this.props.currentfolder;
                     history.push(`/editing/${newCardId}`);
                 }} >
                 <MaterialIcon icon={'add'} />
@@ -60,7 +59,7 @@ export class DashboardContentComponent extends Component {
                     </div>
 
                     <div className="d-flex flex-wrap">
-                        {Object.keys(this.state.cards).map((i) => (<IndexCardComponent title={this.state.cards[i].title} />))}
+                        {Object.keys(this.state.cards).map((i) => (<IndexCardComponent title={this.state.cards[i].title} cardId={i} key={i}/>))}
                     </div>
 
                     <div>
