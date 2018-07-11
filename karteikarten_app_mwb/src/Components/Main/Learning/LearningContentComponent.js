@@ -19,6 +19,9 @@ const styles = theme => ({
     },
     cardContainer: {
         minHeight: '75%',
+    },
+    mainContainer:{
+        height: 'calc(100vh - 100px)'
     }
 });
 
@@ -45,55 +48,55 @@ class LearningContentComponent extends Component {
             }
             if (this.props.cards[this.state.currentCardRef].title !== undefined) {
                 title = this.props.cards[this.state.currentCardRef].title
-            } else{
+            } else {
                 title = this.state.currentCardRef
             }
         }
 
 
-
         return (
-            <Grid container md={9} lg={10}>
-                <Grid container className={classes.gridContainer} direction={'column'} justify={'space-between'}>
-                    <Grid className={classes.cardContainer} container spacing={16}>
-                        <Grid item container direction={'column'} justify={'center'} xs={3} sm={1}>
-                            <IconButton onClick={() => this.goToCard(this.state.currentCardKeyIndex - 1)}
-                                        className={classes.button} aria-label="Back">
-                                <Icon>keyboard_arrow_left_icon</Icon>
-                            </IconButton>
+                <Grid className={classes.mainContainer} container md={9} lg={10}>
+                    <Grid container className={classes.gridContainer} direction={'column'} justify={'space-between'}>
+                        <Grid className={classes.cardContainer} container spacing={16}>
+                            <Grid item container direction={'column'} justify={'center'} alignItems={'center'} xs={3} sm={1}>
+                                <IconButton onClick={() => this.goToCard(this.state.currentCardKeyIndex - 1)}
+                                            className={classes.button} aria-label="Back">
+                                    <Icon>keyboard_arrow_left_icon</Icon>
+                                </IconButton>
+                            </Grid>
+                            <Grid item xs={6} sm={10}>
+                                {title}
+                                {this.state.currentCardRef && <LearningCardComponent htmlContent={htmlContent}/>}
+                            </Grid>
+                            <Grid item container direction={'column'} alignItems={'center'} justify={'center'} xs={3} sm={1}>
+                                <IconButton onClick={() => this.goToCard(this.state.currentCardKeyIndex + 1)}
+                                            className={classes.button} aria-label="Back">
+                                    <Icon>keyboard_arrow_right_icon</Icon>
+                                </IconButton>
+                            </Grid>
                         </Grid>
-                        <Grid item xs={6} sm={10}>
-                            {title}
-                            {this.state.currentCardRef && <LearningCardComponent htmlContent={htmlContent}/>}
-                        </Grid>
-                        <Grid item container direction={'column'} justify={'center'} xs={3} sm={1}>
-                            <IconButton onClick={() => this.goToCard(this.state.currentCardKeyIndex + 1)}
-                                        className={classes.button} aria-label="Back">
-                                <Icon>keyboard_arrow_right_icon</Icon>
-                            </IconButton>
-                        </Grid>
-                    </Grid>
 
-                    <Grid container justify={'center'} spacing={32}>
-                        <Grid item xs={3} sm={1}>
-                            <Button onClick={() => this.handleFalseButton()} variant="fab" color="secondary">
-                                <Icon>clear_icon</Icon>
-                            </Button>
-                        </Grid>
-                        <Grid item xs={3} sm={1}>
-                            <Button onClick={() => this.handlePageToggleButton()} variant="fab" aria-label="turnAround">
-                                <Icon>replay_icon</Icon>
-                            </Button>
-                        </Grid>
-                        <Grid item xs={3} sm={1}>
-                            <Button onClick={() => this.handleRightButton()} variant="fab" color="primary"
-                                    aria-label="right">
-                                <Icon>done_icon</Icon>
-                            </Button>
+                        <Grid container justify={'center'} spacing={32}>
+                            <Grid item xs={3} sm={1}>
+                                <Button onClick={() => this.handleFalseButton()} variant="fab" color="secondary">
+                                    <Icon>clear_icon</Icon>
+                                </Button>
+                            </Grid>
+                            <Grid item xs={3} sm={1}>
+                                <Button onClick={() => this.handlePageToggleButton()} variant="fab"
+                                        aria-label="turnAround">
+                                    <Icon>replay_icon</Icon>
+                                </Button>
+                            </Grid>
+                            <Grid item xs={3} sm={1}>
+                                <Button onClick={() => this.handleRightButton()} variant="fab" color="primary"
+                                        aria-label="right">
+                                    <Icon>done_icon</Icon>
+                                </Button>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </Grid>
-            </Grid>
         )
     };
 

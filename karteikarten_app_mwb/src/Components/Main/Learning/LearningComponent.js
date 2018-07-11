@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {LearningSidebarComponent} from "./LearningSidebarComponent";
 import LearningContentComponent from "./LearningContentComponent";
 import base from "../../../base";
+import {Grid} from '@material-ui/core';
 
 export class LearningComponent extends Component {
     constructor(props) {
@@ -45,10 +46,10 @@ export class LearningComponent extends Component {
         }
 
         return (
-            <div className="row">
-                {contentComponent}
+            <Grid container xs={12}>
                 {sidebarComponent}
-            </div>
+                {contentComponent}
+            </Grid>
         )
     };
 

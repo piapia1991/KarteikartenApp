@@ -120,11 +120,11 @@ class App extends Component {
                             />
                         </Grid>
                     </Grid>
-                    {<Grid container xs={12}>
+                    <Grid container xs={12}>
                         <Grid item xs>
                             {mainComponent}
                         </Grid>
-                    </Grid>}
+                    </Grid>
                 </MuiThemeProvider>
             </div>
         )
