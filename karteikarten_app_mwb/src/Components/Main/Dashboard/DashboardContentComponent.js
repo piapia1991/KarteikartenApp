@@ -49,13 +49,15 @@ export class DashboardContentComponent extends Component {
         let newCardRef = `/editing/${id}`;
         return (
             <div class="marginTop-20">
-                <Grid container md={8}>
+                <Grid container lg={9} md={8}>
                     <Grid container role="main" lg={12}>
                         <Grid item xs={12} className={styles.header}>
                             <Typography  variant="title" gutterBottom className="marginTop-20">
                                 Ordner1 > Ordner2 > Bliblablub
                             </Typography>
                         </Grid>
+                    </Grid>
+                    <Grid container role="main" lg={12}>
                         <Grid item xs={12}>
                             <Button color='secondary' variant="contained" className="marginRight-10">Share</Button>
                             <Button color='secondary' variant="contained" className="marginRight-10">Export</Button>
@@ -65,7 +67,7 @@ export class DashboardContentComponent extends Component {
                             {Object.keys(this.state.cards).map((i) => (<IndexCardComponent title={i}/>))}
                         </Grid>
                     </Grid>
-                    <Grid container md={12}>
+                    <Grid container xs={12}>
                         <div className="marginTop-20">
                             <Grid item xs={1}>
                                 <Tooltip id="tooltip-fab" title="Karte Hinzufügen">

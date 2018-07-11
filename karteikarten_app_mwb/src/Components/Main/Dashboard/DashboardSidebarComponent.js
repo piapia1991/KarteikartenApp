@@ -30,7 +30,7 @@ export class DashboardSidebarComponent extends Component {
 
     render() {
         return (
-            <Grid container lg={3}>
+            <Grid container lg={3} md={4}>
                 <div id="sidebar" className="sidebar">
                     <Grid container xs={12}>
                         <div className="marginTop-20">
