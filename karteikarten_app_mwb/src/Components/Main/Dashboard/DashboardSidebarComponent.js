@@ -40,7 +40,9 @@ export class DashboardSidebarComponent extends Component {
                                         index={key}
                                         folder={this.props.folders[key]}
                                         key={key}
-                                        changeCurrentfolder={this.props.changeCurrentfolder}/>
+                                        currentFolderClick={this.props.changeCurrentfolder}
+                                        withCheckboxes={false}
+                                    />
                                 ))
                                 }
                             </List>

@@ -1,8 +1,12 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import './DashboardContentComponent.css';
 import './IndexCardComponent.js';
 import {IndexCardComponent} from "./IndexCardComponent";
-import {Button, Grid, Typography, Icon, Tooltip} from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import {MaterialIcon} from "../../Helper/MaterialIcon";
+import { withRouter } from 'react-router-dom';
+import {Button, Grid, Typography, Icon, Tooltip}
 import base from "../../../base";
 import './DashboardContentComponent.css';
 
@@ -45,8 +49,18 @@ export class DashboardContentComponent extends Component {
 
 
     render() {
-        let id = uuidv4();
-        let newCardRef = `/editing/${id}`;
+        const AddCardButton = withRouter(({ history }) => (
+            <Button
+                className="mb-5 highlightBackground" variant="fab" mini aria-label="add"
+                onClick={() => {
+                    let newCardId = uuidv4();
+                    let temp = this.props.currentfolder;
+                    history.push(`/editing/${newCardId}`);
+                }} >
+                <MaterialIcon icon={'add'} />
+            </Button>
+        ));
+
         return (
             <div class="marginTop-20">
                 <Grid container lg={9} md={8}>
@@ -74,6 +88,7 @@ export class DashboardContentComponent extends Component {
                                     <Button className="mb-5 highlightBackground" variant="fab" mini aria-label="add" to={newCardRef}>
                                         <Icon>add_icon</Icon>
                                     </Button>
+                                    <AddCardButton />
                                 </Tooltip>
                             </Grid>
                             <Grid item xs={11}/>
