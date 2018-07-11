@@ -13,17 +13,17 @@ input:focus, button:focus{
     outline:none !important;
 }
 button:hover, a:hover {
-    color: limegreen;
+    color: #005662;
     cursor: pointer;
     text-decoration: none;
 }
 
 .highlightColor {
-    color: limegreen;
+    color: #005662;
 }
 
 .highlightBackground {
-    background-color: limegreen;
+    background-color: #005662;
 }
 .feather {
     width: 16px;

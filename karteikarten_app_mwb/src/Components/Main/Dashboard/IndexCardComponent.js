@@ -15,35 +15,37 @@ export class IndexCardComponent extends Component {
 
     render() {
         const WithRouter = withRouter(({ history }) => (
-            <Card className={styles.card}>
-                <CardMedia classes={styles.media}
-                    image="https://www.buero-bedarf-thueringen.de/1336110-thickbox_default/karteikarten-a6-liniert-ws-100st.jpg"
-                    title="test" />
-                <CardContent>
-                    <Typography gutterBottom variant="body2">{this.props.title}</Typography>
-                </CardContent>
+            <Grid item sm={12} md={6} lg={4} className="marginRight-10">
+                <Card className={styles.card}>
+                    <CardMedia classes={styles.media}
+                        image="https://www.buero-bedarf-thueringen.de/1336110-thickbox_default/karteikarten-a6-liniert-ws-100st.jpg"
+                        title="test" />
+                    <CardContent>
+                        <Typography gutterBottom variant="body2">{this.props.title}</Typography>
+                    </CardContent>
 
-                <CardActions>
-                    <Grid container spacing={24}>
-                        <Grid item xs={8} />
-                        <Grid item xs={2}>
-                            <Tooltip id="tooltip-fab" title="Bearbeiten">
-                                <Button variant="fab" mini color="secondary" aria-label="add" onClick={() => history.push(`/editing/${this.props.cardId}`)} >
-                                    <Icon>edit_icon</Icon>
-                                </Button>
-                            </Tooltip>
-                        </Grid>
-                        <Grid item xs={2}>
+                    <CardActions>
+                        <Grid container spacing={14}>
+                            <Grid item xs={8} />
+                            <Grid item xs={2}>
+                                <Tooltip id="tooltip-fab" title="Bearbeiten">
+                                    <Button variant="fab" mini color="secondary" aria-label="add" onClick={() => history.push(`/editing/${this.props.cardId}`)} >
+                                        <Icon>edit_icon</Icon>
+                                    </Button>
+                                </Tooltip>
+                            </Grid>
+                            <Grid item xs={2}>
 
-                            <Tooltip id="tooltip-fab" title="Teilen">
-                                <Button variant="fab" mini color="primary" aria-label="share">
-                                    <Icon>share_icon</Icon>
-                                </Button>
-                            </Tooltip>
+                                <Tooltip id="tooltip-fab" title="Teilen">
+                                    <Button variant="fab" mini color="primary" aria-label="share">
+                                        <Icon>share_icon</Icon>
+                                    </Button>
+                                </Tooltip>
+                            </Grid>
                         </Grid>
-                    </Grid>
-                </CardActions>
-            </Card>
+                    </CardActions>
+                </Card>
+            </Grid>
         ));
         return <WithRouter /> ;
     }

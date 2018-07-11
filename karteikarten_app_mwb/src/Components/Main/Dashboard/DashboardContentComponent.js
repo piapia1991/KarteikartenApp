@@ -10,20 +10,6 @@ import './DashboardContentComponent.css';
 
 const uuidv4 = require('uuid/v4');
 
-const styles = theme => ({
-    root: {
-        flexGrow: 1,
-    },
-    paper: {
-        padding: theme.spacing.unit * 2,
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-    },
-    header: {
-        paddingTop: 300,
-    },
-});
-
 export class DashboardContentComponent extends Component {
 
     constructor(props) {
@@ -48,43 +34,37 @@ export class DashboardContentComponent extends Component {
 
     render() {
         const AddCardButton = withRouter(({ history }) => (
-            <Button
-                className="mb-5 highlightBackground" variant="fab" mini aria-label="add"
-                onClick={() => {
-                    let newCardId = uuidv4();
-                    history.push(`/editing/${newCardId}`);
-                }} >
-                <MaterialIcon icon={'add'} />
-            </Button>
+            <Tooltip id="tooltip-fab" title="Karte Hinzufügen">
+                <Button
+                    className="mb-5 highlightBackground" variant="fab" mini aria-label="add"
+                    onClick={() => {
+                        let newCardId = uuidv4();
+                        history.push(`/editing/${newCardId}`);
+                    }} >
+                    <Icon>add_icon</Icon>
+                </Button>
+            </Tooltip>
         ));
 
         return (
                 <Grid container lg={9} md={8}>
-                    <Grid container role="main" lg={12}>
-                        <Grid item xs={12} className={styles.header}>
-                            <Typography  variant="title" gutterBottom className="marginTop-20">
-                                Ordner1 > Ordner2 > Bliblablub
-                            </Typography>
-                        </Grid>
+                    <Grid item xs={12}>
+                        <Typography  variant="subheading" >
+                            Ordner1 > Ordner2 > Bliblablub
+                        </Typography>
                     </Grid>
-                    <Grid container role="main" lg={12}>
-                        <Grid item xs={12}>
-                            <Button color='secondary' variant="contained" className="marginRight-10">Share</Button>
-                            <Button color='secondary' variant="contained" className="marginRight-10">Export</Button>
-                            <Button color='secondary' variant="contained" className="marginRight-10"> This week</Button>
-                        </Grid>
-                        <Grid item xs={12}>
+
+                    <Grid container xs={12}>
+                        <Grid container xs={12}>
                             {Object.keys(this.state.cards).map((i) => (<IndexCardComponent title={this.state.cards[i].title} cardId={i} key={i}/>))}
                         </Grid>
                     </Grid>
                     <Grid container xs={12}>
                         <div className="marginTop-20">
-                            <Grid item xs={1}>
-                                <Tooltip id="tooltip-fab" title="Karte Hinzufügen">
-                                    <AddCardButton />
-                                </Tooltip>
-                            </Grid>
                             <Grid item xs={11}/>
+                            <Grid item xs={1}>
+                                <AddCardButton />
+                            </Grid>
                         </div>
                     </Grid>
                 </Grid>

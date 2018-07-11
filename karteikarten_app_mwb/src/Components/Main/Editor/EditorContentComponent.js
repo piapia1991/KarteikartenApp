@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import QuillComponent from './QuillComponent';
-import {Button, TextField, Grid} from '@material-ui/core';
+import {Button, TextField, Grid, Typography, Icon} from '@material-ui/core';
 import { MaterialIcon } from "../../Helper/MaterialIcon";
 
 export class EditorContentComponent extends Component {
@@ -50,14 +50,7 @@ export class EditorContentComponent extends Component {
                             fullWidth
                         />
                     </div>
-                    <div><p>{page}</p></div>
-                    <div className="btn-toolbar mb-2 mb-md-0">
-                        <div className="btn-group mr-2">
-                            <button className="btn btn-sm btn-outline-secondary">???</button>
-                            <button className="btn btn-sm btn-outline-secondary">???</button>
-                            <button className="btn btn-sm btn-outline-secondary dropdown-toggle">???</button>
-                        </div>
-                    </div>
+                    <div><Typography variant="display1">{page}</Typography></div>
                 </Grid>
 
                 <Grid item xs={12}>
@@ -65,17 +58,17 @@ export class EditorContentComponent extends Component {
                 </Grid>
 
                 <Grid id="buttonRow" item xs={12}>
-                    <Button className="m-4 highlightBackground" variant="fab" mini aria-label="turn"
+                    <Button className="marginRight-10" variant="fab" mini aria-label="turn"
                         onClick={() => this.turn()}>
-                        <MaterialIcon icon={'turn'} />
+                        {page === "Vorderseite" ? <Icon>flip_to_back_icon</Icon>:<Icon>flip_to_front_icon</Icon>}
                     </Button>
-                    <Button className="m-4 highlightBackground" variant="fab" mini aria-label="save"
+                    <Button className="marginRight-10" variant="fab" mini aria-label="save"
                         onClick={() => this.save()}>
-                        <MaterialIcon icon={'save'} />
+                        <Icon>save_icon</Icon>
                     </Button>
-                    <Button className="m-4 highlightBackground" variant="fab" mini aria-label="cancel"
+                    <Button className="marginRight-10" variant="fab" mini aria-label="cancel"
                         onClick={() => this.cancel()}>
-                        <MaterialIcon icon={'cancel'} />
+                        <Icon>cancel_icon</Icon>
                     </Button>
                 </Grid>
             </Grid>
