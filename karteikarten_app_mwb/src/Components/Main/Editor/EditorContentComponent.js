@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import QuillComponent from './QuillComponent';
-import Button from '@material-ui/core/Button';
+import {Button, TextField, Grid} from '@material-ui/core';
 import { MaterialIcon } from "../../Helper/MaterialIcon";
-import TextField from '@material-ui/core/TextField';
 
 export class EditorContentComponent extends Component {
 
@@ -40,9 +39,8 @@ export class EditorContentComponent extends Component {
         let html = this.state.front ? this.state.frontHtml : this.state.backHtml;
         let page = this.state.front ? "Vorderseite" : "Rückseite";
         return (
-            <main role="main" className="col-md-9 ml-sm-auto col-lg-10 px-4">
-                <div
-                    className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 border-bottom">
+            <Grid container md={9} lg={10}>
+                <Grid item xs={12}>
                     <div>
                         <TextField
                             label="Name"
@@ -60,13 +58,13 @@ export class EditorContentComponent extends Component {
                             <button className="btn btn-sm btn-outline-secondary dropdown-toggle">???</button>
                         </div>
                     </div>
-                </div>
+                </Grid>
 
-                <div>
+                <Grid item xs={12}>
                     <QuillComponent html={html} onChange={this.onChange} />
-                </div>
+                </Grid>
 
-                <div id="buttonRow" className="row d-flex flex-row-reverse">
+                <Grid id="buttonRow" item xs={12}>
                     <Button className="m-4 highlightBackground" variant="fab" mini aria-label="turn"
                         onClick={() => this.turn()}>
                         <MaterialIcon icon={'turn'} />
@@ -79,8 +77,8 @@ export class EditorContentComponent extends Component {
                         onClick={() => this.cancel()}>
                         <MaterialIcon icon={'cancel'} />
                     </Button>
-                </div>
-            </main>
+                </Grid>
+            </Grid>
         );
     }
 

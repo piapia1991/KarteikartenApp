@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { EditorSidebarComponent } from './EditorSidebarComponent';
 import { EditorContentComponent } from './EditorContentComponent';
 import base from "../../../base";
-
+import {Grid} from '@material-ui/core';
 export class EditorComponent extends Component {
 
     constructor(props) {
@@ -34,10 +34,10 @@ export class EditorComponent extends Component {
 
     render() {
         return (
-            <div className="row">
+            <Grid container>
                 <EditorSidebarComponent />
                 <EditorContentComponent save={this.save} frontHtml={this.state.card.frontHtml || ''} backHtml={this.state.card.backHtml || ''} title={this.state.card.title || ''} />
-            </div>
+            </Grid>
         );
     }
 

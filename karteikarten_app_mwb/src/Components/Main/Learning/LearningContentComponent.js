@@ -47,7 +47,7 @@ class LearningContentComponent extends Component {
 
         }
         return (
-            <main role="main" className={" col-md-9 ml-sm-auto col-lg-10 px-4"}>
+            <Grid container md={9} lg={10}>
                 <Grid container className={classes.gridContainer} direction={'column'} justify={'space-between'}>
 
                     <Grid className={classes.cardContainer} container spacing={16}>
@@ -90,7 +90,7 @@ class LearningContentComponent extends Component {
                         </Grid>
                     </Grid>
                 </Grid>
-            </main>
+            </Grid>
         )
     };
 

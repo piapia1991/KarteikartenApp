@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
-
+import {Grid} from '@material-ui/core';
 export class EditorSidebarComponent extends Component {
     render() {
         return (
-            <nav className="col-md-2 d-none d-md-block sidebar">
-                <div className="sidebar-sticky py-3">
+            <Grid container lg={2} md={3}>
+                <Grid item xs>
                     Sidebar
-                </div>
-            </nav>
+                </Grid>
+            </Grid>
         )
     };
 }
