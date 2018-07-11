@@ -36,16 +36,24 @@ class LearningContentComponent extends Component {
     render() {
         console.log('ref', this.props.currentCardRefs);
         let htmlContent = '';
+        let title = '';
         const {classes} = this.props;
         console.log(this.state.currentCardRef);
         if (this.props.cards[this.state.currentCardRef] !== undefined) {
-            if(this.state.backPage == false){
+            if (this.state.backPage === false) {
                 htmlContent = this.props.cards[this.state.currentCardRef].frontHtml
             } else {
                 htmlContent = this.props.cards[this.state.currentCardRef].backHtml
             }
-
+            if (this.props.cards[this.state.currentCardRef].title !== undefined) {
+                title = this.props.cards[this.state.currentCardRef].title
+            } else{
+                title = this.state.currentCardRef
+            }
         }
+
+
+
         return (
             <main role="main" className={" col-md-9 ml-sm-auto col-lg-10 px-4"}>
                 <Grid container className={classes.gridContainer} direction={'column'} justify={'space-between'}>
@@ -59,7 +67,8 @@ class LearningContentComponent extends Component {
                             </IconButton>
 
                         </Grid>
-                        <Grid item xs={6} sm={10}>{this.state.currentCardRef}
+                        <Grid item xs={6} sm={10}>
+                            {title}
                             {this.state.currentCardRef && <LearningCardComponent htmlContent={htmlContent}/>}
                         </Grid>
                         <Grid item container direction={'column'} justify={'center'} xs={3} sm={1}>
@@ -72,8 +81,7 @@ class LearningContentComponent extends Component {
 
                     <Grid container justify={'center'} spacing={32}>
                         <Grid item xs={3} sm={1}>
-                            <Button onClick={() => this.handleFalseButton()} variant="fab" color="secondary"
-                                    aria-label="false">
+                            <Button onClick={() => this.handleFalseButton()} variant="fab" color="secondary">
                                 <MaterialIcon icon={'clear'}/>
                             </Button>
                         </Grid>
@@ -103,12 +111,13 @@ class LearningContentComponent extends Component {
         }
         this.setState({
             currentCardRef: this.props.currentCardRefs[possibleCardIndex],
-            currentCardKeyIndex: possibleCardIndex
+            currentCardKeyIndex: possibleCardIndex,
+            backPage: false
         });
     }
 
-    handlePageToggleButton(){
-        let togglePage = ! this.state.backPage;
+    handlePageToggleButton() {
+        let togglePage = !this.state.backPage;
         this.setState({backPage: togglePage});
     }
 
