@@ -8,7 +8,8 @@ export class LearningSidebarComponent extends Component {
 
     render() {
         return (
-                <Grid container md={3} lg={2}>
+            <Grid item md={3} lg={2}>
+                <Grid container>
                     <Grid item xs>
                         <List
                             component="nav"
@@ -27,12 +28,13 @@ export class LearningSidebarComponent extends Component {
                         </List>
                     </Grid>
                 </Grid>
+            </Grid>
         )
     }
 
     toggleFolderChecked = (folder, folderIndex) => {
         if (folder.checked !== undefined && folder.checked === true) {
-            folder.checked = false
+            folder.checked = false;
             this.toggleChildfolders(folder, false);
         } else {
             folder.checked = true;
@@ -40,11 +42,11 @@ export class LearningSidebarComponent extends Component {
             this.toggleChildfolders(folder, true);
         }
         this.props.updateFolder(folder, folderIndex)
-    }
+    };
 
     toggleChildfolders = (folder, value) => {
         if (folder.childfolders !== undefined) {
-            for (var childfolder in folder.childfolders) {
+            for (let childfolder in folder.childfolders) {
                 folder.childfolders[childfolder].checked = value;
                 this.toggleChildfolders(folder.childfolders[childfolder], value);
             }

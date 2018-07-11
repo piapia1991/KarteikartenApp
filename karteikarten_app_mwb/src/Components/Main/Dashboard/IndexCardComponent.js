@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Card, CardMedia, CardContent, Typography, Button, CardActions, Icon, Tooltip, Grid } from '@material-ui/core';
+import PropTypes from "prop-types";
+import {withStyles} from "@material-ui/core/styles";
 
-const styles = {
+const styles = () =>({
     card: {
         maxWidth: 345,
     },
@@ -10,14 +12,16 @@ const styles = {
         height: 0,
         paddingTop: '56.25%', // 16:9
     },
-};
-export class IndexCardComponent extends Component {
+});
+
+class IndexCardComponent extends Component {
 
     render() {
+        const {classes} = this.props;
         const WithRouter = withRouter(({ history }) => (
             <Grid item sm={12} md={6} lg={4} className="marginRight-10">
-                <Card className={styles.card}>
-                    <CardMedia classes={styles.media}
+                <Card className={classes.card}>
+                    <CardMedia className={classes.media}
                         image="https://www.buero-bedarf-thueringen.de/1336110-thickbox_default/karteikarten-a6-liniert-ws-100st.jpg"
                         title="test" />
                     <CardContent>
@@ -25,7 +29,7 @@ export class IndexCardComponent extends Component {
                     </CardContent>
 
                     <CardActions>
-                        <Grid container spacing={14}>
+                        <Grid container spacing={16}>
                             <Grid item xs={8} />
                             <Grid item xs={2}>
                                 <Tooltip id="tooltip-fab" title="Bearbeiten">
@@ -50,3 +54,8 @@ export class IndexCardComponent extends Component {
         return <WithRouter /> ;
     }
 }
+IndexCardComponent.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(IndexCardComponent)

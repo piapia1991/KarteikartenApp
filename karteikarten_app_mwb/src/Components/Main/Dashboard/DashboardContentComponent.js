@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './DashboardContentComponent.css';
 import './IndexCardComponent.js';
-import {IndexCardComponent} from "./IndexCardComponent";
-import {MaterialIcon} from "../../Helper/MaterialIcon";
+import IndexCardComponent from "./IndexCardComponent";
 import { withRouter } from 'react-router-dom';
 import {Button, Grid, Typography, Icon, Tooltip} from '@material-ui/core';
 import base from "../../../base";
@@ -61,19 +60,20 @@ export class DashboardContentComponent extends Component {
         ));
 
         return (
-                <Grid container lg={9} md={8}>
+            <Grid item md={9} lg={10}>
+                <Grid container>
                     <Grid item xs={12}>
                         <Typography  variant="subheading" >
                             Ordner1 > Ordner2 > Bliblablub
                         </Typography>
                     </Grid>
 
-                    <Grid container xs={12}>
-                        <Grid container xs={12}>
+                    <Grid item xs={12}>
+                        <Grid container>
                             {Object.keys(this.state.cards).map((i) => (<IndexCardComponent title={this.state.cards[i].title} cardId={i} key={i}/>))}
                         </Grid>
                     </Grid>
-                    <Grid container xs={12}>
+                    <Grid item xs={12}>
                         <div className="marginTop-20">
                             <Grid item xs={11}/>
                             <Grid item xs={1}>
@@ -82,6 +82,7 @@ export class DashboardContentComponent extends Component {
                         </div>
                     </Grid>
                 </Grid>
+            </Grid>
 
         )
     };

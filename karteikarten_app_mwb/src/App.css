@@ -1,0 +1,28 @@
+/*@import url(../node_modules/bootstrap/dist/css/bootstrap.min.css);*/
+@import url("~material-design-icons/iconfont/material-icons.css");
+body, a {
+    font-size: .875rem;
+    color: #333333;
+    margin: 0;
+}
+
+button {
+    background-color: initial;
+    color: #333333;
+}
+input:focus, button:focus{
+    outline:none !important;
+}
+button:hover, a:hover {
+    color: #005662;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.highlightColor {
+    color: #005662;
+}
+
+.highlightBackground {
+    background-color: #005662;
+}

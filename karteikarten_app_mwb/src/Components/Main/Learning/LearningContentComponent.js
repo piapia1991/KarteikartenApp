@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {LearningCardComponent} from "./LearningCardComponent";
 import {Grid, Button, IconButton, Icon} from '@material-ui/core';
 import PropTypes from 'prop-types';
-import {MaterialIcon} from "../../Helper/MaterialIcon";
 import {withStyles} from '@material-ui/core/styles';
 
 const styles = theme => ({
@@ -55,9 +54,9 @@ class LearningContentComponent extends Component {
 
 
         return (
-                <Grid className={classes.mainContainer} container md={9} lg={10}>
+                <Grid className={classes.mainContainer} item md={9} lg={10}>
                     <Grid container className={classes.gridContainer} direction={'column'} justify={'space-between'}>
-                        <Grid className={classes.cardContainer} container spacing={16}>
+                        <Grid className={classes.cardContainer} container >
                             <Grid item container direction={'column'} justify={'center'} alignItems={'center'} xs={3} sm={1}>
                                 <IconButton onClick={() => this.goToCard(this.state.currentCardKeyIndex - 1)}
                                             className={classes.button} aria-label="Back">
@@ -76,7 +75,7 @@ class LearningContentComponent extends Component {
                             </Grid>
                         </Grid>
 
-                        <Grid container justify={'center'} spacing={32}>
+                        <Grid container justify={'center'} >
                             <Grid item xs={3} sm={1}>
                                 <Button onClick={() => this.handleFalseButton()} variant="fab" color="secondary">
                                     <Icon>clear_icon</Icon>
@@ -120,12 +119,12 @@ class LearningContentComponent extends Component {
     }
 
     handleRightButton() {
-        console.log('Please save right answered Card', this.state.currentCardRef)
+        console.log('Please save right answered Card', this.state.currentCardRef);
         this.goToCard(this.state.currentCardKeyIndex + 1);
     }
 
     handleFalseButton() {
-        console.log('Please save false answered Card', this.state.currentCardRef)
+        console.log('Please save false answered Card', this.state.currentCardRef);
         this.goToCard(this.state.currentCardKeyIndex + 1);
     }
 

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import QuillComponent from './QuillComponent';
 import {Button, TextField, Grid, Typography, Icon} from '@material-ui/core';
-import { MaterialIcon } from "../../Helper/MaterialIcon";
 
 export class EditorContentComponent extends Component {
 

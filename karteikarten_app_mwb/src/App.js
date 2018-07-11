@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import {HeaderComponent} from "./Components/Header/HeaderComponent";
 import {MainComponent} from "./Components/Main/MainComponent";
-import {Grid, MuiThemeProvider} from '@material-ui/core';
+import {MuiThemeProvider} from '@material-ui/core';
 
 import base, {firebaseApp} from './base';
 import firebase from "firebase/app";
@@ -103,7 +103,7 @@ class App extends Component {
 
 
     render() {
-        var mainComponent = <div></div>;
+        let mainComponent = <div/>;
         if(this.state.login !== undefined && this.state.login !== null){
             mainComponent = <MainComponent uid={this.state.login.uid} deleteUser={this.deleteUser}/>;
         }
@@ -111,20 +111,15 @@ class App extends Component {
         return (
             <div className="App">
                 <MuiThemeProvider theme={theme}>
-                    <Grid container xs={12}>
-                        <Grid item xs>
                             <HeaderComponent
                                 login={this.state.login}
                                 authenticate={this.authenticate}
                                 logout={this.logout}
                             />
-                        </Grid>
-                    </Grid>
-                    <Grid container xs={12}>
-                        <Grid item xs>
+
+
                             {mainComponent}
-                        </Grid>
-                    </Grid>
+
                 </MuiThemeProvider>
             </div>
         )

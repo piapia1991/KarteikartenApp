@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {MaterialIcon} from "./MaterialIcon";
 import {ListItem, ListItemIcon, ListItemText, Icon, Checkbox} from '@material-ui/core'
 
 export class FolderButtonComponent extends Component {
@@ -17,7 +16,7 @@ export class FolderButtonComponent extends Component {
             checked = this.props.folder.checked;
         }
         return (
-            <ListItem onClick={(e) => this.handleOnClick(e) } button>
+            <ListItem onClick={(e) => this.handleOnClick(e)} button>
                 {this.props.withCheckboxes &&
                 <Checkbox
                     checked={checked}
@@ -28,14 +27,17 @@ export class FolderButtonComponent extends Component {
                     <Icon>folder_icon</Icon>
                 </ListItemIcon>
                 <ListItemText inset primary={this.props.folder.name}/>
-                <span onClick={() => this.props.toggleOpenClose()}>{this.props.folder.childfolders &&
-                <MaterialIcon icon={this.icons[this.props.folderOpen]}/>}</span>
+                <span onClick={() => this.props.toggleOpenClose()}>
+                    {this.props.folder.childfolders &&
+                    <Icon>{this.icons[this.props.folderOpen]}</Icon>
+                    }
+                </span>
             </ListItem>
         )
     };
 
     handleOnClick = (e) => {
-        if(e.target.innerHTML !== 'chevron_right' && e.target.innerHTML !== 'expand_more') {
+        if (e.target.innerHTML !== 'chevron_right' && e.target.innerHTML !== 'expand_more') {
             this.props.currentFolderClick(this.props.folder, this.props.index)
         }
     }
