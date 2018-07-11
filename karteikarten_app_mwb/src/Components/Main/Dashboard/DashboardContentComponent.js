@@ -1,5 +1,4 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import React, { Component } from 'react';
 import './DashboardContentComponent.css';
 import './IndexCardComponent.js';
 import {IndexCardComponent} from "./IndexCardComponent";
@@ -54,7 +53,6 @@ export class DashboardContentComponent extends Component {
                 className="mb-5 highlightBackground" variant="fab" mini aria-label="add"
                 onClick={() => {
                     let newCardId = uuidv4();
-                    let temp = this.props.currentfolder;
                     history.push(`/editing/${newCardId}`);
                 }} >
                 <MaterialIcon icon={'add'} />
@@ -78,16 +76,13 @@ export class DashboardContentComponent extends Component {
                             <Button color='secondary' variant="contained" className="marginRight-10"> This week</Button>
                         </Grid>
                         <Grid item xs={12}>
-                            {Object.keys(this.state.cards).map((i) => (<IndexCardComponent title={i}/>))}
+                            {Object.keys(this.state.cards).map((i) => (<IndexCardComponent title={this.state.cards[i].title} cardId={i} key={i}/>))}
                         </Grid>
                     </Grid>
                     <Grid container xs={12}>
                         <div className="marginTop-20">
                             <Grid item xs={1}>
                                 <Tooltip id="tooltip-fab" title="Karte Hinzufügen">
-                                    <Button className="mb-5 highlightBackground" variant="fab" mini aria-label="add" to={newCardRef}>
-                                        <Icon>add_icon</Icon>
-                                    </Button>
                                     <AddCardButton />
                                 </Tooltip>
                             </Grid>
@@ -96,7 +91,6 @@ export class DashboardContentComponent extends Component {
                     </Grid>
                 </Grid>
             </div>
-
         )
     };
 }
