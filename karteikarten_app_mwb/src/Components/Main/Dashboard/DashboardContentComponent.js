@@ -48,6 +48,7 @@ export class DashboardContentComponent extends Component {
         let id = uuidv4();
         let newCardRef = `/editing/${id}`;
         return (
+            <div class="marginTop-20">
                 <Grid container md={8}>
                     <Grid container role="main" lg={12}>
                         <Grid item xs={12} className={styles.header}>
@@ -65,16 +66,19 @@ export class DashboardContentComponent extends Component {
                         </Grid>
                     </Grid>
                     <Grid container md={12}>
-                        <Grid item xs={11}/>
-                        <Grid item xs={1}>
-                            <Tooltip id="tooltip-fab" title="Karte Hinzufügen">
-                                <Button className="mb-5 highlightBackground" variant="fab" mini aria-label="add" to={newCardRef}>
-                                    <Icon>add_icon</Icon>
-                                </Button>
-                            </Tooltip>
-                        </Grid>
+                        <div className="marginTop-20">
+                            <Grid item xs={1}>
+                                <Tooltip id="tooltip-fab" title="Karte Hinzufügen">
+                                    <Button className="mb-5 highlightBackground" variant="fab" mini aria-label="add" to={newCardRef}>
+                                        <Icon>add_icon</Icon>
+                                    </Button>
+                                </Tooltip>
+                            </Grid>
+                            <Grid item xs={11}/>
+                        </div>
                     </Grid>
                 </Grid>
+            </div>
 
         )
     };

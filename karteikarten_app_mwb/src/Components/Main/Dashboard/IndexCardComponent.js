@@ -18,7 +18,7 @@ export class IndexCardComponent extends Component {
                 <React.Fragment>
                     <Card className={styles.card}>
                         <CardMedia classes={styles.media}
-                                   src="https://www.buero-bedarf-thueringen.de/1336110-thickbox_default/karteikarten-a6-liniert-ws-100st.jpg"
+                                   image="https://www.buero-bedarf-thueringen.de/1336110-thickbox_default/karteikarten-a6-liniert-ws-100st.jpg"
                                    title="test" />
                         <CardContent>
                             <Typography gutterBottom variant="body2">{this.props.title}</Typography>
@@ -26,15 +26,15 @@ export class IndexCardComponent extends Component {
 
                         <CardActions>
                             <Grid container spacing={24}>
-                                <Grid item xs={10}/>
-                                <Grid item spacing={2} xs>
+                                <Grid item xs={8}/>
+                                <Grid item xs={2}>
                                     <Tooltip id="tooltip-fab" title="Bearbeiten">
                                         <Button variant="fab" mini color="secondary" aria-label="add" >
                                             <Icon>edit_icon</Icon>
                                         </Button>
                                     </Tooltip>
                                 </Grid>
-                                <Grid item spacing={2} xs>
+                                <Grid item  xs={2}>
 
                                     <Tooltip id="tooltip-fab" title="Teilen">
                                         <Button  variant="fab" mini color="primary" aria-label="share">

@@ -33,16 +33,18 @@ export class DashboardSidebarComponent extends Component {
             <Grid container lg={3}>
                 <div id="sidebar" className="sidebar">
                     <Grid container xs={12}>
-                        <List component="nav" subheader={<ListSubheader component="div"> <Typography variant='subheading'>Folders</Typography></ListSubheader>}>
-                            {Object.keys(this.props.folders).map(key => (
-                                <FolderComponent
-                                    index={key}
-                                    folder={this.props.folders[key]}
-                                    key={key}
-                                    changeCurrentfolder={this.props.changeCurrentfolder}/>
-                            ))
-                            }
-                        </List>
+                        <div className="marginTop-20">
+                            <List component="nav" subheader={<ListSubheader component="div"> <Typography variant='subheading'>Folders</Typography></ListSubheader>}>
+                                {Object.keys(this.props.folders).map(key => (
+                                    <FolderComponent
+                                        index={key}
+                                        folder={this.props.folders[key]}
+                                        key={key}
+                                        changeCurrentfolder={this.props.changeCurrentfolder}/>
+                                ))
+                                }
+                            </List>
+                        </div>
                     </Grid>
                     <Grid xs={12}>
                         <Grid container>
