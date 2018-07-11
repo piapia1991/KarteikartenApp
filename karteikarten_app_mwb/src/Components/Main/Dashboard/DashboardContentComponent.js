@@ -14,20 +14,26 @@ export class DashboardContentComponent extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {cards: {}, currentfolder: this.props.currentfolder};
+        this.state = { cards: {} };
     }
 
     componentDidMount() {
         if (this.props.uid) {
-            this.folderRef = base.syncState('users/' + this.props.uid + '/cards',
+            this.cardRef = base.syncState('users/' + this.props.uid + '/cards',
                 {
                     context: this,
                     state: 'cards'
+                });
+            this.folderRef = base.syncState('users/' + this.props.uid + '/folders',
+                {
+                    context: this,
+                    state: 'folders'
                 });
         }
     }
 
     componentWillUnmount() {
+        base.removeBinding(this.cardRef);
         base.removeBinding(this.folderRef);
     }
 
@@ -39,6 +45,14 @@ export class DashboardContentComponent extends Component {
                     className="mb-5 highlightBackground" variant="fab" mini aria-label="add"
                     onClick={() => {
                         let newCardId = uuidv4();
+                        let path = this.props.currentfolder;
+                        let folders = Object.assign({}, this.state.folders);
+                        if (! ("cards" in folders[path]))
+                            folders[path].cards = [];
+                        folders[path]["cards"].push(newCardId);
+                        this.setState({
+                            folders: folders
+                        });
                         history.push(`/editing/${newCardId}`);
                     }} >
                     <Icon>add_icon</Icon>

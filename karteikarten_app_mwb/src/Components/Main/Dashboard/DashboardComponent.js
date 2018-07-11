@@ -71,7 +71,7 @@ export class DashboardComponent extends Component {
                     onClickFolder={this.onClickFolder}
                 />
                 <DashboardContentComponent
-                    currentfolder={this.state.currentfolder}
+                    currentfolder={path}
                     uid={this.props.uid}
                     data={data}
                     path={path}
