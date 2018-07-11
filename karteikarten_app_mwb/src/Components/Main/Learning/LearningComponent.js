@@ -54,7 +54,7 @@ export class LearningComponent extends Component {
 
     searchCurrentCards(folders, currentCards) {
         for (var folderKey in folders) {
-            if (folders[folderKey].checked !== undefined && folders[folderKey].checked == true && folders[folderKey].cards !== undefined) {
+            if (folders[folderKey].checked !== undefined && folders[folderKey].checked === true && folders[folderKey].cards !== undefined) {
                 currentCards = currentCards.concat(folders[folderKey].cards);
             }
             if (folders[folderKey].childfolders !== undefined) {
