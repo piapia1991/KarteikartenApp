@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import './DashboardContentComponent.css';
 import './IndexCardComponent.js';
 import {IndexCardComponent} from "./IndexCardComponent";
-import Button from '@material-ui/core/Button';
 import {MaterialIcon} from "../../Helper/MaterialIcon";
 import { withRouter } from 'react-router-dom';
-import {Button, Grid, Typography, Icon, Tooltip}
+import {Button, Grid, Typography, Icon, Tooltip} from '@material-ui/core';
 import base from "../../../base";
 import './DashboardContentComponent.css';
 
@@ -60,7 +59,6 @@ export class DashboardContentComponent extends Component {
         ));
 
         return (
-            <div class="marginTop-20">
                 <Grid container lg={9} md={8}>
                     <Grid container role="main" lg={12}>
                         <Grid item xs={12} className={styles.header}>
@@ -90,7 +88,7 @@ export class DashboardContentComponent extends Component {
                         </div>
                     </Grid>
                 </Grid>
-            </div>
+
         )
     };
 }

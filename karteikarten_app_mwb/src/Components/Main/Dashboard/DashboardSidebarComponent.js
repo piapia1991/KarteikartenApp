@@ -31,9 +31,7 @@ export class DashboardSidebarComponent extends Component {
     render() {
         return (
             <Grid container lg={3} md={4}>
-                <div id="sidebar" className="sidebar">
                     <Grid container xs={12}>
-                        <div className="marginTop-20">
                             <List component="nav" subheader={<ListSubheader component="div"> <Typography variant='subheading'>Folders</Typography></ListSubheader>}>
                                 {Object.keys(this.props.folders).map(key => (
                                     <FolderComponent
@@ -46,7 +44,6 @@ export class DashboardSidebarComponent extends Component {
                                 ))
                                 }
                             </List>
-                        </div>
                     </Grid>
                     <Grid xs={12}>
                         <Grid container>
@@ -66,7 +63,6 @@ export class DashboardSidebarComponent extends Component {
                                                   addFolder={this.props.addFolder} targetfolder={this.state.dialogTargetfolder}
                                                   mode={this.state.dialogMode}/>
                     </Grid>
-                </div>
             </Grid>
         )
     }
