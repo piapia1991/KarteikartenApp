@@ -63,6 +63,11 @@ export class DashboardContentComponent extends Component {
 
         const folderCardIds = folder['cards'] || [];
 
+        //Filtere Cardids heraus die es nicht mehr gibt
+        const folderCardIdsFiltered = folderCardIds.filter((cardId) =>
+            cardId in cards
+        );
+
         return (
             <Grid container direction={'column'} justify={'space-between'} className={classes.root}>
                 <Grid item>
@@ -74,7 +79,7 @@ export class DashboardContentComponent extends Component {
                     </Typography>
 
                     <Grid container>
-                        {folderCardIds.map( (item) =>
+                        {folderCardIdsFiltered.map( (item) =>
                                 <IndexCardComponent
                                     title={cards[item].title}
                                     cardId={item}
