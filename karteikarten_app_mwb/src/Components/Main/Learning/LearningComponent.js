@@ -48,8 +48,13 @@ export class LearningComponent extends Component {
 
         return (
             <Grid className={'main'} container>
-                {sidebarComponent}
-                {contentComponent}
+                <Grid item md={3} lg={2}>
+                    {sidebarComponent}
+                </Grid>
+
+                <Grid item md={9} lg={10}>
+                    {contentComponent}
+                </Grid>
             </Grid>
         )
     };

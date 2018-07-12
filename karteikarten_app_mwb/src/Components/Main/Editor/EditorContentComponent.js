@@ -38,7 +38,7 @@ export class EditorContentComponent extends Component {
         let html = this.state.front ? this.state.frontHtml : this.state.backHtml;
         let page = this.state.front ? "Vorderseite" : "Rückseite";
         return (
-            <Grid container md={9} lg={10}>
+            <Grid container>
                 <Grid item xs={12}>
                     <div>
                         <TextField
