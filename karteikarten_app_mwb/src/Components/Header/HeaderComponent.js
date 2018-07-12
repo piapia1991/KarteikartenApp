@@ -55,18 +55,18 @@ export class HeaderComponent extends Component {
                 <AppBar position="fixed" className="Appbar" color="primary" >
                     <Toolbar>
                         <Grid container>
-                            <Grid item md={2} sm={4}>
+                            <Grid item lg={2} md sm={4}>
                                 <HeaderButtonComponent link={'/'} title={'Bearbeiten'} icon={'edit'} index={true}/>
                             </Grid>
-                            <Grid item md={2} sm={4}>
+                            <Grid item lg={2} md sm={4}>
                                 <HeaderButtonComponent link={'/learning'} title={'Lernen'} icon={'school'}/>
                             </Grid>
-                            <Grid item md={4} sm={4} className='align-items-xs-center'>
-                                <Typography variant="title" className="paddingTop-20">
+                            <Grid item lg={6} md  sm={4} className='align-items-xs-center'>
+                                <Typography variant="title" className="paddingTop-10">
                                     Karteikarten App
                                 </Typography>
                             </Grid>
-                            <Grid item md={4} sm={12}>
+                            <Grid item lg={2} md={3} sm={12}>
                                 <LoginComponent
                                     login={this.props.login}
                                     authenticate={this.props.authenticate}

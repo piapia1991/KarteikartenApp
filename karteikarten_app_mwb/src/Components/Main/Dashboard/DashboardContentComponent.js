@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import './DashboardContentComponent.css';
 import './IndexCardComponent.js';
 import IndexCardComponent from "./IndexCardComponent";
 import { withRouter } from 'react-router-dom';
 import {Button, Grid, Typography, Icon, Tooltip} from '@material-ui/core';
 import base from "../../../base";
+import './DashboardContentComponent.css';
 import {withStyles} from "@material-ui/core/styles/index";
 import PropTypes from "prop-types";
 
@@ -69,21 +71,20 @@ export class DashboardContentComponent extends Component {
 
         return (
             <Grid item md={9} lg={10}>
-                <Grid container direction={'row'} justify={'space-between'} className={classes.root} spacing={24}>
-                    <Grid item xs={12}>
+                <Grid container direction={'column'} justify={'space-between'} className={classes.root}>
+                    <Grid item>
                         <Typography className={'paddingTop-10'}  variant="title" >
                             Ordner1 > Ordner2 > Bliblablub
                         </Typography>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Grid container spacing={24} alignItems={'stretch'}>
+
+                        <Grid container>
                             {Object.keys(this.state.cards).map((i) => (<IndexCardComponent title={this.state.cards[i].title} cardId={i} key={i}/>))}
                         </Grid>
                     </Grid>
-                    <Grid item xs={12}>
-                        <Grid container spacing={24}>
-                            <Grid item xs></Grid>
-                            <Grid item xs={1}>
+                    <Grid item>
+                        <Grid container>
+                            <Grid item xs={11}/>
+                            <Grid item xs={1} className={'padding-15'}>
                                 <AddCardButton />
                             </Grid>
                         </Grid>
