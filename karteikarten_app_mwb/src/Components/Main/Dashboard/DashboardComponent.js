@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid'
 import base from "../../../base";
 import PropTypes from "prop-types";
 import DashboardSidebarComponent from "./DashboardSidebarComponent";
+import uuidv4 from "uuid/v4";
 
 
 export class DashboardComponent extends Component {
@@ -11,16 +12,17 @@ export class DashboardComponent extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {folders: {}, currentfolder: undefined};
+        this.state = {user: {}, currentfolder: undefined};
         this.onClickFolder = this.onClickFolder.bind(this);
+        this.addCardToFolder = this.addCardToFolder.bind(this);
     }
 
     componentDidMount() {
         if (this.props.uid) {
-            this.folderRef = base.syncState('users/' + this.props.uid + '/folders',
+            this.folderRef = base.syncState('users/' + this.props.uid,
                 {
                     context: this,
-                    state: 'folders'
+                    state: 'user'
                 });
         }
     }
@@ -50,44 +52,91 @@ export class DashboardComponent extends Component {
         this.context.router.history.push(pathString);
     }
 
+    addCardToFolder() {
+        const {router} = this.context;
+        const path = router.route.match.params.path;
+
+        const newCardId = uuidv4();
+
+        const user = Object.assign({}, this.state.user);
+        const folders = user["folders"];
+        let folder = folders[path];
+
+        if (! ("cards" in folder))
+            folder.cards = [];
+        folder["cards"].push(newCardId);
+
+        if(!("cards" in user)) {
+            user.cards = {};
+        }
+        user.cards[newCardId] = {
+            title: "",
+            backHtml: "",
+            frontHtml: ""
+        };
+
+        this.setState({
+            user: user
+        });
+
+        router.history.push(`/editing/${newCardId}`);
+    }
+
+
     render() {
-        const path = this.context.router.route.match.params.path;
-         const data = [
-             {title: "myBook", id: 1, data: "myData"},
-             {title: "myBook2", id: 2, data: "myData2"},
-             {title: "myBook3", id: 3, data: "myData3"},
-             {title: "myBook4", id: 4, data: "myData4"},
-             {title: "myBook5", id: 5, data: "myData5"},
-             {title: "myBook6", id: 6, data: "myData6"},
-             // {title: "myBook7", id: 7, data: "myData7"},
-             {title: "myBook8", id: 8, data: "myData8"}
-         ];
+        const {router} = this.context;
+        const {user} = this.state;
+        const path = router.route.match.params.path;
+
+        const folders = user['folders'] || {};
+        const folder = folders[path];
+
+        const content = (folder !== undefined) ?
+            <DashboardContentComponent
+                currentfolder={path}
+                folder={folder}
+                cards={user['cards']}
+                uid={this.props.uid}
+                path={path}
+                addCardToFolder={this.addCardToFolder}
+            />
+                :
+            <div>
+                Hier eine Componente reinmachen die auf der bearbeten Seite ohne ausgewaehlten Ordner angezeigt wird
+            </div>
+        ;
+
         return (
             <Grid className={'main'} container>
-                <DashboardSidebarComponent
-                    changeCurrentfolder={this.changeCurrentfolder}
-                    folders={this.state.folders}
-                    addFolder={this.addFolder}
-                    onClickFolder={this.onClickFolder}
-                />
-                <DashboardContentComponent
-                    currentfolder={path}
-                    uid={this.props.uid}
-                    data={data}
-                    path={path}
-                />
+                <Grid item md={3} lg={2}>
+                    <DashboardSidebarComponent
+                        changeCurrentfolder={this.changeCurrentfolder}
+                        folders={folders}
+                        addFolder={this.addFolder}
+                        onClickFolder={this.onClickFolder}
+                    />
+                </Grid>
+                <Grid item md={9} lg={10}>
+                    {content}
+                </Grid>
             </Grid>
         )
     };
 
     addFolder = (name, targetfolderIndex) => {
-        const folders = {...this.state.folders};
+        const user = {...this.state.user};
+        if(!("folders" in user)) {
+            user.folders={};
+        }
+        const folders = user.folders;
         if (targetfolderIndex === undefined) {
             folders[`folders${Date.now()}`] = {name: name};
         } else {
             this.changeTargetFolder(name, targetfolderIndex, folders);
         }
-        this.setState({folders: folders});
+        this.setState({
+            user: user
+        });
     };
 
     changeTargetFolder(name, targetfolder, folders) {
