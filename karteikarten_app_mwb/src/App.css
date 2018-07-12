@@ -36,22 +36,48 @@ button:hover, a:hover {
     padding: 15px;
 }
 
+.paddingTop-5 {
+    padding-top: 5px;
+}
+
 .paddingTop-10 {
     padding-top: 10px;
 }
 
+.paddingTop-15 {
+    padding-top: 15px;
+}
+
+.paddingTop-20 {
+    padding-top: 20px;
+}
+
+
+.paddingLeft-15{
+    padding-left: 15px;
+}
+
 .marginTop-3 {
-    margin-top: 7px;
+    margin-top: 3px;
 }
 
 .marginTop-5 {
-    margin-top: 7px;
+    margin-top: 5px;
 }
 
 .marginTop-7 {
     margin-top: 7px;
 }
 
-.paddingLeft-15{
-    padding-left: 15px !important;
+.marginTop-10 {
+    margin-top: 10px;
 }
+
+.marginTop-15 {
+    margin-top: 15px;
+}
+
+.marginTop-20 {
+    margin-top: 20px;
+}
+
