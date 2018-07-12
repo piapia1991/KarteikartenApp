@@ -51,7 +51,6 @@ class LearningContentComponent extends Component {
 
 
         return (
-                <Grid item md={9} lg={10}>
                     <Grid container className={classes.gridContainer} direction={'column'} justify={'space-between'}>
                         <Grid className={classes.cardContainer} container >
                             <Grid item container direction={'column'} justify={'center'} alignItems={'center'} xs={3} sm={1}>
@@ -92,7 +91,6 @@ class LearningContentComponent extends Component {
                             </Grid>
                         </Grid>
                     </Grid>
-                </Grid>
         )
     };
 

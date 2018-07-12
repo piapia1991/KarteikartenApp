@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {FolderComponent} from "../../Helper/FolderComponent";
-import {Grid, List, ListSubheader, Typography} from '@material-ui/core';
+import {List, ListSubheader, Typography} from '@material-ui/core';
 
 
 export class LearningSidebarComponent extends Component {
@@ -8,7 +8,6 @@ export class LearningSidebarComponent extends Component {
 
     render() {
         return (
-            <Grid item md={3} lg={2}>
                         <List
                             component="nav"
                             subheader={<ListSubheader className={'paddingTop-10'} component="div"> <Typography variant={'title'}>Lernen</Typography></ListSubheader>}
@@ -24,7 +23,6 @@ export class LearningSidebarComponent extends Component {
                             ))
                             }
                         </List>
-            </Grid>
         )
     }
 
