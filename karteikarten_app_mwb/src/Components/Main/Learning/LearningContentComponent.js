@@ -110,17 +110,17 @@ class LearningContentComponent extends Component {
         });
     }
 
-    handlePageToggleButton() {
+    handlePageToggleButton = () => {
         let togglePage = !this.state.backPage;
         this.setState({backPage: togglePage});
     }
 
-    handleRightButton() {
+    handleRightButton = () => {
         console.log('Please save right answered Card', this.state.currentCardRef);
         this.goToCard(this.state.currentCardKeyIndex + 1);
     }
 
-    handleFalseButton() {
+    handleFalseButton = ()=> {
         console.log('Please save false answered Card', this.state.currentCardRef);
         this.goToCard(this.state.currentCardKeyIndex + 1);
     }
