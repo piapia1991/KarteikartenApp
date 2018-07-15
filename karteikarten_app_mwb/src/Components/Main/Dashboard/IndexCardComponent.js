@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { Card, CardMedia, CardContent, Typography, Button, CardActions, Icon, Tooltip, Grid } from '@material-ui/core';
+import { Card, CardContent, Typography, Button, CardActions, Icon, Tooltip, Grid } from '@material-ui/core';
 import PropTypes from "prop-types";
 import {withStyles} from "@material-ui/core/styles";
 import karteikarte from "../../../images/Karteikarte.svg";
@@ -18,7 +18,7 @@ class IndexCardComponent extends Component {
     render() {
         const {classes} = this.props;
         const WithRouter = withRouter(({ history }) => (
-            <Grid item sm={12} md={6} lg={4} className="marginRight-10">
+            <Grid item sm={12} md={6} lg={4} className="marginRight-10 paddingBottom-20">
                 <Card className={classes.media}>
 
                     <CardContent>

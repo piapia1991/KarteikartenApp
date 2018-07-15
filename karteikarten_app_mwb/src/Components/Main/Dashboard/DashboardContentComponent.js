@@ -77,7 +77,7 @@ export class DashboardContentComponent extends Component {
                             base={"overview"}
                         />
                     </Typography>
-
+                    {/*ToDo: Herausfinden warum das window mit "Container mit spacing={24}" bei button hover springt*/}
                     <Grid container>
                         {folderCardIdsFiltered.map( (item) =>
                                 <IndexCardComponent
