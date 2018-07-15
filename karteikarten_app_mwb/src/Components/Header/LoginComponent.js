@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import {Avatar, Typography, Grid, Button, IconButton, Icon, Tooltip, Hidden} from '@material-ui/core';
+import {Avatar, Typography, Grid, Button, IconButton, Icon, Tooltip} from '@material-ui/core';
 import {Link} from 'react-router-dom';
 
 export class LoginComponent extends Component {
@@ -12,16 +12,13 @@ export class LoginComponent extends Component {
             return (
                 <Fragment>
                     <Grid container>
-                        <Hidden only={['xs', 'sm', 'md']}>
-                            <Grid item xs={7}/>
-                        </Hidden>
                         <Grid item xs={3} lg={8}>
                             <Grid container>
-                                <Grid item sm={8}>
+                                <Grid item sm={9}>
                                     <Typography variant="subheading" gutterBottom noWrap
                                                 className="paddingTop-10">{this.props.login.name}</Typography>
                                 </Grid>
-                                <Grid item sm={4}>
+                                <Grid item sm={3}>
                                     <Avatar className="marginTop-3" alt="this.props.login.name" id="loginPicture"
                                             src={this.props.login.picture}/>
                                 </Grid>
