@@ -39,7 +39,7 @@ export class LoginComponent extends Component {
                         <Grid item xs={1} lg={2}>
                             <Tooltip id="tooltip-fab" title="Einstellungen">
                                 <Link to={"/settings"}>
-                                    <IconButton to={"/settings"}>
+                                    <IconButton>
                                         <Icon className="settings">
                                             settings
                                         </Icon>
