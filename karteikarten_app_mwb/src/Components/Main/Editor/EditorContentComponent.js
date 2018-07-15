@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import QuillComponent from './QuillComponent';
-import {Button, TextField, Grid, Typography, Icon} from '@material-ui/core';
+import {Button, TextField, Grid, Typography, Icon, Tooltip} from '@material-ui/core';
 
 export class EditorContentComponent extends Component {
 
@@ -51,18 +51,24 @@ export class EditorContentComponent extends Component {
                 </Grid>
 
                 <Grid item xs={12} id="buttonRow" style={{textAlign: "right"}}>
-                    <Button className="marginRight-10" variant="fab" mini aria-label="turn"
-                        onClick={() => this.turn()}>
-                        {page === "Vorderseite" ? <Icon>flip_to_back_icon</Icon>:<Icon>flip_to_front_icon</Icon>}
-                    </Button>
-                    <Button className="marginRight-10" variant="fab" mini aria-label="save"
-                        onClick={() => this.save()}>
-                        <Icon>save_icon</Icon>
-                    </Button>
-                    <Button className="marginRight-10" variant="fab" mini aria-label="cancel"
-                        onClick={() => this.cancel()}>
-                        <Icon>cancel_icon</Icon>
-                    </Button>
+                    <Tooltip id="tooltip-fab" title="Karte umdrehen">
+                        <Button className="marginRight-10" variant="fab" mini aria-label="turn"
+                            onClick={() => this.turn()}>
+                            {page === "Vorderseite" ? <Icon>flip_to_back_icon</Icon>:<Icon>flip_to_front_icon</Icon>}
+                        </Button>
+                    </Tooltip>
+                    <Tooltip id="tooltip-fab" title="Speichern und Verlassen">
+                        <Button className="marginRight-10" variant="fab" mini aria-label="save"
+                            onClick={() => this.save()}>
+                            <Icon>save_icon</Icon>
+                        </Button>
+                    </Tooltip>
+                    <Tooltip id="tooltip-fab" title="Abbrechen">
+                        <Button className="marginRight-10" variant="fab" mini aria-label="cancel"
+                            onClick={() => this.cancel()}>
+                            <Icon>cancel_icon</Icon>
+                        </Button>
+                    </Tooltip>
                 </Grid>
             </Grid>
         );

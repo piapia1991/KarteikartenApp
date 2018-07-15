@@ -3,14 +3,13 @@ import { withRouter } from 'react-router-dom';
 import { Card, CardMedia, CardContent, Typography, Button, CardActions, Icon, Tooltip, Grid } from '@material-ui/core';
 import PropTypes from "prop-types";
 import {withStyles} from "@material-ui/core/styles";
+import karteikarte from "../../../images/Karteikarte.svg";
 
 const styles = () =>({
-    card: {
-        maxWidth: 345,
-    },
     media: {
-        height: 0,
-        paddingTop: '56.25%', // 16:9
+        backgroundImage: "url("+karteikarte+")",
+        backgroundSize: "100% 337%",
+        backgroundPosition: "0px 10px",
     },
 });
 
@@ -20,10 +19,8 @@ class IndexCardComponent extends Component {
         const {classes} = this.props;
         const WithRouter = withRouter(({ history }) => (
             <Grid item sm={12} md={6} lg={4} className="marginRight-10">
-                <Card className={classes.card}>
-                    <CardMedia className={classes.media}
-                        image="https://www.buero-bedarf-thueringen.de/1336110-thickbox_default/karteikarten-a6-liniert-ws-100st.jpg"
-                        title="test" />
+                <Card className={classes.media}>
+
                     <CardContent>
                         <Typography gutterBottom variant="body2">{this.props.title}</Typography>
                     </CardContent>
