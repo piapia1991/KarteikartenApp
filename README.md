@@ -44,7 +44,7 @@ Diese sind immer in der selben Datei.
                 <Grid item  lg={2} md={3}>
                     <EditorSidebarComponent />
                 </Grid>
-                <Grid item  md={9} lg={10}>
+                <Grid item lg={10} md={9}>
                     <EditorContentComponent />
                 </Grid>
             </Grid>

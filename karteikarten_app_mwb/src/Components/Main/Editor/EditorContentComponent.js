@@ -12,11 +12,6 @@ export class EditorContentComponent extends Component {
             backHtml: this.props.backHtml,
             title: this.props.title
         };
-        this.backup = {
-            frontHtml: this.props.frontHtml,
-            backHtml: this.props.backHtml,
-            title: this.props.title
-        };
     }
 
     componentDidUpdate(prevProps) {
@@ -26,11 +21,6 @@ export class EditorContentComponent extends Component {
                 backHtml: this.props.backHtml,
                 title: this.props.title
             });
-            this.backup = {
-                frontHtml: this.props.frontHtml,
-                backHtml: this.props.backHtml,
-                title: this.props.title
-            };
         }
     }
 
@@ -38,7 +28,7 @@ export class EditorContentComponent extends Component {
         let html = this.state.front ? this.state.frontHtml : this.state.backHtml;
         let page = this.state.front ? "Vorderseite" : "Rückseite";
         return (
-            <Grid container>
+            <Grid container style={{"padding": "10px"}}>
                 <Grid item xs={12}>
                     <div>
                         <TextField
@@ -56,7 +46,11 @@ export class EditorContentComponent extends Component {
                     <QuillComponent html={html} onChange={this.onChange} />
                 </Grid>
 
-                <Grid id="buttonRow" item xs={12}>
+                <Grid item xs={12}>
+                    <div style={{"height": "50px"}} />
+                </Grid>
+
+                <Grid item xs={12} id="buttonRow" style={{textAlign: "right"}}>
                     <Button className="marginRight-10" variant="fab" mini aria-label="turn"
                         onClick={() => this.turn()}>
                         {page === "Vorderseite" ? <Icon>flip_to_back_icon</Icon>:<Icon>flip_to_front_icon</Icon>}
@@ -97,11 +91,7 @@ export class EditorContentComponent extends Component {
     };
 
     cancel = () => {
-        this.setState({
-            frontHtml: this.backup.frontHtml,
-            backHtml: this.backup.backHtml,
-            title: this.backup.title
-        });
+        this.props.cancel();
     };
 
     turn = () => {

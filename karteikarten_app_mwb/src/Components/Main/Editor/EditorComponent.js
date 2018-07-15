@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { EditorSidebarComponent } from './EditorSidebarComponent';
 import { EditorContentComponent } from './EditorContentComponent';
 import base from "../../../base";
 import {Grid} from '@material-ui/core';
@@ -34,12 +33,9 @@ export class EditorComponent extends Component {
 
     render() {
         return (
-            <Grid className={'main'} container>
-                <Grid item  lg={2} md={3}>
-                    <EditorSidebarComponent />
-                </Grid>
-                <Grid item  md={9} lg={10}>
-                    <EditorContentComponent save={this.save} frontHtml={this.state.card.frontHtml || ''} backHtml={this.state.card.backHtml || ''} title={this.state.card.title || ''} />
+            <Grid container className={'main'}>
+                <Grid item xs={12}>
+                    <EditorContentComponent save={this.save} cancel={this.cancel} frontHtml={this.state.card.frontHtml || ''} backHtml={this.state.card.backHtml || ''} title={this.state.card.title || ''} />
                 </Grid>
             </Grid>
         );
@@ -53,5 +49,10 @@ export class EditorComponent extends Component {
                 title: title
             }
         });
+        this.props.history.push('/');
+    };
+
+    cancel = () => {
+        this.props.history.push('/');
     };
 }
