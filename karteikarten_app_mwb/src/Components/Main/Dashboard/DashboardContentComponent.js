@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import './DashboardContentComponent.css';
 import './IndexCardComponent.js';
 import IndexCardComponent from "./IndexCardComponent";
 import {Button, Grid, Typography, Icon, Tooltip} from '@material-ui/core';
 import base from "../../../base";
-import './DashboardContentComponent.css';
 import {withStyles} from "@material-ui/core/styles/index";
 import PropTypes from "prop-types";
 import BreadcrumbNavigation from "../../Helper/BreadcrumbNavigation";
