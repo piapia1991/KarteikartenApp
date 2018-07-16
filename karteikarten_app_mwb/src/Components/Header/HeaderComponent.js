@@ -62,7 +62,7 @@ export class HeaderComponent extends Component {
                                 <HeaderButtonComponent link={'/learning'} title={'Lernen'} icon={'school'}/>
                             </Grid>
                             <Grid item lg={6} md={2}  sm={4} className='align-items-xs-center'>
-                                <Typography variant="title" className="paddingTop-10">
+                                <Typography variant="title" className="paddingTop-20">
                                     Karteikarten App
                                 </Typography>
                             </Grid>

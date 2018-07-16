@@ -12,7 +12,7 @@ export class LoginComponent extends Component {
             return (
                 <Fragment>
                     <Grid container>
-                        <Grid item xs={3} lg={8}>
+                        <Grid item xs={3} lg={8}  className="paddingTop-10">
                             <Grid container>
                                 <Grid item sm={9}>
                                     <Typography variant="subheading" gutterBottom noWrap
@@ -24,7 +24,7 @@ export class LoginComponent extends Component {
                                 </Grid>
                             </Grid>
                         </Grid>
-                        <Grid item xs={1} lg={2}>
+                        <Grid item xs={1} lg={2} className="paddingTop-10">
                             <Tooltip id="tooltip-fab" title="Logout">
                                 <IconButton onClick={() => this.props.logout()}>
                                     <Icon className="exit_to_app">
@@ -33,7 +33,7 @@ export class LoginComponent extends Component {
                                 </IconButton>
                             </Tooltip>
                         </Grid>
-                        <Grid item xs={1} lg={2}>
+                        <Grid item xs={1} lg={2} className="paddingTop-10">
                             <Tooltip id="tooltip-fab" title="Einstellungen">
                                 <Link to={"/settings"}>
                                     <IconButton>
