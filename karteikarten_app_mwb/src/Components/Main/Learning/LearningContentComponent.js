@@ -3,6 +3,7 @@ import {LearningCardComponent} from "./LearningCardComponent";
 import {Grid, Button, IconButton, Icon, Typography} from '@material-ui/core';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
+import Swipeable from 'react-swipeable'
 
 const styles = theme => ({
     button: {
@@ -51,6 +52,14 @@ class LearningContentComponent extends Component {
 
 
         return (
+            <Swipeable
+                className="swipe"
+                trackMouse
+                style={{ touchAction: 'none' }}
+                preventDefaultTouchmoveEvent
+                onSwipedLeft={() => this.goToCard(this.state.currentCardKeyIndex - 1)}
+                onSwipedRight={() => this.goToCard(this.state.currentCardKeyIndex + 1)}
+            >
                     <Grid container className={classes.gridContainer} direction={'column'} justify={'space-between'}>
                         <Grid className={classes.cardContainer} container >
                             <Grid item container direction={'column'} justify={'center'} alignItems={'center'} xs={3} sm={1}>
@@ -91,6 +100,7 @@ class LearningContentComponent extends Component {
                             </Grid>
                         </Grid>
                     </Grid>
+            </Swipeable>
         )
     };
 
