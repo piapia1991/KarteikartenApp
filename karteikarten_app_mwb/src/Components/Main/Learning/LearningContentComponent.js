@@ -76,8 +76,8 @@ class LearningContentComponent extends Component {
                                 </IconButton>
                             </Grid>
                             <Grid item xs={6} sm={10}>
-                                <Typography variant={'display2'}>{title} </Typography>
-                                <Typography variant={'display1'}>{this.state.backPage? 'Rückseite' : 'Vorderseite'} </Typography>
+                                <Typography variant={'display2'}>{title}</Typography>
+                                <Typography variant={'display1'}>{this.state.currentCardRef && (this.state.backPage ? 'Rückseite' : 'Vorderseite')}</Typography>
                                 {this.state.currentCardRef && <LearningCardComponent htmlContent={htmlContent}/>}
                             </Grid>
                             <Grid item container direction={'column'} alignItems={'center'} justify={'center'} xs={3} sm={1}>
