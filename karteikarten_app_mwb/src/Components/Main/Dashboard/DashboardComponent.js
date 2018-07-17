@@ -15,6 +15,7 @@ export class DashboardComponent extends Component {
         this.state = {user: {}, currentfolder: undefined};
         this.onClickFolder = this.onClickFolder.bind(this);
         this.addCardToFolder = this.addCardToFolder.bind(this);
+        this.addExistingCardToFolder = this.addExistingCardToFolder.bind(this);
     }
 
     componentDidMount() {
@@ -82,6 +83,23 @@ export class DashboardComponent extends Component {
         router.history.push(`/editing/${newCardId}`);
     }
 
+    addExistingCardToFolder(cardId, folderId) {
+        const user = Object.assign({}, this.state.user);
+        const folders = user["folders"];
+        let folder = folders[folderId];
+
+        if (!("cards" in folder))
+            folder.cards = [];
+        if( false === (folder["cards"].includes(cardId))) {
+            folder["cards"].push(cardId);
+
+            this.setState({
+                user: user
+            });
+
+        }
+    }
+
 
     render() {
         const {router} = this.context;
@@ -98,7 +116,7 @@ export class DashboardComponent extends Component {
             uid={this.props.uid}
             path={path}
             addCardToFolder={this.addCardToFolder}
-        />
+        />;
 
 
         return (
@@ -109,6 +127,7 @@ export class DashboardComponent extends Component {
                         folders={folders}
                         addFolder={this.addFolder}
                         onClickFolder={this.onClickFolder}
+                        addExistingCardToFolder={this.addExistingCardToFolder}
                     />
                 </Grid>
                 <Grid item md={9} lg={10}>

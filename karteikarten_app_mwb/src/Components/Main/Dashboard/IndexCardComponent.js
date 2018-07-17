@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Card, CardContent, Typography, Button, CardActions, Icon, Tooltip, Grid } from '@material-ui/core';
 import PropTypes from "prop-types";
+
+import { DragSource } from 'react-dnd';
+import { ItemTypes } from '../../../Constants'
+
 import {withStyles} from "@material-ui/core/styles";
 import karteikarte from "../../../images/Karteikarte.svg";
 
@@ -13,12 +17,27 @@ const styles = () =>({
     },
 });
 
+const cardSource = {
+    beginDrag(props) {
+        // Return the data describing the dragged item
+        const item = { cardId: props.cardId };
+        return item;
+    },
+};
+
+function collect(connect, monitor) {
+    return {
+        connectDragSource: connect.dragSource(),
+        isDragging: monitor.isDragging()
+    }
+}
+
 class IndexCardComponent extends Component {
 
     render() {
+        const { connectDragSource } = this.props;
         const {classes} = this.props;
         const WithRouter = withRouter(({ history }) => (
-            <Grid item sm={12} md={6} lg={4} className="marginRight-10 paddingBottom-20">
                 <Card className={classes.media}>
 
                     <CardContent>
@@ -46,13 +65,20 @@ class IndexCardComponent extends Component {
                         </Grid>
                     </CardActions>
                 </Card>
-            </Grid>
         ));
-        return <WithRouter /> ;
+        return connectDragSource(
+            <div>
+                <WithRouter />
+            </div>
+        );
     }
 }
+
 IndexCardComponent.propTypes = {
+    connectDragSource: PropTypes.func.isRequired,
+    isDragging: PropTypes.bool.isRequired,
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(IndexCardComponent)
+export default
+    (withStyles(styles)(DragSource(ItemTypes.CARD, cardSource, collect)(IndexCardComponent)))

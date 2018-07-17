@@ -8,6 +8,9 @@ import base, {firebaseApp} from './base';
 import firebase from "firebase/app";
 import {createMuiTheme} from "@material-ui/core/styles/index";
 
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
+
 const theme = createMuiTheme({
     palette: {
         primary: {
@@ -126,4 +129,4 @@ class App extends Component {
     };
 }
 
-export default App;
+export default DragDropContext(HTML5Backend)(App);

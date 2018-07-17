@@ -50,11 +50,19 @@ export class DashboardContentComponent extends Component {
                     {/* TODO : Herausfinden warum das window mit "Container mit spacing={24}" bei button hover springt*/}
                     <Grid container>
                         {folderCardIds.map((item) =>
-                            <IndexCardComponent
-                                title={cards[item].title}
-                                cardId={item}
-                                key={item}
-                            />
+                            <Grid item
+                                  sm={12}
+                                  md={6}
+                                  lg={4}
+                                  className="marginRight-10 paddingBottom-20"
+                                  key={item}
+                            >
+                                <IndexCardComponent
+                                    title={cards[item].title}
+                                    cardId={item}
+                                    key={item}
+                                />
+                            </Grid>
                         )}
                     </Grid>
                 </Grid>
