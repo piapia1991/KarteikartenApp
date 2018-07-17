@@ -62,11 +62,11 @@ export class DashboardComponent extends Component {
         const folders = user["folders"];
         let folder = folders[path];
 
-        if (! ("cards" in folder))
+        if (!("cards" in folder))
             folder.cards = [];
         folder["cards"].push(newCardId);
 
-        if(!("cards" in user)) {
+        if (!("cards" in user)) {
             user.cards = {};
         }
         user.cards[newCardId] = {
@@ -91,8 +91,9 @@ export class DashboardComponent extends Component {
         const folders = user['folders'] || {};
         const folder = folders[path];
 
-        const content = (folder !== undefined) ?
-            <DashboardContentComponent
+        let content = <div></div>
+        if(user['cards'] !== undefined) {
+                content = <DashboardContentComponent
                 currentfolder={path}
                 folder={folder}
                 cards={user['cards']}
@@ -100,11 +101,8 @@ export class DashboardComponent extends Component {
                 path={path}
                 addCardToFolder={this.addCardToFolder}
             />
-                :
-            <div>
-                Hier eine Componente reinmachen die auf der bearbeten Seite ohne ausgewaehlten Ordner angezeigt wird
-            </div>
-        ;
+        }
+
 
         return (
             <Grid className={'main'} container>
@@ -125,8 +123,8 @@ export class DashboardComponent extends Component {
 
     addFolder = (name, targetfolderIndex) => {
         const user = {...this.state.user};
-        if(!("folders" in user)) {
-            user.folders={};
+        if (!("folders" in user)) {
+            user.folders = {};
         }
         const folders = user.folders;
         if (targetfolderIndex === undefined) {

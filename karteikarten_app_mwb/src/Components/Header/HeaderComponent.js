@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import {LoginComponent} from './LoginComponent';
 import {AppBar, Toolbar, Typography, Grid} from '@material-ui/core'
-import {createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import {createMuiTheme, MuiThemeProvider} from '@material-ui/core/styles';
 import {HeaderButtonComponent} from "./HeaderButtonComponent";
+import tincard_icon from "../../images/tincard_icon.png";
+
 const theme = createMuiTheme({
     palette: {
         primary: {
@@ -23,7 +25,7 @@ const theme = createMuiTheme({
             dark: '#420022',
             contrastText: '#ffffff',
         },
-        type:'dark',
+        type: 'dark',
         contrastThreshold: 3,
         tonalOffset: 0.2,
     },
@@ -52,7 +54,7 @@ export class HeaderComponent extends Component {
     render() {
         return (
             <MuiThemeProvider theme={theme}>
-                <AppBar position="fixed" className="Appbar" color="primary" >
+                <AppBar position="fixed" className="Appbar" color="primary">
                     <Toolbar>
                         <Grid container>
                             <Grid item lg={2} md={2} sm={4}>
@@ -61,10 +63,13 @@ export class HeaderComponent extends Component {
                             <Grid item lg={2} md={2} sm={4}>
                                 <HeaderButtonComponent link={'/learning'} title={'Lernen'} icon={'school'}/>
                             </Grid>
-                            <Grid item lg={6} md={2}  sm={4} className='align-items-xs-center'>
-                                <Typography variant="title" className="paddingTop-10">
-                                    Karteikarten App
-                                </Typography>
+                            <Grid item lg={6} md={2} sm={4} className='align-items-xs-center'>
+                                <Grid container alignItems={'center'}>
+                                    <img style={{maxHeight: 60, marginRigh: 15}} src={tincard_icon} alt={""}></img>
+                                    <Typography variant="title" className="paddingTop-10">
+                                        TinCard
+                                    </Typography>
+                                </Grid>
                             </Grid>
                             <Grid item lg={2} md={6} sm={12}>
                                 <LoginComponent

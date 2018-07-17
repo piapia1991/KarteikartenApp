@@ -1,15 +1,13 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './DashboardContentComponent.css';
 import './IndexCardComponent.js';
 import IndexCardComponent from "./IndexCardComponent";
 import {Button, Grid, Typography, Icon, Tooltip} from '@material-ui/core';
-import base from "../../../base";
 import './DashboardContentComponent.css';
 import {withStyles} from "@material-ui/core/styles/index";
 import PropTypes from "prop-types";
-import BreadcrumbNavigation from "../../Helper/BreadcrumbNavigation";
 
-const styles = theme =>({
+const styles = theme => ({
     root: {
         height: '100%'
     }
@@ -18,14 +16,6 @@ const styles = theme =>({
 
 export class DashboardContentComponent extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            cards: {},
-            folders: {}
-        };
-        // this.addCardToFolder = this.addCardToFolder.bind(this);
-    }
 
     static contextTypes = {
         router: PropTypes.shape({
@@ -37,32 +27,17 @@ export class DashboardContentComponent extends Component {
         }).isRequired
     };
 
-    componentDidMount() {
-        if (this.props.uid) {
-            this.cardRef = base.syncState('users/' + this.props.uid + '/cards',
-                {
-                    context: this,
-                    state: 'cards'
-                });
-            this.folderRef = base.syncState('users/' + this.props.uid + '/folders',
-                {
-                    context: this,
-                    state: 'folders'
-                });
-        }
-    }
-
-    componentWillUnmount() {
-        base.removeBinding(this.cardRef);
-        base.removeBinding(this.folderRef);
-    }
-
 
     render() {
-        const {currentfolder, classes, folder, cards, addCardToFolder} = this.props;
-
-        const folderCardIds = folder['cards'] || [];
-
+        const {classes, folder, cards, addCardToFolder} = this.props;
+        let folderCardIds = []
+        let title = ''
+        if (folder !== undefined) {
+            folderCardIds = folder['cards'];
+            title = folder.name
+        } else {
+            folderCardIds = Object.keys(cards)
+        }
         //Filtere Cardids heraus die es nicht mehr gibt
         const folderCardIdsFiltered = folderCardIds.filter((cardId) =>
             cardId in cards
@@ -71,20 +46,17 @@ export class DashboardContentComponent extends Component {
         return (
             <Grid container direction={'column'} justify={'space-between'} className={classes.root}>
                 <Grid item>
-                    <Typography className={'paddingTop-10'}  variant="title" >
-                        <BreadcrumbNavigation
-                            path={currentfolder}
-                            base={"overview"}
-                        />
+                    <Typography className={'paddingTop-10'} variant="title">
+                        {title}
                     </Typography>
                     {/*ToDo: Herausfinden warum das window mit "Container mit spacing={24}" bei button hover springt*/}
                     <Grid container>
-                        {folderCardIdsFiltered.map( (item) =>
-                                <IndexCardComponent
-                                    title={cards[item].title}
-                                    cardId={item}
-                                    key={item}
-                                />
+                        {folderCardIdsFiltered.map((item) =>
+                            <IndexCardComponent
+                                title={cards[item].title}
+                                cardId={item}
+                                key={item}
+                            />
                         )}
                     </Grid>
                 </Grid>
@@ -95,7 +67,7 @@ export class DashboardContentComponent extends Component {
                             <Tooltip id="tooltip-fab" title="Karte Hinzufügen">
                                 <Button
                                     className="mb-5 highlightBackground" variant="fab" mini aria-label="add"
-                                    onClick={addCardToFolder} >
+                                    onClick={addCardToFolder}>
                                     <Icon>add_icon</Icon>
                                 </Button>
                             </Tooltip>
