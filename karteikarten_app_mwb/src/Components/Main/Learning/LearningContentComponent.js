@@ -3,6 +3,7 @@ import {LearningCardComponent} from "./LearningCardComponent";
 import {Grid, Button, IconButton, Icon, Typography} from '@material-ui/core';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
+import Swipeable from 'react-swipeable'
 
 const styles = theme => ({
     button: {
@@ -18,6 +19,10 @@ const styles = theme => ({
     },
     cardContainer: {
         minHeight: '75%',
+    },
+    swipe: {
+        touchAction: 'none',
+        height: '100%'
     }
 });
 
@@ -26,7 +31,11 @@ class LearningContentComponent extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {currentCardRef: undefined, currentCardKeyIndex: undefined, backPage: false};
+        this.state = {
+            currentCardRef: undefined,
+            currentCardKeyIndex: undefined,
+            backPage: false
+        };
     }
 
 
@@ -51,6 +60,13 @@ class LearningContentComponent extends Component {
 
 
         return (
+            <Swipeable
+                className={classes.swipe + " swipe"}
+                trackMouse
+                preventDefaultTouchmoveEvent
+                onSwipedLeft={() => this.goToCard(this.state.currentCardKeyIndex - 1)}
+                onSwipedRight={() => this.goToCard(this.state.currentCardKeyIndex + 1)}
+            >
                     <Grid container className={classes.gridContainer} direction={'column'} justify={'space-between'}>
                         <Grid className={classes.cardContainer} container >
                             <Grid item container direction={'column'} justify={'center'} alignItems={'center'} xs={3} sm={1}>
@@ -60,7 +76,8 @@ class LearningContentComponent extends Component {
                                 </IconButton>
                             </Grid>
                             <Grid item xs={6} sm={10}>
-                                <Typography variant={'headline'}>{title} </Typography>
+                                <Typography variant={'display2'}>{title}</Typography>
+                                <Typography variant={'display1'}>{this.state.currentCardRef && (this.state.backPage ? 'Rückseite' : 'Vorderseite')}</Typography>
                                 {this.state.currentCardRef && <LearningCardComponent htmlContent={htmlContent}/>}
                             </Grid>
                             <Grid item container direction={'column'} alignItems={'center'} justify={'center'} xs={3} sm={1}>
@@ -91,6 +108,7 @@ class LearningContentComponent extends Component {
                             </Grid>
                         </Grid>
                     </Grid>
+            </Swipeable>
         )
     };
 
@@ -125,7 +143,6 @@ class LearningContentComponent extends Component {
 
     static getDerivedStateFromProps(props, state) {
         if (props.currentCardRefs.length > 0) {
-            console.log('ja');
             let cardRef = props.currentCardRefs[0];
             state = {currentCardRef: cardRef, currentCardKeyIndex: 0, backPage: false};
         } else {
