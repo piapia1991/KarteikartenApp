@@ -6,12 +6,12 @@ import {Grid} from '@material-ui/core';
 export class SettingsComponent extends Component {
     render() {
         return(
-                <Grid container  className={'main'} >
-                    <Grid item xs={12} md={2} lg={3}>
+                <Grid container  className={'main'}>
+                    <Grid item xs={12} md={3} lg={2}>
                         <SettingsSidebarComponent/>
                     </Grid>
-                    <Grid item xs={12} md={10} lg={9}>
-                        <SettingsContentComponent   deleteUser={this.props.deleteUser}/>
+                    <Grid item xs={12} md={9} lg={10}>
+                        <SettingsContentComponent  deleteUser={this.props.deleteUser}/>
                     </Grid>
                 </Grid>
         )

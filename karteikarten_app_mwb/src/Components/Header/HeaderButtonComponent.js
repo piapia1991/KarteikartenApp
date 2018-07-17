@@ -4,7 +4,7 @@ import './HeaderButtonComponent.css';
 import {Button, Icon, Typography, Grid} from '@material-ui/core';
 
 export const HeaderButtonComponent = ({link, icon, title}) => (
-    <NavLink activeClassName="active" to={link} exact>
+    <NavLink activeClassName="active" to={link}  className="marginTop-5" exact>
         <Button variant="text" aria-label={icon}>
             <Grid container direction={'column'}>
                 <Grid item>
