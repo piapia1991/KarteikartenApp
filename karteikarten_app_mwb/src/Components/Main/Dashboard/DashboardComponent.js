@@ -91,17 +91,14 @@ export class DashboardComponent extends Component {
         const folders = user['folders'] || {};
         const folder = folders[path];
 
-        let content = <div></div>
-        if(user['cards'] !== undefined) {
-                content = <DashboardContentComponent
-                currentfolder={path}
-                folder={folder}
-                cards={user['cards']}
-                uid={this.props.uid}
-                path={path}
-                addCardToFolder={this.addCardToFolder}
-            />
-        }
+        let content = <DashboardContentComponent
+            currentfolder={path}
+            folder={folder}
+            cards={user['cards']}
+            uid={this.props.uid}
+            path={path}
+            addCardToFolder={this.addCardToFolder}
+        />
 
 
         return (

@@ -29,19 +29,19 @@ export class DashboardContentComponent extends Component {
 
 
     render() {
-        const {classes, folder, cards, addCardToFolder} = this.props;
-        let folderCardIds = []
-        let title = ''
+        const {classes, folder, addCardToFolder} = this.props;
+        const cards = this.props.cards || {};
+
+        let title = '';
+        let folderCardIds = [];
         if (folder !== undefined) {
-            folderCardIds = folder['cards'];
-            title = folder.name
-        } else {
-            folderCardIds = Object.keys(cards)
+            title = folder.name || '';
+            folderCardIds = folder['cards'] || [];
         }
         //Filtere Cardids heraus die es nicht mehr gibt
-        const folderCardIdsFiltered = folderCardIds.filter((cardId) =>
-            cardId in cards
-        );
+        /*   const folderCardIdsFiltered = folderCardIds.filter((cardId) =>
+               cardId in cards
+           ); */
 
         return (
             <Grid container direction={'column'} justify={'space-between'} className={classes.root}>
@@ -49,9 +49,9 @@ export class DashboardContentComponent extends Component {
                     <Typography className={'paddingTop-10'} variant="title">
                         {title}
                     </Typography>
-                    {/*ToDo: Herausfinden warum das window mit "Container mit spacing={24}" bei button hover springt*/}
+                    {/*TODO: Herausfinden warum das window mit "Container mit spacing={24}" bei button hover springt*/}
                     <Grid container>
-                        {folderCardIdsFiltered.map((item) =>
+                        {folderCardIds.map((item) =>
                             <IndexCardComponent
                                 title={cards[item].title}
                                 cardId={item}
@@ -64,6 +64,7 @@ export class DashboardContentComponent extends Component {
                     <Grid container>
                         <Grid item xs={11}/>
                         <Grid item xs={1} className={'padding-15'}>
+                            { folder !== undefined &&
                             <Tooltip id="tooltip-fab" title="Karte Hinzufügen">
                                 <Button
                                     className="mb-5 highlightBackground" variant="fab" mini aria-label="add"
@@ -71,6 +72,7 @@ export class DashboardContentComponent extends Component {
                                     <Icon>add_icon</Icon>
                                 </Button>
                             </Tooltip>
+                            }
                         </Grid>
                     </Grid>
                 </Grid>

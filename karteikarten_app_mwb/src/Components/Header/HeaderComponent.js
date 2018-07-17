@@ -56,7 +56,7 @@ export class HeaderComponent extends Component {
             <MuiThemeProvider theme={theme}>
                 <AppBar position="fixed" className="Appbar" color="primary">
                     <Toolbar>
-                        <Grid container>
+                        <Grid container alignItems={'center'}>
                             <Grid item lg={2} md={2} sm={4}>
                                 <HeaderButtonComponent link={'/'} title={'Bearbeiten'} icon={'edit'} index={true}/>
                             </Grid>
