@@ -49,10 +49,10 @@ export class EditorComponent extends Component {
                 title: title
             }
         });
-        this.props.history.push('/');
+        this.props.history.goBack();
     };
 
     cancel = () => {
-        this.props.history.push('/');
+        this.props.history.goBack();
     };
 }
