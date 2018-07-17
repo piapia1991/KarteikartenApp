@@ -37,11 +37,9 @@ export class DashboardContentComponent extends Component {
         if (folder !== undefined) {
             title = folder.name || '';
             folderCardIds = folder['cards'] || [];
+        } else{
+            folderCardIds = Object.keys(cards);
         }
-        //Filtere Cardids heraus die es nicht mehr gibt
-        /*   const folderCardIdsFiltered = folderCardIds.filter((cardId) =>
-               cardId in cards
-           ); */
 
         return (
             <Grid container direction={'column'} justify={'space-between'} className={classes.root}>
@@ -49,7 +47,7 @@ export class DashboardContentComponent extends Component {
                     <Typography className={'paddingTop-10'} variant="title">
                         {title}
                     </Typography>
-                    {/*TODO: Herausfinden warum das window mit "Container mit spacing={24}" bei button hover springt*/}
+                    {/* TODO : Herausfinden warum das window mit "Container mit spacing={24}" bei button hover springt*/}
                     <Grid container>
                         {folderCardIds.map((item) =>
                             <IndexCardComponent
