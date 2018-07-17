@@ -1,12 +1,16 @@
 import React, {Component} from 'react';
-import {Icon, Typography, Button} from '@material-ui/core';
+import {SettingsContentComponentImport} from "./SettingsContentComponentImport";
+import {SettingsContentComponentProfile} from "./SettingsContentComponentProfile";
+import { Switch, Route } from 'react-router-dom';
 
 export class SettingsContentComponent extends Component {
     render() {
         return(
             <React.Fragment>
-                    <Typography variant="title">Einstellungen</Typography>
-                <Button onClick={() => this.props.deleteUser()}><Icon>delete</Icon>Mein Profil und alle Daten zu mir unwiderruflich löschen!</Button>
+                <Switch>
+                    <Route path="/settings/profile" render={(props) => <SettingsContentComponentProfile{...props} uid={this.props.uid} deleteUser={this.props.deleteUser}/>} />
+                    <Route path='/settings/import' render={(props) => <SettingsContentComponentImport {...props} uid={this.props.uid} />} />
+                </Switch>
             </React.Fragment>
         )
     };
