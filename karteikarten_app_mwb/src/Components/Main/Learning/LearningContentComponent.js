@@ -66,6 +66,8 @@ class LearningContentComponent extends Component {
                 preventDefaultTouchmoveEvent
                 onSwipedLeft={() => this.goToCard(this.state.currentCardKeyIndex - 1)}
                 onSwipedRight={() => this.goToCard(this.state.currentCardKeyIndex + 1)}
+                onSwipedUp={this.handlePageToggleButton}
+                onSwipedDown={this.handlePageToggleButton}
             >
                     <Grid container className={classes.gridContainer} direction={'column'} justify={'space-between'}>
                         <Grid className={classes.cardContainer} container >
